@@ -1,0 +1,28 @@
+<app-header></app-header>
+<app-loading *ngIf="showLoading"></app-loading>
+
+<div class="sign-in-container">
+  <form>
+    <img
+      class="escudo"
+      src="https://soft.uasd.edu.do/ValidaTitulo/assets/img/LOGO-UASD.jpg"
+      alt="logo"
+    />
+    <input
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Email"
+      required
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required
+    />
+    <a href="#">Olvido el usuario o contraseña?</a>
+    <button type="submit" (click)="login()">Entrar</button>
+  </form>
+</div>

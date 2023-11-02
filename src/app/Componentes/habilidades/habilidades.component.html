@@ -1,0 +1,9 @@
+<div class="filter-item">
+  <label for="Habilidades">Habilidades</label>
+  <select id="Habilidad">
+    <option class="filter-item" value="habilidad" hidden>Analista...</option>
+    <option class="filter-item" value="" *ngFor="let habilidad of habilidades">
+      {{ habilidad.habilidad }}
+    </option>
+  </select>
+</div>

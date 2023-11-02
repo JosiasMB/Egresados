@@ -1,0 +1,9 @@
+<div class="filter-item">
+  <label for="career">Carrera:</label>
+  <select id="career">
+    <option class="filter-item" value="carrera" hidden>Ciencias...</option>
+    <option class="filter-item" value="" *ngFor="let carrera of carreras">
+      {{ carrera.NombreCarrera }}
+    </option>
+  </select>
+</div>

@@ -1,0 +1,1413 @@
+<div>
+  <app-loading *ngIf="showLoading"></app-loading>
+
+  <nav>
+    <ul>
+      <span class="nav-cerrar"> </span>
+      <li>
+        Bienvenido:<span> {{ usuario.PrimerNombre }}</span>
+      </li>
+      <li class="slide-menu-icon">
+        <svg
+          (click)="mostrarModal('mostrarSlideMenu')"
+          version="1.1"
+          id="_x32_"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 512.00 512.00"
+          xml:space="preserve"
+          width="35px"
+          height="35px"
+          fill="#ffff"
+          stroke="#ffff"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g>
+              <rect width="112" height="112"></rect>
+              <rect x="200.008" width="111.984" height="112"></rect>
+              <rect x="400" width="112" height="112"></rect>
+              <rect y="200.008" width="112" height="111.984"></rect>
+              <rect
+                x="200.008"
+                y="200.008"
+                width="111.984"
+                height="111.984"
+              ></rect>
+              <rect x="400" y="200.008" width="112" height="111.984"></rect>
+              <rect y="400" width="112" height="112"></rect>
+              <rect x="200.008" y="400" width="111.984" height="112"></rect>
+              <rect x="400" y="400" width="112" height="112"></rect>
+            </g>
+          </g>
+        </svg>
+      </li>
+      <div class="slide-menu" *ngIf="mostrarSlideMenu">
+        <svg
+          (click)="mostrarModal('mostrarSlideMenu')"
+          width="25px"
+          height="25px"
+          viewBox="0 -0.5 21 21"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          fill="#ffff"
+          stroke="#ffff"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <title>close [#ffff]</title>
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Dribbble-Light-Preview"
+                transform="translate(-419.000000, -240.000000)"
+                fill="#ffff"
+              >
+                <g id="icons" transform="translate(56.000000, 160.000000)">
+                  <polygon
+                    id="close-[#ffff]"
+                    points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"
+                  ></polygon>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+        <li>
+          <a name="settings" class="settings">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="40"
+              height="40"
+              viewBox="0,0,256,256"
+              fill="#000000"
+            >
+              <g
+                fill="#ffffff"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <g transform="scale(5.12,5.12)">
+                  <path
+                    d="M47.16,21.221l-5.91,-0.966c-0.346,-1.186 -0.819,-2.326 -1.411,-3.405l3.45,-4.917c0.279,-0.397 0.231,-0.938 -0.112,-1.282l-3.889,-3.887c-0.347,-0.346 -0.893,-0.391 -1.291,-0.104l-4.843,3.481c-1.089,-0.602 -2.239,-1.08 -3.432,-1.427l-1.031,-5.886c-0.084,-0.478 -0.499,-0.828 -0.985,-0.828h-5.5c-0.49,0 -0.908,0.355 -0.987,0.839l-0.956,5.854c-1.2,0.345 -2.352,0.818 -3.437,1.412l-4.83,-3.45c-0.399,-0.285 -0.942,-0.239 -1.289,0.106l-3.887,3.887c-0.343,0.343 -0.391,0.883 -0.112,1.28l3.399,4.863c-0.605,1.095 -1.087,2.254 -1.438,3.46l-5.831,0.971c-0.482,0.08 -0.836,0.498 -0.836,0.986v5.5c0,0.485 0.348,0.9 0.825,0.985l5.831,1.034c0.349,1.203 0.831,2.362 1.438,3.46l-3.441,4.813c-0.284,0.397 -0.239,0.942 0.106,1.289l3.888,3.891c0.343,0.343 0.884,0.391 1.281,0.112l4.87,-3.411c1.093,0.601 2.248,1.078 3.445,1.424l0.976,5.861c0.079,0.481 0.496,0.834 0.985,0.834h5.5c0.485,0 0.9,-0.348 0.984,-0.825l1.045,-5.89c1.199,-0.353 2.348,-0.833 3.43,-1.435l4.905,3.441c0.398,0.281 0.938,0.232 1.282,-0.111l3.888,-3.891c0.346,-0.347 0.391,-0.894 0.104,-1.292l-3.498,-4.857c0.593,-1.08 1.064,-2.222 1.407,-3.408l5.918,-1.039c0.479,-0.084 0.827,-0.5 0.827,-0.985v-5.5c0.001,-0.49 -0.354,-0.908 -0.838,-0.987zM25,32c-3.866,0 -7,-3.134 -7,-7c0,-3.866 3.134,-7 7,-7c3.866,0 7,3.134 7,7c0,3.866 -3.134,7 -7,7z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            Configuracion
+          </a>
+        </li>
+
+        <li>
+          <a name="logout">
+            <svg
+              (click)="logOut()"
+              xmlns="http://www.w3.org/2000/svg"
+              height="40"
+              viewBox="0 -960 960 960"
+              fill="#ffff"
+            >
+              <path
+                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
+              />
+            </svg>
+            Salir
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+  <div class="popup-content">
+    <header>
+      <div>
+        <img [src]="usuario.profilePicUrl" *ngIf="!selectedImage" />
+        <img
+          *ngIf="selectedImage"
+          [src]="selectedImage"
+          alt="Imagen seleccionada"
+          id="imagenSeleccionada"
+        />
+
+        <div class="file-input">
+          <label for="imagen">
+            <svg
+              width="25px"
+              height="25px"
+              viewBox="0 -2 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+              fill="#ffffff"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>camera</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  sketch:type="MSPage"
+                >
+                  <g
+                    id="Icon-Set-Filled"
+                    sketch:type="MSLayerGroup"
+                    transform="translate(-258.000000, -467.000000)"
+                    fill="#ffffff"
+                  >
+                    <path
+                      d="M286,471 L283,471 L282,469 C281.411,467.837 281.104,467 280,467 L268,467 C266.896,467 266.53,467.954 266,469 L265,471 L262,471 C259.791,471 258,472.791 258,475 L258,491 C258,493.209 259.791,495 262,495 L286,495 C288.209,495 290,493.209 290,491 L290,475 C290,472.791 288.209,471 286,471 Z M274,491 C269.582,491 266,487.418 266,483 C266,478.582 269.582,475 274,475 C278.418,475 282,478.582 282,483 C282,487.418 278.418,491 274,491 Z M274,477 C270.687,477 268,479.687 268,483 C268,486.313 270.687,489 274,489 C277.313,489 280,486.313 280,483 C280,479.687 277.313,477 274,477 L274,477 Z"
+                      id="camera"
+                      sketch:type="MSShapeGroup"
+                    ></path>
+                  </g>
+                </g>
+              </g></svg
+            >Cambiar Imagen
+          </label>
+
+          <input
+            class="file"
+            type="file"
+            name="imagen"
+            id="imagen"
+            (change)="fileSeleted($event)"
+          />
+        </div>
+
+        <form name="informacion_personal">
+          <h2>
+            <svg
+              height="40px"
+              width="40px"
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st0 {
+                    fill: #000000;
+                  }
+                </style>
+                <g>
+                  <path
+                    d="M255.992,0.008C114.626,0.008,0,114.626,0,256s114.626,255.992,255.992,255.992 C397.391,511.992,512,397.375,512,256S397.391,0.008,255.992,0.008z M300.942,373.528c-10.355,11.492-16.29,18.322-27.467,29.007 c-16.918,16.177-36.128,20.484-51.063,4.516c-21.467-22.959,1.048-92.804,1.597-95.449c4.032-18.564,12.08-55.667,12.08-55.667 s-17.387,10.644-27.709,14.419c-7.613,2.782-16.225-0.871-18.354-8.234c-1.984-6.822-0.404-11.161,3.774-15.822 c10.354-11.484,16.289-18.314,27.467-28.999c16.934-16.185,36.128-20.483,51.063-4.524c21.467,22.959,5.628,60.732,0.064,87.497 c-0.548,2.653-13.742,63.627-13.742,63.627s17.387-10.645,27.709-14.427c7.628-2.774,16.241,0.887,18.37,8.242 C306.716,364.537,305.12,368.875,300.942,373.528z M273.169,176.123c-23.886,2.096-44.934-15.564-47.031-39.467 c-2.08-23.878,15.58-44.934,39.467-47.014c23.87-2.097,44.934,15.58,47.015,39.458 C314.716,152.979,297.039,174.043,273.169,176.123z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            &nbsp; Informacion Personal
+          </h2>
+          <label
+            >Primer Nombre
+            <input
+              [(ngModel)]="primerNombre"
+              required
+              type="text"
+              name="firstName"
+              value="{{ usuario.PrimerNombre }}"
+            />
+          </label>
+          <label
+            >Segundo Nombre
+            <input
+              [(ngModel)]="segundoNombre"
+              type="text"
+              name="SecondName"
+              value="{{ usuario.SegundoNombre }}"
+            />
+          </label>
+
+          <label
+            >Primer Apellido
+            <input
+              [(ngModel)]="PrimerApellido"
+              required
+              type="text"
+              name="apellido"
+              value="{{ usuario.PrimerApellido }}"
+          /></label>
+
+          <label
+            >Segundo Apellido
+            <input
+              [(ngModel)]="SegundoApellido"
+              type="text"
+              name="secApellido"
+              value="{{ usuario.SegundoApellido }}"
+          /></label>
+
+          <label
+            >Cedula<input
+              [(ngModel)]="Cedula"
+              required
+              type="text"
+              name="Cedula"
+              value="{{ usuario.Cedula }}"
+          /></label>
+
+          <label
+            >Pasaporte<input
+              [(ngModel)]="Pasaporte"
+              type="text"
+              name="Pasaporte"
+              value="{{ usuario.Pasaporte }}"
+          /></label>
+
+          <label
+            >Fecha de Nacimiento<input
+              [(ngModel)]="FechaNac"
+              type="date"
+              name="FechaNac"
+              value="{{ usuario.FechaNac }}"
+          /></label>
+          <label
+            >Genero
+            <select name="genero" [(ngModel)]="genero">
+              <option value="" selected disabled>
+                {{ usuario.Genero }}
+              </option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </label>
+
+          <label>
+            About<input
+              [(ngModel)]="about"
+              required
+              type="text"
+              name="about"
+              value="{{ usuario.about }}"
+          /></label>
+
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="actualizarInformacionPrimariaDelUsuario(usuario.id)"
+          >
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#0056b3"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M14.5 8.5C14.5 9.88071 13.3807 11 12 11C10.6193 11 9.5 9.88071 9.5 8.5C9.5 7.11929 10.6193 6 12 6C13.3807 6 14.5 7.11929 14.5 8.5Z"
+                  fill="#ffffff"
+                ></path>
+                <path
+                  d="M15.5812 16H8.50626C8.09309 16 7.87415 15.5411 8.15916 15.242C9.00598 14.3533 10.5593 13 12.1667 13C13.7899 13 15.2046 14.3801 15.947 15.2681C16.2011 15.5721 15.9774 16 15.5812 16Z"
+                  fill="#ffffff"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                ></circle>
+              </g>
+            </svg>
+            Actualizar
+          </button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <!-- Experiencia -->
+      <form class="main-content" name="Experiencia">
+        <div>
+          <h2>
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 512 512"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>work-case-filled</title>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="work-case"
+                    fill="#000000"
+                    transform="translate(42.666667, 64.000000)"
+                  >
+                    <path
+                      d="M1.20792265e-13,197.76 C54.5835501,218.995667 112.186031,231.452204 170.666667,234.666667 L170.666667,277.333333 L256,277.333333 L256,234.666667 C314.339546,231.013 371.833936,218.86731 426.666667,198.613333 L426.666667,362.666667 L1.20792265e-13,362.666667 L1.20792265e-13,197.76 Z M277.333333,-1.42108547e-14 L298.666667,21.3333333 L298.666667,64 L426.666667,64 L426.666667,175.146667 C361.254942,199.569074 292.110481,212.488551 222.293333,213.333333 L222.293333,213.333333 L206.933333,213.333333 C136.179047,212.568604 66.119345,199.278929 7.10542736e-15,174.08 L7.10542736e-15,174.08 L7.10542736e-15,64 L128,64 L128,21.3333333 L149.333333,-1.42108547e-14 L277.333333,-1.42108547e-14 Z M256,42.6666667 L170.666667,42.6666667 L170.666667,64 L256,64 L256,42.6666667 Z"
+                      id="Combined-Shape-Copy"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            Experiencia Laboral
+          </h2>
+          <ul>
+            <li *ngFor="let experiencia of usuario.experienciaLaboralEgresado">
+              <div class="edit-buttons">
+                <button>
+                  <svg
+                    (click)="deleteExperience(experiencia.id)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    height="25"
+                    viewBox="0 0 30 30"
+                    fill="red"
+                    class="svg"
+                  >
+                    <path
+                      d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <h3>{{ experiencia.posicion }}</h3>
+              <h4>{{ experiencia.empresa }}</h4>
+              <p>
+                <em style="font-size: 12px">Desde</em>
+                {{ experiencia.FechaEntr }}
+                -
+
+                {{ experiencia.FechaSal }}
+                <span *ngIf="experiencia.FechaSal === null">Actualidad</span>
+              </p>
+            </li>
+          </ul>
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="mostrarModal('mostrarExperiencia')"
+          >
+            <svg
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              width="25px"
+              height="25px"
+              fill="#ffffff"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st1 {
+                    fill: #ffffff;
+                  }
+                </style>
+                <g>
+                  <polygon
+                    class="st1"
+                    points="0,129.602 0,237.078 207.336,285.867 207.336,254.938 303.336,254.938 303.336,285.867 512,236.766 512,129.602 "
+                  ></polygon>
+                  <polygon
+                    class="st1"
+                    points="303.336,382.938 207.336,382.938 207.336,318.586 0,269.805 0,505.602 512,505.602 512,269.492 303.336,318.586 "
+                  ></polygon>
+                  <rect
+                    x="231.336"
+                    y="278.938"
+                    class="st1"
+                    width="48"
+                    height="80"
+                  ></rect>
+                  <path
+                    class="st1"
+                    d="M180.398,56.805c0.008-2.062,0.774-3.726,2.11-5.102c1.375-1.336,3.039-2.094,5.094-2.11h136.797 c2.054,0.016,3.719,0.774,5.094,2.11c1.336,1.375,2.094,3.039,2.11,5.102v36h43.195v-36c0.008-13.851-5.672-26.586-14.766-35.649 c-9.046-9.078-21.781-14.766-35.633-14.758H187.602c-13.851-0.008-26.586,5.68-35.641,14.758 c-9.086,9.063-14.774,21.798-14.758,35.649v36h43.195V56.805z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            Agregar Experiencia
+          </button>
+        </div>
+
+        <form
+          *ngIf="mostrarExperiencia"
+          class="onTop"
+          name="Agregar-Experiencia"
+        >
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarExperiencia')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <label>
+            Nombre del Puesto
+            <input type="text" name="puesto" [(ngModel)]="nombreDelPuesto"
+          /></label>
+
+          <label
+            >Empresa<input
+              type="text"
+              name="empresa"
+              [(ngModel)]="nombreEmpresa"
+          /></label>
+
+          <label>
+            Fecha Inicio
+            <input type="date" name="fecha-ini" [(ngModel)]="fechaEntr"
+          /></label>
+
+          <label>
+            Fecha salida
+            <input type="date" name="fecha-sal" [(ngModel)]="fechaSal"
+          /></label>
+
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="agregarExperience()"
+          >
+            Agregar Experiencia
+          </button>
+        </form>
+      </form>
+      <!-- Habilidades -->
+      <form class="main-content" name="habilidades">
+        <h2>
+          <svg
+            fill="#000000"
+            height="40px"
+            width="40px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 511.882 511.882"
+            xml:space="preserve"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <g>
+                    <path
+                      d="M179.138,392.416h68.267c4.719,0,8.533,3.814,8.533,8.533s-3.814,8.533-8.533,8.533h-68.267v17.067h42.667 c4.719,0,8.533,3.814,8.533,8.533c0,4.719-3.814,8.533-8.533,8.533h-42.667v25.6c0,4.719,3.823,8.533,8.533,8.533h12.809 l15.352,20.471c6.409,8.55,16.614,13.662,27.307,13.662h25.6c10.692,0,20.907-5.111,27.307-13.662l15.36-20.471h12.8 c4.719,0,8.533-3.814,8.533-8.533v-25.6h-68.267c-4.71,0-8.533-3.814-8.533-8.533c0-4.719,3.823-8.533,8.533-8.533h68.267 v-17.067h-42.667c-4.71,0-8.533-3.814-8.533-8.533s3.823-8.533,8.533-8.533h42.667v-17.067h-153.6V392.416z M290.071,477.749 l-7.68,10.24c-3.2,4.275-8.303,6.827-13.653,6.827h-25.6c-5.342,0-10.445-2.551-13.653-6.827l-7.68-10.24H290.071z"
+                    ></path>
+                    <path
+                      d="M255.942,76.614c-51.755,0-93.867,42.103-93.867,93.867c0,51.789,42.112,93.935,93.867,93.935 c51.755,0,93.867-42.146,93.867-93.935C349.809,118.717,307.697,76.614,255.942,76.614z M313.875,141.655l-59.733,76.681 c-0.06,0.077-0.145,0.102-0.205,0.171c-0.196,0.23-0.273,0.521-0.495,0.742c-1.664,1.664-3.849,2.5-6.033,2.5 c-1.698,0-3.319-0.657-4.77-1.664c-0.154-0.102-0.333-0.137-0.478-0.256c-0.051-0.043-0.068-0.102-0.119-0.137 c-0.213-0.171-0.469-0.247-0.666-0.444l-34.133-34.133c-3.337-3.337-3.337-8.738,0-12.066c3.337-3.336,8.73-3.336,12.066,0 l27.255,27.247l53.845-69.129c2.901-3.703,8.26-4.361,11.981-1.485C316.102,132.584,316.768,137.935,313.875,141.655z"
+                    ></path>
+                    <path
+                      d="M425.541,155.213C416.76,74.761,352.035,9.907,271.634,0.99c-4.804-0.538-9.873-0.862-15.898-0.99 c-5.615,0.128-10.684,0.452-15.497,0.99C159.847,9.907,95.122,74.761,86.341,155.213 c-5.956,54.673,13.261,107.742,52.727,145.596c18.142,17.399,31.181,37.47,37.547,57.472h158.652 c6.366-20.002,19.405-40.073,37.547-57.472C412.28,262.955,431.497,209.886,425.541,155.213z M255.941,281.481 c-61.167,0-110.933-49.792-110.933-111.002c0-61.167,49.766-110.933,110.933-110.933s110.933,49.766,110.933,110.933 C366.874,231.689,317.108,281.481,255.941,281.481z"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          Habilidades
+        </h2>
+
+        <fieldset>
+          <div *ngFor="let habilidad of usuario.egresadosHabilidad">
+            <input
+              type="checkbox"
+              checked
+              (click)="deleteHabilidad(habilidad.id)"
+            />
+            <label>{{ habilidad.habilidad }}</label>
+          </div>
+        </fieldset>
+        <form
+          name="agragar-habilidades"
+          class="add-habilidades-main"
+          *ngIf="mostrarHabilidad"
+          loading="lazy"
+        >
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarHabilidad')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <input
+            name="filtro"
+            [(ngModel)]="filtroHabilidades"
+            type="text"
+            placeholder="Buscar"
+            class="add-habilidades-buscar"
+          />
+          <div class="all-habilidades">
+            <div
+              class="habilidades"
+              *ngFor="
+                let habilidad of habilidades
+                  | filtroHabilidades : filtroHabilidades
+              "
+            >
+              <label class="add-habilidades"
+                >{{ habilidad.habilidad }}
+                <input
+                  type="checkbox"
+                  (click)="
+                    agregarHabilidad(
+                      habilidad.habilidad,
+                      habilidad.id,
+                      usuario.id
+                    )
+                  "
+                />
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <button
+          (click)="mostrarModal('mostrarHabilidad')"
+          class="actualizar-informacion-basica-del-perfil"
+        >
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            xml:space="preserve"
+            width="25px"
+            height="25px"
+            fill="#ffffff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <polygon
+                style="fill: #2e6dff"
+                points="187.282,163.138 207.786,195.838 245.222,205.235 220.458,234.841 223.09,273.348 187.282,258.945 151.472,273.348 154.104,234.841 129.342,205.235 166.778,195.838 "
+              ></polygon>
+              <g>
+                <path
+                  style="fill: #ffffff"
+                  d="M151.474,288.407c-3.134,0-6.24-0.977-8.853-2.876c-4.194-3.048-6.526-8.038-6.173-13.21 l2.22-32.465l-20.878-24.958c-3.325-3.977-4.372-9.385-2.771-14.315c1.602-4.93,5.627-8.69,10.656-9.952l31.562-7.921l17.286-27.57 c2.754-4.393,7.575-7.06,12.759-7.06s10.005,2.667,12.759,7.06l17.286,27.57l31.56,7.921c5.028,1.262,9.053,5.022,10.656,9.952 c1.601,4.93,0.554,10.339-2.771,14.315l-20.878,24.96l2.22,32.465c0.354,5.173-1.977,10.163-6.173,13.21 c-4.195,3.046-9.662,3.723-14.47,1.789l-30.19-12.143l-30.191,12.143C155.278,288.048,153.371,288.407,151.474,288.407z M156.3,213.993l9.356,11.184c2.492,2.982,3.736,6.811,3.473,10.689l-0.994,14.548l13.529-5.442c3.607-1.45,7.632-1.45,11.238,0 l13.527,5.441l-0.994-14.547c-0.265-3.878,0.979-7.707,3.473-10.689l9.356-11.184l-14.143-3.549 c-3.769-0.946-7.028-3.313-9.093-6.606l-7.746-12.354l-7.746,12.354c-2.065,3.293-5.323,5.659-9.093,6.606L156.3,213.993z"
+                ></path>
+                <path
+                  style="fill: #ffffff"
+                  d="M382.658,206.982h-85.835c-8.315,0-15.059-6.742-15.059-15.059c0-8.317,6.743-15.059,15.059-15.059 h85.835c8.315,0,15.059,6.742,15.059,15.059S390.975,206.982,382.658,206.982z"
+                ></path>
+                <path
+                  style="fill: #ffffff"
+                  d="M352.523,259.622h-55.698c-8.315,0-15.059-6.742-15.059-15.059c0-8.317,6.743-15.059,15.059-15.059 h55.698c8.315,0,15.059,6.742,15.059,15.059C367.581,252.88,360.838,259.622,352.523,259.622z"
+                ></path>
+              </g>
+              <polygon
+                style="fill: #2e6dff"
+                points="187.282,325.887 207.786,358.587 245.222,367.982 220.458,397.589 223.09,436.096 187.282,421.692 151.472,436.096 154.104,397.589 129.342,367.982 166.778,358.587 "
+              ></polygon>
+              <g>
+                <path
+                  style="fill: #ffffff"
+                  d="M223.09,451.155c-1.897,0-3.804-0.358-5.617-1.087l-30.19-12.143l-30.191,12.143 c-4.808,1.934-10.276,1.257-14.47-1.789c-4.194-3.048-6.527-8.038-6.173-13.21l2.22-32.465l-20.879-24.96 c-3.325-3.977-4.372-9.385-2.771-14.315c1.602-4.93,5.627-8.69,10.656-9.952l31.562-7.921l17.286-27.57 c2.754-4.393,7.575-7.06,12.759-7.06s10.005,2.667,12.759,7.06l17.286,27.57l31.56,7.921c5.028,1.262,9.053,5.022,10.656,9.952 c1.601,4.93,0.554,10.338-2.771,14.315l-20.878,24.96l2.22,32.465c0.354,5.173-1.977,10.163-6.173,13.21 C229.329,450.178,226.224,451.155,223.09,451.155z M156.3,376.742l9.356,11.184c2.492,2.982,3.736,6.811,3.473,10.689 l-0.994,14.548l13.529-5.442c3.607-1.45,7.632-1.45,11.238,0l13.527,5.442l-0.994-14.548c-0.265-3.878,0.979-7.707,3.473-10.689 l9.356-11.184l-14.143-3.549c-3.769-0.946-7.028-3.313-9.093-6.606l-7.746-12.354l-7.746,12.354 c-2.065,3.293-5.323,5.659-9.093,6.606L156.3,376.742z"
+                ></path>
+                <path
+                  style="fill: #ffffff"
+                  d="M382.658,369.73h-85.835c-8.315,0-15.059-6.742-15.059-15.059s6.743-15.059,15.059-15.059h85.835 c8.315,0,15.059,6.742,15.059,15.059S390.975,369.73,382.658,369.73z"
+                ></path>
+                <path
+                  style="fill: #ffffff"
+                  d="M352.523,422.368h-55.698c-8.315,0-15.059-6.742-15.059-15.059c0-8.317,6.743-15.059,15.059-15.059 h55.698c8.315,0,15.059,6.742,15.059,15.059C367.581,415.627,360.838,422.368,352.523,422.368z"
+                ></path>
+              </g>
+              <g>
+                <rect
+                  x="67.76"
+                  y="57.269"
+                  style="fill: #2e6dff"
+                  width="105.412"
+                  height="48.142"
+                ></rect>
+                <rect
+                  x="338.824"
+                  y="57.269"
+                  style="fill: #2e6dff"
+                  width="105.412"
+                  height="48.142"
+                ></rect>
+              </g>
+              <path
+                style="fill: #ffffff"
+                d="M323.765,105.412c0,8.317,6.743,15.059,15.059,15.059H444.24c8.315,0,15.059-6.742,15.059-15.059 V57.27c0-8.317-6.743-15.059-15.059-15.059h-90.357V15.059C353.882,6.742,347.139,0,338.824,0H173.176 c-8.315,0-15.059,6.742-15.059,15.059v27.153H67.76c-8.315,0-15.059,6.742-15.059,15.059v48.142v391.529 c0,8.317,6.743,15.059,15.059,15.059h376.48c8.315,0,15.059-6.742,15.059-15.059V191.923c0-8.317-6.743-15.059-15.059-15.059 s-15.059,6.742-15.059,15.059v289.959H82.819V120.471h90.357h105.969c8.315,0,15.059-6.742,15.059-15.059 s-6.743-15.059-15.059-15.059h-90.91V57.27V30.118h135.529V57.27V105.412z M82.819,72.329h75.299v18.024H82.819V72.329z M429.181,90.353h-75.299V72.329h75.299V90.353z"
+              ></path>
+            </g>
+          </svg>
+          Agregar
+        </button>
+      </form>
+      <!-- Educacion -->
+      <form class="main-content" name="educacion">
+        <div>
+          <h2>
+            <svg
+              height="40px"
+              width="40px"
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st0 {
+                    fill: #000000;
+                  }
+                </style>
+                <g>
+                  <polygon
+                    points="1.914,293.73 1.914,293.714 1.897,293.657 "
+                  ></polygon>
+                  <path
+                    d="M10.027,313.061l-0.12-0.145c-0.008-0.008-0.008-0.008-0.008-0.008L10.027,313.061z"
+                  ></path>
+                  <path
+                    d="M10.027,223.738l-0.12-0.145c-0.008,0-0.008,0-0.008,0L10.027,223.738z"
+                  ></path>
+                  <path
+                    d="M1.914,204.423c0,0,0-0.024-0.008-0.04l-0.008-0.024L1.914,204.423z"
+                  ></path>
+                  <path
+                    d="M512,204.688c0.008-2.275-0.435-4.479-1.15-6.569c0.7-1.93,1.07-3.876,1.078-5.758 c0.016-2.96-0.805-5.822-2.05-8.122l-0.04-0.072c-0.378-0.691-0.893-1.423-1.464-2.155v-55.268 c2.268-3.257,3.619-7.173,3.627-11.378c0-8.138-4.905-15.448-12.408-18.527l-185.36-77.446h-0.539 c-3.892-1.367-7.928-2.187-12.022-2.187c-3.996,0-8.001,0.78-11.852,2.106h-0.482L17.667,128.786l-0.676,0.378l0.016,0.024 c-3.466,1.825-6.031,4.358-7.8,6.81c-3.095,4.302-4.679,8.838-5.83,12.955l-0.008,0.056c-1.728,6.393-2.452,12.882-2.894,18.375 l-0.008,0.048c-0.41,5.516-0.434,10.18-0.466,12.095v0.048v1.022c0.008,6.698,0.378,15.406,1.906,23.786l0.024,0.089 c0.805,4.213,1.938,8.491,3.869,12.657l0.032,0.064l0.007,0.016c0.982,2.051,2.26,4.246,4.029,6.337l0.04,0.048 c0.128,0.153,0.314,0.29,0.459,0.435c-0.37,0.434-0.853,0.852-1.159,1.294c-3.104,4.294-4.679,8.83-5.83,12.938l-0.008,0.04v0.016 c-1.728,6.393-2.452,12.89-2.894,18.382l-0.008,0.04C0.056,262.264,0.032,266.92,0,268.842v0.04v1.029 c0.008,6.707,0.378,15.416,1.914,23.803l0.016,0.064c0.805,4.222,1.938,8.508,3.869,12.673l0.039,0.072 c0.974,2.035,2.252,4.23,4.029,6.344l0.04,0.049c0.322,0.386,0.796,0.732,1.174,1.117c-0.636,0.7-1.367,1.392-1.874,2.091 c-3.104,4.302-4.679,8.838-5.83,12.938l-0.024,0.113l0.016-0.049c-1.728,6.393-2.452,12.891-2.894,18.383l-0.008,0.048 c-0.41,5.516-0.434,10.18-0.466,12.11v0.048v0.997c0.008,6.714,0.378,15.431,1.914,23.819l0.016,0.064 c0.805,4.214,1.938,8.5,3.869,12.657l0.039,0.08c0.974,2.043,2.252,4.23,4.029,6.345l-0.128-0.145l0.169,0.201 c1.696,1.97,4.028,3.876,6.94,5.299l-0.032,0.048l0.056,0.032l0.41,0.233l199.948,82.52l0.458,0.193 c4.431,1.81,9.143,2.734,13.879,2.734c4.648,0,9.304-0.892,13.694-2.686l255.907-103.99v-0.008c2.951-1.19,5.734-3.128,7.865-6.24 l0.008,0.008c0,0,0.008-0.024,0.016-0.04c0.008-0.008,0.016-0.008,0.024-0.024h-0.008c2.018-3.056,2.838-6.272,2.855-9.328 c0.016-2.96-0.805-5.822-2.05-8.122l-0.04-0.072v0.008c-0.378-0.692-0.893-1.431-1.464-2.163v-55.26 c2.268-3.257,3.619-7.189,3.627-11.386c0.008-2.541-0.531-5.01-1.44-7.318c0.917-2.171,1.359-4.382,1.367-6.498 c0.016-2.967-0.805-5.813-2.05-8.13l-0.04-0.072c-0.378-0.684-0.893-1.424-1.464-2.156v-55.252 C510.64,212.802,511.992,208.877,512,204.688z M216.272,469.136L25.852,390.539l-0.716-0.836c-0.595-0.925-1.358-2.686-1.97-4.873 c-0.948-3.273-1.6-7.535-1.994-11.845c-0.394-4.302-0.531-8.636-0.531-12.271v-0.86c0.032-2.806,0.136-10.928,1.294-18.568 c0.547-3.812,1.392-7.487,2.436-10.092l0.218-0.474l191.681,77.76V469.136z M216.272,378.324L43.005,306.789l-17.152-7.06 l-0.716-0.836c-0.595-0.933-1.358-2.686-1.97-4.866c-0.948-3.289-1.6-7.543-1.994-11.852c-0.394-4.302-0.531-8.636-0.531-12.264 v-0.868c0.032-2.814,0.136-10.928,1.294-18.576c0.547-3.804,1.392-7.487,2.436-10.084l0.218-0.474l191.681,77.759V378.324z M216.272,233.291v3.682v52.036l-175.108-72.3l-15.311-6.297l-0.716-0.844c-0.595-0.925-1.358-2.686-1.97-4.856 c-0.948-3.282-1.6-7.535-1.994-11.854c-0.394-4.31-0.531-8.636-0.531-12.262v-0.869c0.032-2.806,0.136-10.928,1.294-18.568 c0.547-3.812,1.392-7.486,2.436-10.092l0.218-0.466l191.681,77.752V233.291z M487.731,371.313L238.16,472.706l-0.66,0.297 c-1.922,0.756-3.924,1.15-5.934,1.15c-0.716,0-1.447-0.105-2.155-0.217v-61.412c0.941,0.105,1.914,0.161,2.855,0.161 c3.756,0,7.519-0.74,11.033-2.187l0.241-0.104l244.192-99.664V371.313z M487.731,280.156v0.338L238.16,381.895l-0.66,0.29 c-1.922,0.764-3.924,1.15-5.934,1.15c-0.716,0-1.447-0.104-2.155-0.201v-61.42c0.941,0.104,1.914,0.161,2.855,0.161 c3.756,0,7.519-0.74,11.033-2.18l0.241-0.112l171.272-69.896l72.919-29.77V280.156z M487.731,189.345v1.841L238.16,292.58 l-0.66,0.289c-1.922,0.764-3.924,1.158-5.934,1.158c-0.716,0-1.447-0.105-2.155-0.208v-56.145v-5.283 c0.941,0.113,1.914,0.16,2.855,0.16c3.756,0,7.519-0.731,11.033-2.17l0.241-0.105l244.192-99.672V189.345z"
+                  ></path>
+                  <polygon
+                    points="1.914,384.549 1.914,384.533 1.897,384.484 "
+                  ></polygon>
+                </g>
+              </g>
+            </svg>
+            Educación
+          </h2>
+          <ul>
+            <li *ngFor="let educacion of usuario.educacion">
+              <div class="edit-buttons">
+                <button>
+                  <svg
+                    (click)="deleteEducacion(educacion.id)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    height="25"
+                    viewBox="0 0 30 30"
+                    fill="red"
+                    class="svg"
+                  >
+                    <path
+                      d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <h3>{{ educacion.Universidad }}</h3>
+              <p>{{ educacion.Titulo }}</p>
+              <p>
+                {{ educacion.FechaEntr }} - {{ educacion.FechaSal }}
+                <span *ngIf="educacion.FechaSal === null">Actualidad</span>
+              </p>
+            </li>
+          </ul>
+
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="mostrarModal('mostrarEducacion')"
+          >
+            <svg
+              version="1.0"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="25px"
+              height="25px"
+              viewBox="0 0 64 64"
+              enable-background="new 0 0 64 64"
+              xml:space="preserve"
+              fill="#ffffff"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    fill="#ffffff"
+                    d="M1.59,0.805C0.59,1.562,0,2.746,0,4v48c0,1.785,1.184,3.355,2.902,3.848L28,64V8L5.098,0.152 C3.895-0.188,2.594,0.051,1.59,0.805z"
+                  ></path>
+                  <path
+                    fill="#ffffff"
+                    d="M62.41,0.805c-1.004-0.754-2.309-0.992-3.508-0.652L36,8v56l25.098-8.152C62.816,55.355,64,53.785,64,52V4 C64,2.746,63.41,1.562,62.41,0.805z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            Agregar Estudios
+          </button>
+        </div>
+        <form
+          *ngIf="mostrarEducacion"
+          class="onTop educacion"
+          name="agregar-educacion"
+        >
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarEducacion')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <label>
+            Universidad
+            <input type="text" name="universidad" [(ngModel)]="Universidad"
+          /></label>
+
+          <label>
+            Fecha Inicio
+            <input type="date" name="fecha-ini" [(ngModel)]="fechaEntr"
+          /></label>
+          <label id="cursando">
+            <span>Cursando </span
+            ><input type="checkbox" name="en-curso" (click)="fechaSalida()" />
+          </label>
+
+          <label *ngIf="!fechaSalidad">
+            Fecha salida
+            <input type="date" name="fecha-sal" [(ngModel)]="fechaSal"
+          /></label>
+          <label
+            >Nivel<select name="Nivel" [(ngModel)]="TipoTitulo">
+              <option value="" disabled selected>...</option>
+              <option value="Doctorado">Doctorado</option>
+              <option value="Maestría">Maestría</option>
+              <option value="Especialidad">Especialidad</option>
+              <option value="Ingeniería ">Ingeniería</option>
+              <option value="Licenciatura">Licenciatura</option>
+              <option value="Técnico Superior ">Técnico Superior</option>
+            </select>
+          </label>
+          <label
+            >Titulo<select name="Titulo" [(ngModel)]="Titulo">
+              <option value="" disabled selected>...</option>
+              <option
+                value="{{ carrera.NombreCarrera }}"
+                *ngFor="let carrera of carreras"
+              >
+                {{ carrera.NombreCarrera }}
+              </option>
+            </select>
+          </label>
+
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="agregarEducacion()"
+          >
+            Agregar Estudios
+          </button>
+        </form>
+      </form>
+      <!-- idioma -->
+      <form class="main-content" name="idiomas">
+        <div class="add-habilidades-main" *ngIf="mostrarIdioma" loading="lazy">
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarIdioma')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <input
+            name="filtro"
+            [(ngModel)]="filtroIdioma"
+            type="text"
+            placeholder="Buscar"
+            class="add-habilidades-buscar"
+          />
+          <div class="all-habilidades">
+            <div
+              class="habilidades"
+              *ngFor="let idioma of idiomasList | filtroIdioma : filtroIdioma"
+            >
+              <label class="add-habilidades"
+                >{{ idioma.idioma }}
+                <input
+                  type="checkbox"
+                  (click)="agregarIdioma(idioma.idioma, idioma.id, usuario.id)"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            fill="currentColor"
+            class="bi bi-translate"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"
+            />
+            <path
+              d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"
+            /></svg
+          >Idiomas
+        </h2>
+
+        <fieldset>
+          <div *ngFor="let idiomas of usuario.idiomaEgresado">
+            <input type="checkbox" checked (click)="deleteIdioma(idiomas.id)" />
+            <label>{{ idiomas.idioma }}</label>
+          </div>
+        </fieldset>
+
+        <button
+          (click)="mostrarModal('mostrarIdioma')"
+          class="actualizar-informacion-basica-del-perfil"
+        >
+          <svg
+            width="27px"
+            height="27px"
+            viewBox="0 0 512.00 512.00"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="#ffffff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#CCCCCC"
+              stroke-width="8.192"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>language</title>
+              <g
+                id="Page-1"
+                stroke-width="0.00512"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="icon"
+                  fill="#ffffff"
+                  transform="translate(42.666667, 85.333333)"
+                >
+                  <path
+                    d="M426.666667,85.3333333 L426.666667,341.333333 L362.626302,341.333333 L362.666667,405.333333 L256,341.333333 L170.666667,341.333333 L170.666667,85.3333333 L426.666667,85.3333333 Z M256,1.42108547e-14 L256,64 L213.333,64 L213.333333,42.6666667 L42.6666667,42.6666667 L42.6666667,213.333333 L149.333,213.333 L149.333,268.8 L64,320 L64.0403648,256 L6.39488462e-14,256 L6.39488462e-14,1.42108547e-14 L256,1.42108547e-14 Z M384,128 L213.333333,128 L213.333333,298.666667 L384,298.666667 L384,128 Z M311.198683,149.333333 L359.616467,277.333333 L335.768901,277.333333 L322.580475,240.658669 L274.524018,240.658669 L261.425923,277.333333 L238.933333,277.333333 L286.267137,149.333333 L311.198683,149.333333 Z M298.552247,170.741943 C296.817878,176.812232 294.528512,183.826018 291.684148,191.7833 L291.325712,192.782875 L280.576241,223.134321 L316.43792,223.134321 L305.68845,192.782875 L304.747024,190.067278 C302.566831,183.717713 300.501905,177.275935 298.552247,170.741943 Z M138.364283,55.8724491 L138.363691,66.5384491 L149.332691,66.5384491 L149.334032,145.217282 C147.846623,148.082062 146.253419,150.895209 144.554383,153.656286 C146.072758,154.996689 147.66531,156.330498 149.332056,157.657476 L149.332744,183.9067 C142.782625,179.623374 136.879514,175.218148 131.623873,170.685181 C117.063661,186.063317 97.230366,196.963418 72.3795207,203.419113 L66.0115407,204.951778 L61.383691,184.126454 C85.6428706,178.735525 103.970928,169.143885 116.711981,155.39526 C105.111587,141.185042 96.9168733,125.119906 92.1670974,107.291622 L90.6021236,100.779065 L111.459775,96.2991661 C114.703867,111.403107 120.706878,124.963276 129.507523,137.067333 C137.440289,122.406679 142.049701,106.041819 143.329049,87.8734181 L63.6976158,87.8724491 L63.6976158,66.5391157 L117.030691,66.5384491 L117.030949,55.8724491 L138.364283,55.8724491 Z"
+                    id="Combined-Shape"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+          Agregar
+        </button>
+      </form>
+      <!-- contacto -->
+      <form class="main-content" name="contacto">
+        <form *ngIf="mostrarContacto" class="onTop" name="agregar-contacto">
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarContacto')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <label
+            >Tipo<select name="opciones" [(ngModel)]="opcionSeleccionada">
+              <option value="">...</option>
+
+              <option value="Movil">Movil</option>
+              <option value="Trabajo">Trabajo</option>
+              <option value="Fijo">Fijo</option>
+              <option value="Email">Email</option>
+            </select></label
+          >
+
+          <input
+            *ngIf="opcionSeleccionada"
+            [type]="getTipoEntrada()"
+            name="valor"
+            [(ngModel)]="valor"
+            (input)="verificarValorEnTiempoReal()"
+            [maxlength]="getTipoEntrada() === 'tel' ? 10 : null"
+          />
+          <p class="validar" *ngIf="valor">
+            {{ verificarValorEnTiempoReal() }}
+          </p>
+          <button
+            class="actualizar-informacion-basica-del-perfil"
+            (click)="agregarContacto(usuario.id)"
+          >
+            Agregar
+          </button>
+        </form>
+        <div>
+          <h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-person-lines-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"
+              /></svg
+            >Contacto
+          </h2>
+
+          <div>
+            <address *ngFor="let contacto of usuario.contacto">
+              <div class="contacto">
+                <div class="edit-buttons">
+                  <button>
+                    <svg
+                      (click)="deleteContacto(contacto.id)"
+                      xmlns="http://www.w3.org/2000/svg"
+                      x="0px"
+                      y="0px"
+                      height="25"
+                      viewBox="0 0 30 30"
+                      fill="red"
+                      class="svg"
+                    >
+                      <path
+                        d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <span>{{ contacto.tipo | titlecase }}: </span>
+                <a name="contacto" href="contacto.valor" target="_blank">{{
+                  contacto.valor
+                }}</a>
+              </div>
+            </address>
+
+            <button
+              class="actualizar-informacion-basica-del-perfil"
+              (click)="mostrarModal('mostrarContacto')"
+            >
+              <svg
+                fill="#ffffff"
+                width="25px"
+                height="25px"
+                viewBox="0 0 64 64"
+                version="1.1"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                stroke="#ffffff"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="_x32_5_attachment"></g>
+                  <g id="_x32_4_office"></g>
+                  <g id="_x32_3_pin"></g>
+                  <g id="_x32_2_business_card"></g>
+                  <g id="_x32_1_form"></g>
+                  <g id="_x32_0_headset"></g>
+                  <g id="_x31_9_video_call"></g>
+                  <g id="_x31_8_letter_box"></g>
+                  <g id="_x31_7_papperplane"></g>
+                  <g id="_x31_6_laptop"></g>
+                  <g id="_x31_5_connection"></g>
+                  <g id="_x31_4_phonebook"></g>
+                  <g id="_x31_3_classic_telephone"></g>
+                  <g id="_x31_2_sending_mail"></g>
+                  <g id="_x31_1_man_talking"></g>
+                  <g id="_x31_0_date"></g>
+                  <g id="_x30_9_review"></g>
+                  <g id="_x30_8_email"></g>
+                  <g id="_x30_7_information"></g>
+                  <g id="_x30_6_phone_talking">
+                    <g>
+                      <g>
+                        <path
+                          d="M37.063,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1S37.6152,18.062,37.063,18.062z "
+                        ></path>
+                        <path
+                          d="M45.1787,18.062H45.123c-0.5522,0-0.9722,0.4478-0.9722,1s0.4756,1,1.0278,1s1-0.4478,1-1S45.731,18.062,45.1787,18.062z "
+                        ></path>
+                        <path
+                          d="M53.2983,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1 S53.8506,18.062,53.2983,18.062z"
+                        ></path>
+                        <path
+                          d="M45.1953,45.9268c-5.1489-2.9038-6.6909-2.6665-10.6172-0.4468c-2.0146,1.3389-4.4404,0.5225-8.6563-2.9111 c-0.8276-0.6743-1.6592-1.4263-2.4688-2.2319c-0.8091-0.8125-1.5605-1.644-2.2344-2.4722 c-3.1782-3.8999-4.0435-7.459-3.0112-8.5317c3.042-3.271,2.3516-5.957-0.3335-10.7173c-1.6172-3.0591-3.3931-6.104-5.7568-6.8027 c-1.7139-0.5034-4.2588,0.8154-5.0166,1.3184c-1.9492,1.2983-3.8003,3.5947-4.8311,5.9937 c-1.896,4.4136-1.3931,9.7329-0.29,13.2397c1.812,5.749,6.1611,12.4063,11.6348,17.8086 c5.4043,5.4761,12.0615,9.8242,17.8081,11.6313c1.8154,0.5728,4.1167,0.9844,6.5283,0.9844c2.2437,0,4.583-0.3564,6.7124-1.271 c2.3989-1.0327,4.6938-2.8838,5.9888-4.8306c0.5039-0.7554,1.8276-3.2998,1.3184-5.021 C51.2754,49.3071,48.2305,47.5308,45.1953,45.9268z M44.2368,47.6821c1.8521,0.979,5.2998,2.8018,5.8149,4.5513 c0.1056,0.3564-0.0228,1.0059-0.2598,1.681l-13.5292-7.089C38.8073,45.4165,39.8377,45.2009,44.2368,47.6821z M11.5513,13.7314 c1.7524,0.5181,3.5752,3.9663,4.5674,5.8428c2.6213,4.647,2.613,6.1134,0.9274,8.0579L9.748,14.0356 c0.556-0.2056,1.1049-0.3412,1.499-0.3412C11.3633,13.6943,11.4658,13.7061,11.5513,13.7314z M43.873,59.6807 c-3.9175,1.6836-8.8311,1.1694-11.8501,0.2163c-5.4517-1.7144-11.8032-5.8765-16.9897-11.1328 c-0.0034-0.0034-0.0063-0.0063-0.0098-0.0098C9.7695,43.5698,5.606,37.2178,3.8872,31.7642 c-0.9497-3.0195-1.4619-7.9346,0.2202-11.8501c0.8441-1.9645,2.3123-3.8291,3.8699-4.948l7.923,14.7618 c-0.4362,2.3732,0.9189,5.9038,3.7676,9.4001c0.7153,0.8789,1.5122,1.7607,2.3711,2.623 c0.8594,0.856,1.7407,1.6528,2.6196,2.3687c3.0879,2.5153,6.3303,4.6262,9.3667,3.7915l14.8708,7.792 C47.7888,57.3002,45.8823,58.816,43.873,59.6807z"
+                        ></path>
+                        <path
+                          d="M60.9551,10.771C56.3843,2.0591,45.5757-1.3105,36.8604,3.2568l-0.0005,0.0005 c-8.7119,4.5723-12.0825,15.3813-7.5137,24.0952c0.3311,0.6313,0.709,1.2549,1.1274,1.8613l-2.7012,4.6299 c-0.1885,0.3228-0.1812,0.7241,0.0195,1.0396c0.1997,0.3159,0.5596,0.4912,0.9321,0.4604l7.75-0.6851 c2.7095,1.5068,5.6899,2.2627,8.6748,2.2627c2.8374,0,5.6787-0.6836,8.293-2.0552 C62.1543,30.2944,65.5249,19.4854,60.9551,10.771z M52.5127,33.0952c-4.8472,2.543-10.5723,2.4214-15.3154-0.3252 c-0.1523-0.0884-0.3257-0.1348-0.501-0.1348c-0.0293,0-0.0586,0.0015-0.0879,0.0039l-6.1338,0.542l2.0532-3.519 c0.2017-0.3462,0.1777-0.7793-0.0615-1.1006c-0.5132-0.6899-0.9668-1.4092-1.3486-2.1377 c-4.0571-7.7373-1.0645-17.3354,6.6719-21.396l-0.0005,0.0005c7.7378-4.0581,17.3354-1.0635,21.395,6.6719 C63.2417,19.438,60.2485,29.0356,52.5127,33.0952z"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                  <g id="_x30_5_women_talking"></g>
+                  <g id="_x30_4_calling"></g>
+                  <g id="_x30_3_women"></g>
+                  <g id="_x30_2_writing"></g>
+                  <g id="_x30_1_chatting"></g>
+                </g>
+              </svg>
+              Agregar Contacto
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Direccion -->
+      <form class="main-content" name="provincias">
+        <form
+          name="agregar-provincias"
+          class="add-habilidades-main"
+          *ngIf="mostrarDireccion"
+          loading="lazy"
+        >
+          <svg
+            class="close"
+            (click)="mostrarModal('mostrarDireccion')"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="#f44336"
+              d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+            ></path>
+            <path
+              fill="#fff"
+              d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+            ></path>
+          </svg>
+          <input
+            name="filtro"
+            [(ngModel)]="filtroProvincia"
+            type="text"
+            placeholder="Buscar"
+            class="add-habilidades-buscar"
+          />
+          <div class="all-habilidades">
+            <div
+              class="habilidades"
+              *ngFor="
+                let provincia of provincias | filtroProvincias : filtroProvincia
+              "
+            >
+              <label class="add-habilidades"
+                >{{ provincia.provincia }}
+                <input
+                  name="provincia"
+                  type="checkbox"
+                  (click)="
+                    agregarDireccion(
+                      provincia.provincia,
+                      provincia.id,
+                      usuario.id
+                    )
+                  "
+                />
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <div>
+          <h2>
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="40px"
+              height="40px"
+              viewBox="0 0 395.71 395.71"
+              xml:space="preserve"
+              stroke="#000000"
+              stroke-width="0.0039571"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="#CCCCCC"
+                stroke-width="0.79142"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            Direccion
+          </h2>
+
+          <div>
+            <address *ngFor="let ubicacion of usuario.direccionEgresado">
+              <div class="contacto">
+                <div class="edit-buttons">
+                  <button>
+                    <svg
+                      (click)="deleteDireccion(ubicacion.id)"
+                      xmlns="http://www.w3.org/2000/svg"
+                      x="0px"
+                      y="0px"
+                      height="25"
+                      viewBox="0 0 30 30"
+                      fill="red"
+                      class="svg"
+                    >
+                      <path
+                        d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>
+                  <span>
+                    {{ ubicacion.provincia }}
+                  </span>
+                </p>
+              </div>
+            </address>
+
+            <button
+              class="actualizar-informacion-basica-del-perfil"
+              (click)="mostrarModal('mostrarDireccion')"
+            >
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="0px"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19.925 1.78443C21.5328 1.18151 23.1029 2.75156 22.5 4.35933L16.0722 21.5C15.3574 23.4061 12.5838 23.1501 12.23 21.1453L10.8664 13.418L3.1391 12.0544C1.13427 11.7006 0.878261 8.92697 2.78443 8.21216L19.925 1.78443ZM20.6273 3.65708L3.48668 10.0848L11.2139 11.4485C12.0417 11.5945 12.6898 12.2426 12.8359 13.0704L14.1996 20.7977L20.6273 3.65708Z"
+                    fill="#ffffff"
+                  ></path>
+                </g>
+              </svg>
+              Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>

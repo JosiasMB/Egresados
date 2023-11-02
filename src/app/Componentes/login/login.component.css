@@ -1,0 +1,86 @@
+.sign-in-container {
+  height: 70vh;
+  transition: all 0.6s ease-in-out;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+
+.sign-in-container a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.sign-in-container button {
+  border-radius: 0;
+  border: 1px solid #0584ce;
+  background-color: #0584ce;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+.sign-in-container button:active {
+  transform: scale(0.95);
+}
+
+.sign-in-container button:focus {
+  outline: none;
+}
+
+.sign-in-container form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  width: 30%;
+  height: 500px;
+  text-align: center;
+  box-shadow: 0px 0px 5px #e6e5e5;
+  border-radius: 10px;
+}
+
+.sign-in-container .escudo {
+  width: 90%;
+  min-width: 200px;
+  margin: 0 0 20px 0;
+  background-blend-mode: color-burn;
+}
+
+.sign-in-container form input {
+  box-shadow: 0px 0px 3px #e6e5e5;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  transition: 0.3s ease-in;
+}
+.sign-in-container form input:focus {
+  outline: 0.5px solid rgb(12, 255, 12);
+}
+@media screen and (max-width: 800px) {
+  .sign-in-container {
+    height: 100vh;
+    align-items: normal;
+    margin-top: 15%;
+  }
+  .sign-in-container form {
+    padding: 0 30px;
+    width: 70%;
+    box-shadow: none;
+  }
+}

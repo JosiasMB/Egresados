@@ -1,0 +1,604 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:200,400,500,600,800);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
+
+/* Usuarios */
+.container {
+  margin: 0;
+  padding: 0;
+}
+.container-tarjetas {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 160px;
+  margin-bottom: 0px;
+  overflow-x: hidden;
+}
+.filtrar-egresados-nombre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 10px;
+  width: 60%;
+}
+.filtrar-egresados-nombre h1 {
+  font-family: "Lato", sans-serif;
+  color: #525252;
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+.filtrar-egresados-nombre input {
+  border: 1px solid #03a9f4;
+  width: 20%;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+.filtrar-egresados-nombre input:focus {
+  outline: none;
+}
+
+.tarjeta {
+  width: 60%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0.5rem;
+  background: rgb(0, 147, 218);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 147, 218, 1) 15%,
+    rgba(255, 255, 255, 1) 16%
+  );
+  height: 180px;
+}
+.img-perfil {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 0 10px;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info-perfil {
+  padding-top: 30px;
+  width: 40%;
+  padding-left: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #444;
+}
+.info-perfil a {
+  width: fit-content;
+  padding: 5px 15px;
+  cursor: pointer;
+  border: 1px solid #03a9f4;
+  font-size: 0.8em;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  line-height: 20px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+  transition: 0.5s;
+}
+.info-perfil a:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+.tarjeta h1 {
+  font-family: "Lato", sans-serif;
+
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.tarjeta p {
+  font-size: 15px;
+  font-family: "Lato", sans-serif;
+
+  margin: 2px 0;
+}
+.tarjeta p:nth-child(3) {
+  font-size: 13px;
+}
+
+.social-media {
+  width: 40%;
+  padding-right: 20px;
+  padding-top: 00px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.social-media h3 {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+
+  margin: 0;
+}
+.social-media li {
+  list-style: none;
+}
+
+.social-media ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.social-media li a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.5em;
+  color: #444;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.social-media li a:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+
+/* Pop up */
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(36, 34, 34, 0.769);
+  opacity: 0;
+  transition: 0.8s ease;
+  z-index: 200;
+  padding-left: 10%;
+}
+
+.popup-content {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 8px 0 rgba(134, 130, 130, 0.2);
+  width: 50%;
+  height: 60%;
+  overflow-y: scroll;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+.popup main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  padding: 10px;
+  border-top: 5px solid #03a9f4;
+}
+
+.popup-content header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.popup-content header h1 {
+  font-size: 1.8rem;
+  font-family: "Lato", sans-serif;
+
+  font-weight: 800px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.popup-content header h2 {
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  margin: 0 auto;
+  margin-left: 25%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.popup-content header img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.popup-content header p {
+  width: 50%;
+  margin: 20px auto;
+  text-align: left;
+}
+.popup-top,
+.popup-middle,
+.popup-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.popup-top ul,
+.popup-middle ul,
+.popup-bottom ul {
+  list-style: none;
+  padding: 0;
+  margin: 0%;
+}
+.popup-top ul li {
+  margin: 25px 0 0 0;
+}
+.popup-top h2,
+.popup-middle h2,
+.popup-bottom h2 {
+  text-align: left;
+  font-size: 1.2rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 800px;
+  margin: 10px 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.popup-top svg,
+.popup-middle svg,
+.popup-bottom svg {
+  margin: 0 5px 0 0;
+}
+
+.popup-top ul li h3,
+.popup-middle ul li h3,
+.popup-bottom ul li h3 {
+  text-align: left;
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400px;
+  margin: 8px 0;
+  letter-spacing: 1px;
+}
+.popup-top ul li h4,
+.popup-middle ul li h4,
+.popup-bottom ul li h4 {
+  font-size: 0.9rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.popup-top ul li p,
+.popup-middle ul li p,
+.popup-bottom ul li p {
+  margin: 8px 0;
+}
+.Habilidades ul,
+.Idiomas ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20% 10px 10px;
+}
+.Habilidades ul li,
+.Idiomas ul li {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  font-size: 0.8rem;
+  letter-spacing: 0.8px;
+  margin: 5px 0;
+  font-family: "Lato", sans-serif;
+  background: #03a9f4;
+  color: #fff;
+}
+
+.popup-bottom {
+  margin-top: 20px;
+  grid-column: 1 / -1;
+  border-top: 5px solid #7bd5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.popup-bottom ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.popup-bottom li a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.5em;
+  color: #444;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.popup-bottom li a:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+.popup.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Estilo para la paginación */
+pagination-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1200px) {
+  /* Usuarios */
+  .container-tarjetas {
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .info-perfil {
+    padding-left: 10px;
+    height: auto;
+  }
+  .info-perfil a {
+    padding: 5px 12px;
+  }
+
+  .social-media li a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tarjeta,
+  pagination-controls,
+  .filtrar-egresados-nombre {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  /* Usuarios */
+  .container-tarjetas {
+    width: 100%;
+    align-items: flex-end;
+    margin-top: 110px;
+  }
+
+  .info-perfil {
+    padding-left: 10px;
+    height: auto;
+  }
+  .info-perfil a {
+    padding: 5px 12px;
+  }
+
+  .social-media li a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tarjeta,
+  pagination-controls,
+  .filtrar-egresados-nombre {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .info-perfil {
+    padding-left: 5px;
+  }
+
+  .tarjeta,
+  pagination-controls,
+  .filtrar-egresados-nombre {
+    margin-right: 50px;
+  }
+  .img-perfil {
+    width: 20%;
+  }
+  .tarjeta img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .info-perfil {
+    width: 45%;
+  }
+
+  .tarjeta h1 {
+    font-size: 1rem;
+  }
+  .social-media {
+    width: 35%;
+    padding-right: 5px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .container-tarjetas {
+    width: 100%;
+    align-items: center;
+  }
+
+  .tarjeta,
+  pagination-controls,
+  .filtrar-egresados-nombre {
+    margin-right: 0px;
+  }
+  .tarjeta {
+    width: 80%;
+    padding: 0%;
+  }
+
+  .info-perfil img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .tarjeta h1 {
+    font-size: 1rem;
+  }
+  .social-media {
+    width: 40%;
+    padding-right: 5px;
+    padding-top: 40px;
+  }
+
+  .text {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .popup {
+    padding-left: 0;
+  }
+  .popup-content {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 70%;
+  }
+  .popup-content header img {
+    height: 150px;
+    width: 150px;
+  }
+  .popup-content header p {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .popup-content header h1 {
+    font-size: 1.2rem;
+  }
+  .popup-content header h2 {
+    font-size: 1rem;
+    font-family: "Gabarito", sans-serif;
+
+    font-weight: 400px;
+    margin: 0;
+  }
+  .popup main {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tarjeta {
+    width: 95%;
+    margin-right: 20px;
+    background: none;
+    height: 130px;
+  }
+
+  .img-perfil {
+    padding: 0%;
+    width: 30%;
+  }
+  .img-perfil img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .info-perfil {
+    width: 70%;
+    padding: 0%;
+  }
+
+  .tarjeta h1 {
+    font-size: 1rem;
+  }
+  .social-media {
+    display: none;
+  }
+
+  .filtrar-egresados-nombre {
+    width: 100%;
+    padding-right: 50px;
+    justify-content: center;
+    padding-top: 15px;
+  }
+
+  .filtrar-egresados-nombre h1 {
+    font-size: 1rem;
+  }
+  .filtrar-egresados-nombre input {
+    width: 30%;
+    height: 10px;
+    padding: 8px;
+  }
+}

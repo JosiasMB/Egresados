@@ -1,0 +1,38 @@
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px -2px 2px -1px #36cff5;
+  margin-bottom: 25px;
+}
+
+.filter-item label {
+  font-family: "Lato";
+  font-size: 1rem !important ;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-left: 10px;
+}
+.filter-item select {
+  border: none;
+  padding: 6px 10px;
+  color: #5b5b5b;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 200;
+  cursor: pointer;
+}
+.filter-item option {
+  font-size: 15px;
+  cursor: pointer;
+}
+.filter-item option:first-child {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .filter-item label {
+    padding-top: 10px;
+    font-size: 0.9rem !important ;
+  }
+}
