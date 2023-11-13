@@ -94,6 +94,7 @@
         <li>
           <a name="settings" class="settings">
             <svg
+              (click)="settings(usuario.id)"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -205,15 +206,15 @@
                 </g>
               </g></svg
             >Cambiar Imagen
+            <input
+              accept="image/jpeg, image/png, image/jpg"
+              class="file"
+              type="file"
+              name="imagen"
+              id="imagen"
+              (change)="fileSeleted($event)"
+            />
           </label>
-
-          <input
-            class="file"
-            type="file"
-            name="imagen"
-            id="imagen"
-            (change)="fileSeleted($event)"
-          />
         </div>
 
         <form name="informacion_personal">
@@ -374,7 +375,7 @@
                 ></circle>
               </g>
             </svg>
-            Actualizar
+            Actualizar Informacion
           </button>
         </form>
       </div>
@@ -760,7 +761,7 @@
               ></path>
             </g>
           </svg>
-          Agregar
+          Agregar Habilidad
         </button>
       </form>
       <!-- Educacion -->
@@ -1074,7 +1075,7 @@
               </g>
             </g>
           </svg>
-          Agregar
+          Agregar Idioma
         </button>
       </form>
       <!-- contacto -->
@@ -1129,7 +1130,7 @@
             class="actualizar-informacion-basica-del-perfil"
             (click)="agregarContacto(usuario.id)"
           >
-            Agregar
+            Agregar Contacto
           </button>
         </form>
         <div>
@@ -1344,7 +1345,7 @@
                 </g>
               </g>
             </svg>
-            Direccion
+            Provincia
           </h2>
 
           <div>
@@ -1403,7 +1404,7 @@
                   ></path>
                 </g>
               </svg>
-              Actualizar
+              Actualizar Provincia
             </button>
           </div>
         </div>

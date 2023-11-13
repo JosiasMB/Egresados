@@ -5,6 +5,8 @@ import { DestacadosComponent } from './Componentes/destacados/destacados.compone
 import { LoginComponent } from './Componentes/login/login.component';
 import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 import { AuthGuard } from './authGuard';
+import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
+import { AdminComponent } from './Componentes/admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: TargetasUsuariosComponent },
@@ -13,6 +15,15 @@ const routes: Routes = [
   {
     path: 'usuario/:id',
     component: UsuarioComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user-settings/:id',
+    component: UserSettingsComponent,
+  },
+  {
+    path: 'admin/:id',
+    component: AdminComponent,
     canActivate: [AuthGuard],
   },
 ];

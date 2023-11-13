@@ -1,13 +1,18 @@
 <app-header></app-header>
-<app-filtros></app-filtros>
-<app-loading *ngIf="showLoading"></app-loading>
+<app-filtros
+  *ngIf="mostrarOcultarFiltros"
+  (parentFiltrosFunction)="parentFiltrosFunction($event)"
+></app-filtros>
 
 <div class="container">
   <div class="container-tarjetas">
     <div class="filtrar-egresados-nombre">
       <h1>Egresados</h1>
+      <div class="ver-filtros">
+        <input type="text" placeholder="Buscar egresado por nombre" #search />
 
-      <input type="text" placeholder="Buscar egresado por nombre" #search />
+        <button (click)="verFiltros()">Filtros</button>
+      </div>
     </div>
     <div
       class="tarjeta"
@@ -35,16 +40,71 @@
       </div>
 
       <div class="social-media">
-        <h3>Redes Sociales:</h3>
         <ul>
-          <li>
-            <a><i class="fab fa-github"></i></a>
+          <li *ngIf="egresado.destacado == true">
+            <svg
+              height="50px"
+              width="50px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 53.867 53.867"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <polygon
+                  style="fill: #efce4a"
+                  points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+                ></polygon>
+              </g>
+            </svg>
+            Egresado destacado
           </li>
-          <li>
-            <a><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a><i class="fab fa-linkedin-in"></i></a>
+          <li *ngIf="egresado.destacado == false || !egresado.destacado">
+            <svg
+              height="64px"
+              width="64px"
+              version="1.1"
+              id="_x32_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 512 512"
+              xml:space="preserve"
+              fill="#3465f9"
+              stroke="#3465f9"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                  .st8 {
+                    fill: #03a9f4;
+                  }
+                </style>
+                <g>
+                  <path
+                    class="st8"
+                    d="M505.837,180.418L279.265,76.124c-7.349-3.385-15.177-5.093-23.265-5.093c-8.088,0-15.914,1.708-23.265,5.093 L6.163,180.418C2.418,182.149,0,185.922,0,190.045s2.418,7.896,6.163,9.627l226.572,104.294c7.349,3.385,15.177,5.101,23.265,5.101 c8.088,0,15.916-1.716,23.267-5.101l178.812-82.306v82.881c-7.096,0.8-12.63,6.84-12.63,14.138c0,6.359,4.208,11.864,10.206,13.618 l-12.092,79.791h55.676l-12.09-79.791c5.996-1.754,10.204-7.259,10.204-13.618c0-7.298-5.534-13.338-12.63-14.138v-95.148 l21.116-9.721c3.744-1.731,6.163-5.504,6.163-9.627S509.582,182.149,505.837,180.418z"
+                  ></path>
+                  <path
+                    class="st8"
+                    d="M256,346.831c-11.246,0-22.143-2.391-32.386-7.104L112.793,288.71v101.638 c0,22.314,67.426,50.621,143.207,50.621c75.782,0,143.209-28.308,143.209-50.621V288.71l-110.827,51.017 C278.145,344.44,267.25,346.831,256,346.831z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
           </li>
         </ul>
       </div>
@@ -392,7 +452,7 @@
               </section>
             </div>
 
-            <div class="popup-bottom">
+            <!-- <div class="popup-bottom">
               <section class="Redes-Sociales">
                 <h2>
                   <svg
@@ -423,7 +483,7 @@
                   </li>
                 </ul>
               </section>
-            </div>
+            </div> -->
           </main>
         </div>
       </div>
@@ -432,7 +492,6 @@
       previousLabel="Prev"
       nextLabel="Next"
       (pageChange)="pageChanged($event)"
-    ></pagination-controls
-    >`
+    ></pagination-controls>
   </div>
 </div>

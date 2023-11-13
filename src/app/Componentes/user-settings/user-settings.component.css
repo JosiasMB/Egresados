@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-settings {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  min-width: 200px;
+  margin: 0;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+img {
+  width: 80%;
+  min-width: 250px;
+  margin: 20px auto;
+}
+
+.user-settings h2 {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="password"] {
+  letter-spacing: 1px;
+
+  margin-bottom: 20px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #03a9f4;
+  color: #a3a3a3;
+  transition: 0.3s;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  height: auto;
+  width: 95%;
+}
+input[type="password"]:focus {
+  outline: none;
+  color: #000000;
+  border-bottom: 1px solid #2dff08;
+}
+
+.error {
+  color: red;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: absolute;
+}
+
+button {
+  background-color: #007bff;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 180px;
+  height: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+button:hover {
+  background-color: #0967cb;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+  .user-settings {
+    max-width: 95%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .buttons {
+    justify-content: center;
+  }
+  .user-settings h2 {
+    font-size: 1.3rem;
+  }
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  background: #09af00;
+  text-align: center;
+  line-height: 30px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 0px;
+  width: 90%;
+}

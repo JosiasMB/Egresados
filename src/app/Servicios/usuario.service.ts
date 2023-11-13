@@ -6,6 +6,7 @@ import { Egresado } from '../Models/egresado.model';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { SHA1 } from 'crypto-js';
+import { authorizeUser } from '../shared/authorizeUser';
 
 @Injectable({
   providedIn: 'root',
@@ -23,13 +24,37 @@ export class UsuarioService {
   }
 
   getUser(id: any): Observable<Egresado> {
-    const api = `${ApiUrl}/egresado/${id}?_embed=experienciaLaboralEgresado&_embed=contacto&_embed=educacion&_embed=nacionalidadEgresado&_embed=idiomaEgresado&_embed=egresadosHabilidad&_embed=direccionEgresado`;
-    return this.http.get<Egresado>(api);
+    return new Observable<Egresado>((observer) => {
+      authorizeUser(
+        { params: { userId: id }, user: { id: id } },
+        {
+          status: (code: number) => {
+            return {
+              json: (data: { message: string }) => {
+                console.log(data.message);
+                observer.error(data.message);
+              },
+            };
+          },
+        },
+        () => {
+          const api = `${ApiUrl}/egresado/${id}?_embed=experienciaLaboralEgresado&_embed=contacto&_embed=educacion&_embed=nacionalidadEgresado&_embed=idiomaEgresado&_embed=egresadosHabilidad&_embed=direccionEgresado&_embed=usuario`;
+          this.http.get<Egresado>(api).subscribe(
+            (data) => {
+              observer.next(data);
+              observer.complete();
+            },
+            (error) => {
+              observer.error(error);
+            }
+          );
+        }
+      );
+    });
   }
 
   logOut() {
     this.cookieSevise.delete('token');
-
     this.router.navigateByUrl('/login');
   }
 
@@ -147,5 +172,10 @@ export class UsuarioService {
   // Llamar funcion y pasar form data
   uploadEgresadoProfilePic(data: any): Observable<any> {
     return this.http.post(cloudinary.upload_url, data);
+  }
+  cambiarContrasena(password: string, id: number) {
+    const api = `${ApiUrl}/usuario/${id}`;
+    const body = { password: password };
+    return this.http.patch(api, body);
   }
 }

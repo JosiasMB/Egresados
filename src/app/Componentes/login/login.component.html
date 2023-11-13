@@ -1,14 +1,16 @@
 <app-header></app-header>
-<app-loading *ngIf="showLoading"></app-loading>
 
 <div class="sign-in-container">
-  <form>
+  <app-loading *ngIf="showLoading"></app-loading>
+
+  <form name="login">
     <img
       class="escudo"
       src="https://soft.uasd.edu.do/ValidaTitulo/assets/img/LOGO-UASD.jpg"
       alt="logo"
     />
     <input
+      id="email"
       type="email"
       [(ngModel)]="email"
       name="email"
@@ -16,6 +18,7 @@
       required
     />
     <input
+      id="password"
       type="password"
       [(ngModel)]="password"
       name="password"

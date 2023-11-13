@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
 
 .popup-content {
   margin: 130px 0;
@@ -366,7 +365,6 @@ button.actualizar-informacion-basica-del-perfil {
   transition: 0.5s;
   font-family: "Montserrat";
   letter-spacing: 1px;
-  width: -moz-fit-content;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -522,6 +520,7 @@ button.actualizar-informacion-basica-del-perfil:hover {
   }
 
   header svg,
+  nav svg,
   .main-content svg {
     width: 30px;
     height: 30px;

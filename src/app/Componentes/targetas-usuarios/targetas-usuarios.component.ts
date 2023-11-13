@@ -28,7 +28,6 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   itemsPerPage: number = 10;
   totalPages: number = 0;
   totalItems: number = 0;
-  showLoading: boolean = false;
 
   constructor(private egresadoService: EgresadoListService) {}
 
@@ -46,10 +45,7 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.showLoading = true;
-
     this.loadEgresados();
-    this.showLoading = false;
   }
 
   loadEgresados(q: any = null) {
@@ -62,6 +58,9 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
             ...egre,
             mostrarPerfil: false,
           }));
+          this.egresados = this.egresados.filter(
+            (egresado: any) => egresado.Activo === true
+          );
         },
         (error) => {
           console.error('Error al cargar los egresados', error);
@@ -93,5 +92,27 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
     this.currentPage = $event;
 
     this.loadEgresados();
+  }
+
+  mostrarOcultarFiltros: Boolean = false;
+  verFiltros() {
+    this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
+  }
+
+  parentFiltrosFunction(data: any) {
+    if (data == 'mostrar') {
+      this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
+    } else if (data == 'limpiarFiltros') {
+      this.loadEgresados();
+      this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
+    } else {
+      this.egresadoService
+        .filterEgresados(data, this.currentPage)
+        .subscribe((data) => {
+          console.log(data);
+          this.egresados = data;
+        });
+      this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
+    }
   }
 }

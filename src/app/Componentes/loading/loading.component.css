@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
+
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -22,6 +25,8 @@
 }
 
 .loading-message {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
   color: white;
   font-size: 24px;
   margin-top: 20px;

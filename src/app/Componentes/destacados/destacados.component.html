@@ -1,10 +1,17 @@
 <app-header></app-header>
-<app-filtros></app-filtros>
-<app-loading *ngIf="showLoading"></app-loading>
+<app-filtros
+  *ngIf="mostrarOcultarFiltros"
+  (parentFiltrosFunction)="parentFiltrosFunction($event)"
+></app-filtros>
 
 <div class="container">
   <div class="encabezado">
     <h1>Destacados del Año 2023</h1>
+    <div class="ver-filtros">
+      <input type="text" placeholder="Buscar egresado por nombre" #search />
+
+      <button (click)="verFiltros()">Filtros</button>
+    </div>
   </div>
   <div class="container-destacados">
     <div class="wrap animate pop" *ngFor="let destacado of destacados">
@@ -133,18 +140,6 @@
         <p>
           {{ destacado.about }}
         </p>
-
-        <ul class="sci">
-          <li>
-            <a><i class="fab fa-github"></i></a>
-          </li>
-          <li>
-            <a><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a><i class="fab fa-linkedin-in"></i></a>
-          </li>
-        </ul>
 
         <div class="perfil">
           <a class="ver-perfil" (click)="mostrarOcultarPerfil(destacado)"
@@ -496,7 +491,7 @@
               </section>
             </div>
 
-            <div class="popup-bottom">
+            <!-- <div class="popup-bottom">
               <section class="Redes-Sociales">
                 <h2>
                   <svg
@@ -527,7 +522,7 @@
                   </li>
                 </ul>
               </section>
-            </div>
+            </div> -->
           </main>
         </div>
       </div>

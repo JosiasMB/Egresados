@@ -1,6 +1,6 @@
 export const ApiUrl = 'https://egresados-uasd-server.onrender.com/v1';
 export const ApiUrlv2 = 'https://egresados-uasd-server.onrender.com/v2';
-
+export const KeyId = 'JugoDeManzanaKlk';
 export const cloudinary = {
   upload_url: 'https://api.cloudinary.com/v1_1/egcss/image/upload',
   api_secret: 'dX-sQZGzfP4Qi_nz9zuIu2r5B74',

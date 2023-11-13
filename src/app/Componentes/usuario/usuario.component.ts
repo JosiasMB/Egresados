@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Egresado, IdiomaEgresado } from '../../Models/egresado.model';
 import { UsuarioService } from '../../Servicios/usuario.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HabilidadListService } from '../../Servicios/lista-habilidadades.service';
 import { Habilidad } from 'src/app/Models/habilidades.model';
 import { IdiomasListService } from 'src/app/Servicios/lista-idiomas.service';
@@ -39,6 +39,8 @@ export class UsuarioComponent implements OnInit {
     idiomaEgresado: [],
     egresadosHabilidad: [],
     direccionEgresado: [],
+    usuario: [],
+    Activo: true,
   };
   provincias: Provincia[] = [];
   habilidades: Habilidad[] = [];
@@ -58,6 +60,7 @@ export class UsuarioComponent implements OnInit {
   TipoTitulo: string = '';
 
   constructor(
+    public router: Router,
     private userService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private habilidadService: HabilidadListService,
@@ -72,12 +75,24 @@ export class UsuarioComponent implements OnInit {
       .subscribe(
         (data: Egresado) => {
           this.usuario = data;
+          if (this.usuario.usuario[0].roleId == 1) {
+            this.router.navigateByUrl(
+              `/admin/${this.usuario.usuario[0].roleId}`
+            );
+          }
         },
         (error) => {
           console.error('Error al cargar egresado', error);
         }
       );
   }
+
+  // loadUsuario() {
+  //   console.log(this.usuario);
+  //   if (this.usuario.usuario[0].roleId) {
+  //     this.router.navigateByUrl(`/admin/${this.usuario.usuario[0].roleId}`);
+  //   }
+  // }
   mostrarSlideMenu = false;
   mostrarContacto = false;
   mostrarHabilidad = false;
@@ -408,9 +423,12 @@ export class UsuarioComponent implements OnInit {
   deleteDireccion(id: number) {
     this.userService.deleteDireccion(id).subscribe(
       () => {
-        this.usuario.direccionEgresado = this.usuario.direccionEgresado.filter(
-          (direccion) => direccion.id != id
-        );
+        if (this.usuario.direccionEgresado.length > 0) {
+          this.usuario.direccionEgresado =
+            this.usuario.direccionEgresado.filter(
+              (direccion) => direccion.id != id
+            );
+        }
       },
       (error) => {
         console.error('Error deleting resource', error);
@@ -419,9 +437,10 @@ export class UsuarioComponent implements OnInit {
   }
 
   agregarDireccion(provincia: string, provinciaId: number, egresadoId: number) {
-    this.deleteDireccion(this.usuario.direccionEgresado[0].id);
     const data = { provincia, provinciaId, egresadoId };
-
+    if (this.usuario.direccionEgresado.length > 0) {
+      this.deleteDireccion(this.usuario.direccionEgresado[0].id);
+    }
     this.userService.agregarDireccion(data).subscribe((response: any) =>
       this.usuario.direccionEgresado.push({
         provincia,
@@ -430,6 +449,7 @@ export class UsuarioComponent implements OnInit {
         id: response.id,
       })
     );
+
     this.mostrarDireccion = false;
   }
 
@@ -459,36 +479,37 @@ export class UsuarioComponent implements OnInit {
   actualizarInformacionPrimariaDelUsuario(id: number) {
     this.showLoading = true;
 
-    const formData = this.userService.getProfilePicFormData(
-      this.imagen,
-      this.usuario.id
-    );
-    this.userService
-      .uploadEgresadoProfilePic(formData)
+    let uploadProfilePicObservable = of(null);
+
+    if (this.imagen) {
+      const formData = this.userService.getProfilePicFormData(
+        this.imagen,
+        this.usuario.id
+      );
+
+      uploadProfilePicObservable =
+        this.userService.uploadEgresadoProfilePic(formData);
+    }
+
+    uploadProfilePicObservable
       .pipe(
         switchMap((data: any) => {
-          this.imagen = data.url;
-
+          if (data) {
+            this.imagen = data.url;
+          } else {
+            this.imagen = this.usuario.profilePicUrl;
+          }
           if (!this.genero) {
             this.genero = this.usuario.Genero;
           }
           if (!this.primerNombre) {
             this.primerNombre = this.usuario.PrimerNombre;
           }
-          if (!this.segundoNombre) {
-            this.segundoNombre = this.usuario.SegundoNombre;
-          }
           if (!this.PrimerApellido) {
             this.PrimerApellido = this.usuario.PrimerApellido;
           }
           if (!this.SegundoApellido) {
             this.SegundoApellido = this.usuario.SegundoApellido;
-          }
-          if (!this.Cedula) {
-            this.Cedula = this.usuario.Cedula;
-          }
-          if (!this.Pasaporte) {
-            this.Pasaporte = this.usuario.Pasaporte;
           }
           if (!this.FechaNac) {
             this.FechaNac = this.usuario.FechaNac;
@@ -530,5 +551,9 @@ export class UsuarioComponent implements OnInit {
             this.showLoading = false;
           });
       });
+  }
+
+  settings(id: number) {
+    this.router.navigateByUrl(`/user-settings/${id}`);
   }
 }

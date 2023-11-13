@@ -1,55 +1,89 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
 
 * {
   box-sizing: border-box;
 }
-.container-destacados {
-  width: 70%;
+.container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px;
+}
+.container-destacados {
+  width: 100%;
+  display: flex;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
-  position: absolute;
   right: 0;
-  padding: 20px;
 }
 .encabezado {
   width: 100%;
-  margin-top: 200px;
+  margin-top: 70px;
   margin-bottom: 30px;
-  text-align: center;
-  padding-right: 15%;
 }
 .encabezado h1 {
   font-size: 1.6em;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
-  margin: 0;
+  margin: 15px 0;
   padding: 0;
   color: #444;
 }
+
+.ver-filtros {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  gap: 5px;
+}
+.ver-filtros input {
+  border: 1px solid #03a9f4;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0;
+}
+.ver-filtros button {
+  background-color: #007bff;
+  color: #ffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.5s;
+  font-family: "Montserrat";
+  font-size: 0.8rem !important;
+  letter-spacing: 1px;
+  width: fit-content;
+}
+
+.ver-filtros button:hover {
+  background-color: #0056b3;
+}
+
 .overlay-content h2 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: center;
   color: #fff;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: #00000057;
   font-weight: 400;
   position: absolute;
   top: -20px;
   width: 100%;
-  right: 2px;
-  padding: 7px;
+  right: 1px;
+  padding: 10px;
   letter-spacing: 1px;
 }
 .overlay-content p {
-  font-family: "Lato", sans-serif;
-
-  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
   line-height: 1.4;
   color: #fff;
   margin-bottom: 1.5rem;
@@ -63,7 +97,7 @@
 }
 
 .overlay-content p span {
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: block;
   font-size: 0.8rem;
   letter-spacing: 1px;
@@ -72,8 +106,8 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width: 350px;
-  height: 32em;
+  width: 250px;
+  height: 25em;
   border: none;
   transition: 0.3s ease-in-out;
   position: relative;
@@ -118,8 +152,8 @@
 }
 
 .inset {
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 130px;
   display: block;
   margin: 10px 0;
   margin: 10px auto;
@@ -142,15 +176,16 @@
 
 .text h3 {
   display: flex;
+  flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
   font-weight: 600;
   color: #444;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .text svg {
   margin: 5px 10px;
@@ -158,18 +193,18 @@
 
 .text p,
 .text h5 {
-  font-family: "Lato", sans-serif;
-  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   font-weight: 400;
   color: #444;
 }
 .text h5 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  margin: 50px 0 0 0;
+  margin: 40px 0 0 0;
   padding: 0%;
 }
 .text h5 svg {
@@ -311,19 +346,18 @@
 }
 .ver-perfil {
   width: fit-content;
-  text-transform: uppercase;
   padding: 8px 15px;
   cursor: pointer;
   border: none;
-  font-size: 0.8em;
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
+  border-radius: 10px;
+  font-size: 0.7em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   line-height: 20px;
-  border-radius: 3px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   transition: 0.5s;
   background: #fff;
-  color: #444;
+  color: #595656;
 }
 .ver-perfil:hover {
   background: #03a9f4;
@@ -334,18 +368,21 @@
 
 .popup {
   display: none;
+  opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(36, 34, 34, 0.769);
-  opacity: 0;
   transition: 0.8s ease;
   z-index: 200;
   padding-left: 10%;
 }
-
+.popup.visible {
+  display: block;
+  opacity: 1;
+}
 .popup-content {
   position: absolute;
   top: 55%;
@@ -387,7 +424,7 @@
 }
 .popup-content header h1 {
   font-size: 1.8rem;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   margin: 10px 0;
   text-align: center;
@@ -395,7 +432,7 @@
 
 .popup-content header h2 {
   font-size: 1.3rem;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin: 0 auto;
   margin-left: 25%;
@@ -437,7 +474,7 @@
 .popup-bottom h2 {
   text-align: left;
   font-size: 1.2rem;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin: 10px 0;
   letter-spacing: 1px;
@@ -456,7 +493,7 @@
 .popup-bottom ul li h3 {
   text-align: left;
   font-size: 1rem;
-  font-family: "Lato";
+  font-family: "Montserrat";
   font-weight: 700;
   margin: 8px 0;
   letter-spacing: 1px;
@@ -465,7 +502,7 @@
 .popup-middle ul li h4,
 .popup-bottom ul li h4 {
   font-size: 0.9rem;
-  font-family: "Lato";
+  font-family: "Montserrat";
   font-weight: 400;
   margin: 0;
   letter-spacing: 1px;
@@ -496,7 +533,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.8px;
   margin: 5px 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: #03a9f4;
   color: #fff;
 }
@@ -541,42 +578,16 @@
   background: #03a9f4;
   color: #fff;
 }
-.popup.visible {
-  display: block;
-  opacity: 1;
-}
-@media screen and (max-width: 1200px) {
-  .encabezado {
-    padding: 0;
-    text-align: center;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .container-destacados {
-    justify-content: center;
-  }
-}
 
 @media screen and (max-width: 800px) {
-  .encabezado {
-    width: 100%;
-    padding: 0;
-    margin-top: 140px;
-    text-align: left;
-    padding-left: 50px;
-    margin-left: 0%;
-  }
   .encabezado h1 {
     font-size: 1.3rem;
   }
   .wrap {
-    width: 280px;
-    height: 27em;
+    width: 200px;
+    height: 23em;
   }
 
-  .container-destacados {
-    width: 100%;
-  }
   .text {
     font-size: 1rem;
     padding: 1rem;
@@ -602,7 +613,7 @@
   }
   .popup-content header h2 {
     font-size: 1rem;
-    font-family: "Lato", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     margin: 0;
   }

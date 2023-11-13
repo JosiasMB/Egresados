@@ -5,9 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Componentes/header/header.component';
-import { HabilidadesComponent } from './Componentes/habilidades/habilidades.component';
-import { ProvinciasComponent } from './Componentes/provincias/provincias.component';
-import { CarreraComponent } from './Componentes/carrera/carrera.component';
 import { TargetasUsuariosComponent } from './Componentes/targetas-usuarios/targetas-usuarios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DestacadosComponent } from './Componentes/destacados/destacados.component';
@@ -22,14 +19,13 @@ import { FiltroHabilidades } from './Componentes/usuario/filtro-habilidad.pipe';
 import { FiltroIdioma } from './Componentes/usuario/filtro-idioma.pipe';
 import { FiltroProvincias } from './Componentes/usuario/filtro-provincia.pipe';
 import { LoadingComponent } from './Componentes/loading/loading.component';
+import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
+import { AdminComponent } from './Componentes/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HabilidadesComponent,
-    ProvinciasComponent,
-    CarreraComponent,
     TargetasUsuariosComponent,
     DestacadosComponent,
     FiltrosComponent,
@@ -40,6 +36,8 @@ import { LoadingComponent } from './Componentes/loading/loading.component';
     FiltroIdioma,
     FiltroProvincias,
     LoadingComponent,
+    UserSettingsComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

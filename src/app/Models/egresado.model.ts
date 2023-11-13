@@ -21,6 +21,8 @@ export interface Egresado {
   idiomaEgresado: IdiomaEgresado[];
   egresadosHabilidad: HabilidadEgresado[];
   direccionEgresado: DireccionEgresado[];
+  usuario: any;
+  Activo: Boolean;
 }
 
 export interface ExperienciaLaboralEgresado {

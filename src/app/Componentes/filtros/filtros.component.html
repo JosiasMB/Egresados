@@ -1,63 +1,160 @@
-<div class="filter-svg">
-  <button>
+<div class="filter-container" loading="lazy">
+  <button class="mostrarMenu">
     <svg
-      (click)="mostrarMenu()"
+      (click)="mostrarOcultar('mostrar')"
+      class="close"
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="#fff"
-      class="bi bi-funnel"
-      viewBox="0 0 16 16"
+      x="0px"
+      y="0px"
+      width="30"
+      height="30"
+      viewBox="0 0 48 48"
     >
       <path
-        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"
-      />
+        fill="#f44336"
+        d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+      ></path>
+      <path
+        fill="#fff"
+        d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+      ></path>
+      <path
+        fill="#fff"
+        d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+      ></path>
     </svg>
   </button>
-</div>
-<div
-  class="filter-container popup"
-  id="popup"
-  [ngClass]="{ visible }"
-  loading="lazy"
->
   <div class="filter-title">
-    <button>
-      <svg
-        (click)="mostrarMenu()"
-        id="close-button"
-        fill="#FFFFFF"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 50 50"
-        width="50px"
-        height="50px"
-      >
-        <path
-          d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
-        />
-      </svg>
-    </button>
     <h2>Filtrar por:</h2>
   </div>
-  <div class="filter-item">
-    <label for="graduationDate">Fecha graduación</label>
-    <input
-      type="date"
-      id="graduationDateFrom"
-      placeholder="Desde"
-      (change)="filtroEgresadoPorFecha()"
-    />
-    <input
-      type="date"
-      id="graduationDateTo"
-      placeholder="Hasta"
-      (change)="filtroEgresadoPorFecha()"
-    />
-  </div>
 
-  <div class="filter-item">
-    <app-carrera></app-carrera>
-    <app-habilidades> </app-habilidades>
-    <app-provincias></app-provincias>
+  <!-- Fechas -->
+  <div class="filter-item" *ngIf="!dateRangeDisabled">
+    <label
+      >Fecha graduación
+      <input type="date" id="graduationDateFrom" #fechaDesde />
+      <input type="date" id="graduationDateTo" #fechaHasta />
+    </label>
+  </div>
+  <div class="destacado-rango">
+    <label>
+      <input
+        type="checkbox"
+        name="sin-rango"
+        (change)="dateRangeDisabledCheck($event)"
+        [ngModel]="dateRangeDisabled"
+      />
+      Sin rango de fecha
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        name="destacado"
+        [ngModel]="destacado"
+        (change)="destacadoCheck($event)"
+      />
+      Destacados
+    </label>
+  </div>
+  <!-- Habilidades -->
+  <form name="habilidades" class="add-habilidades-main" loading="lazy">
+    <h2>Habilidades</h2>
+    <input
+      name="filtro"
+      type="text"
+      placeholder="Buscar"
+      class="add-habilidades-buscar"
+      [(ngModel)]="FiltroHabilidadInput"
+    />
+
+    <div class="all-habilidades">
+      <div
+        class="habilidades"
+        *ngFor="
+          let habilidad of habilidades
+            | filtroHabilidades : FiltroHabilidadInput
+        "
+      >
+        <label class="add-habilidades"
+          >{{ habilidad.habilidad }}
+          <input type="checkbox" (click)="filtrarHabilidades(habilidad.id)" />
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <!-- Carreras -->
+  <form name="carreras" class="add-habilidades-main" loading="lazy">
+    <h2>Carrera Universitaria</h2>
+    <div class="all-habilidades">
+      <div class="habilidades Carrera">
+        <label class="add-habilidades">
+          Licenciatura
+          <input
+            name="licenciatura"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="licenciatura"
+          />
+        </label>
+        <label class="add-habilidades">
+          Ingeniería
+          <input
+            name="ingenieria"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="ingenieria"
+          />
+        </label>
+        <label class="add-habilidades">
+          Maestría
+          <input
+            name="maestria"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="maestria"
+          />
+        </label>
+        <label class="add-habilidades">
+          Especialidad
+          <input
+            name="Especialidad"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="Especialidad"
+          />
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <!-- Provincias -->
+
+  <form name="provincias" class="add-habilidades-main" loading="lazy">
+    <h2>Provincia</h2>
+    <input
+      name="filtro"
+      type="text"
+      placeholder="Buscar"
+      class="add-habilidades-buscar"
+      [(ngModel)]="FiltroProvinciaInput"
+    />
+    <div class="all-habilidades">
+      <div
+        class="habilidades"
+        *ngFor="
+          let provincia of provincias | filtroProvincias : FiltroProvinciaInput
+        "
+      >
+        <label class="add-habilidades"
+          >{{ provincia.provincia }}
+          <input type="checkbox" (click)="filtrarProvincias(provincia.id)" />
+        </label>
+      </div>
+    </div>
+  </form>
+  <div class="filtrar-button">
+    <button (click)="aplicarDatosFiltros()">Aplicar Filtros</button>
+    <button (click)="limpiarFiltros('limpiarFiltros')">Limpiar Filtros</button>
   </div>
 </div>

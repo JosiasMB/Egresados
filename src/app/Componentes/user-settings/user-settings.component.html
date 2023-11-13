@@ -1,0 +1,70 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="main">
+  <div class="user-settings">
+    <img src="../../../assets/img/profile/logo.png" alt="" />
+    <h2>Configuración de Usuario</h2>
+    <form>
+      <div class="form-group">
+        <label for="password">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="Contraseña Nueva"
+            required
+          />
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
+            required
+            placeholder="Confirmar Contraseña"
+          />
+        </label>
+        <div *ngIf="password !== confirmPassword" class="error">
+          Las contraseñas no coinciden.
+        </div>
+      </div>
+      <div class="buttons">
+        <button
+          [disabled]="password !== confirmPassword"
+          (click)="guardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+        <button onclick="history.back()">
+          <svg
+            width="25px"
+            height="25px"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                clip-rule="evenodd"
+                d="M0 8C-1.93129e-07 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 1.93129e-07 8 0C3.58172 -1.93129e-07 1.93129e-07 3.58172 0 8ZM8 12V9H13V7L8 7V4H7L3 8L7 12H8Z"
+                fill="#ffffff"
+                fill-rule="evenodd"
+              ></path>
+            </g></svg
+          >Volver
+        </button>
+      </div>
+
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+</div>
