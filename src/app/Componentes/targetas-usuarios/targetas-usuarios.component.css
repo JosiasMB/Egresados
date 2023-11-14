@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 160px;
+  margin-top: 180px;
   margin-bottom: 0px;
   overflow-x: hidden;
 }
@@ -26,7 +26,7 @@
   margin: 0px;
   width: 60%;
   position: fixed;
-  top: 160px;
+  top: 200px;
   background: white;
 }
 .filtrar-egresados-nombre h1 {
