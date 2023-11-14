@@ -201,4 +201,20 @@ export class AdminComponent implements OnInit, AfterViewInit {
         }
       });
   }
+
+  obtenerUltimaPosicion(egresado: Egresado) {
+    const { experienciaLaboralEgresado } = egresado;
+    const ultimaPosicion = experienciaLaboralEgresado.filter(
+      (experiencia) => !experiencia.FechaSal
+    )[0];
+    return ultimaPosicion ? ultimaPosicion.posicion : 'No tiene experiencia';
+  }
+
+  obtenerUltimaEmpresa(egresado: Egresado) {
+    const { experienciaLaboralEgresado } = egresado;
+    const ultimaEmpresa = experienciaLaboralEgresado.filter(
+      (empresa) => empresa.empresa
+    )[0];
+    return ultimaEmpresa ? ultimaEmpresa.empresa : 'N/A';
+  }
 }

@@ -251,59 +251,62 @@
       </div>
     </div>
 
-    <div
-      class="tarjeta"
-      *ngFor="let egresado of egresados"
-      [ngClass]="{ ocultar: !egresado.Activo }"
-    >
-      <div class="img-perfil">
-        <img
-          [src]="egresado.profilePicUrl || 'assets/img/profile/avatar.png'"
-        />
-      </div>
-      <div class="info-perfil">
-        <h1>
-          {{
-            egresado.PrimerNombre +
-              " " +
-              egresado.PrimerApellido +
-              " " +
-              egresado.SegundoApellido
-          }}
-        </h1>
-        <p>Lincenciatura en Informatica</p>
-      </div>
-      <div class="desabilitar-perfil">
-        <button
-          *ngIf="egresado.Activo"
-          (click)="desabilidarPerfil(egresado.id)"
-        >
-          Ocultar
-        </button>
-        <button
-          *ngIf="!egresado.Activo"
-          (click)="desabilidarPerfil(egresado.id)"
-        >
-          Mostrar
-        </button>
+    <div class="container-tarjeta">
+      <div
+        class="tarjeta"
+        *ngFor="let egresado of egresados"
+        [ngClass]="{ ocultar: !egresado.Activo }"
+      >
+        <div class="img-perfil">
+          <img
+            [src]="egresado.profilePicUrl || 'assets/img/profile/avatar.png'"
+          />
+        </div>
+        <div class="info-perfil">
+          <h1>
+            {{
+              egresado.PrimerNombre +
+                " " +
+                egresado.PrimerApellido +
+                " " +
+                egresado.SegundoApellido
+            }}
+          </h1>
+          <p>{{ obtenerUltimaPosicion(egresado) }}</p>
+          <p>{{ obtenerUltimaEmpresa(egresado) }}</p>
+        </div>
+        <div class="desabilitar-perfil">
+          <button
+            *ngIf="egresado.Activo"
+            (click)="desabilidarPerfil(egresado.id)"
+          >
+            Ocultar
+          </button>
+          <button
+            *ngIf="!egresado.Activo"
+            (click)="desabilidarPerfil(egresado.id)"
+          >
+            Mostrar
+          </button>
 
-        <button *ngIf="candidatos" (click)="ocultar(egresado.id)">
-          Destacar
-        </button>
+          <button *ngIf="candidatos" (click)="ocultar(egresado.id)">
+            Destacar
+          </button>
 
-        <div
-          class="destacar"
-          [ngClass]="{ visible: egresadosDestacados[egresado.id] }"
-        >
-          <h2>Destar a {{ egresado.PrimerNombre }} por:</h2>
-          <textarea
-            name="descripcion"
-            [(ngModel)]="destacadoDescripcion"
-          ></textarea>
+          <div
+            class="destacar"
+            [ngClass]="{ visible: egresadosDestacados[egresado.id] }"
+          >
+            <h2>Destar a {{ egresado.PrimerNombre }} por:</h2>
+            <textarea
+              name="descripcion"
+              [(ngModel)]="destacadoDescripcion"
+            ></textarea>
 
-          <div class="botones">
-            <button (click)="destacarEgresado(egresado.id)">Enviar</button>
-            <button (click)="ocultar(egresado.id)">Cancelar</button>
+            <div class="botones">
+              <button (click)="destacarEgresado(egresado.id)">Enviar</button>
+              <button (click)="ocultar(egresado.id)">Cancelar</button>
+            </div>
           </div>
         </div>
       </div>

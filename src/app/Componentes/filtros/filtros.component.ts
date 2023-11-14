@@ -28,7 +28,7 @@ export class FiltrosComponent implements OnInit {
   @ViewChild('fechaHasta') fechaHasta: ElementRef | undefined;
 
   filters: any;
-  destacado: any;
+  destacado: Boolean = false;
 
   rangoFechaInicio: any;
   rangoFechaFin: any;

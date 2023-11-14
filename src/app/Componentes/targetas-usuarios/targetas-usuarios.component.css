@@ -6,7 +6,8 @@
   margin: 0;
   padding: 0;
 }
-.container-tarjetas {
+.container-tarjetas,
+.container-tarjetas-2 {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,13 +17,17 @@
   margin-bottom: 0px;
   overflow-x: hidden;
 }
+
 .filtrar-egresados-nombre {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin: 10px;
+  margin: 0px;
   width: 60%;
+  position: fixed;
+  top: 160px;
+  background: white;
 }
 .filtrar-egresados-nombre h1 {
   font-family: "Montserrat", sans-serif;
@@ -76,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0;
+  padding: 20px 0;
   margin: 0.5rem;
   background: rgb(0, 147, 218);
   background: linear-gradient(
@@ -84,32 +89,31 @@
     rgba(0, 147, 218, 1) 15%,
     rgba(255, 255, 255, 1) 16%
   );
-  height: 180px;
+  height: auto;
   border-radius: 10px;
 }
 .img-perfil {
-  width: 20%;
+  width: 30%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 0 10px;
+  padding: 0;
 }
 
 .tarjeta img {
-  width: 100%;
-  height: 100%;
   display: block;
-  height: 130px;
-  width: 130px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 20px;
 }
 
 .info-perfil {
   padding-top: 30px;
   width: 40%;
-  padding-left: 40px;
+  padding-left: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -157,29 +161,13 @@
 }
 
 .social-media {
-  width: 40%;
-  padding-right: 20px;
-  padding-top: 00px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.social-media h3 {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
+  width: 30%;
+  padding: 0;
 
-  margin: 0;
-}
-.social-media li {
-  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #898989;
-  font-family: "Montserrat";
 }
 
 .social-media ul {
@@ -188,26 +176,17 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 0;
 }
-.social-media li a {
-  width: 35px;
-  height: 35px;
+.social-media li {
+  text-align: center;
+  list-style: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background: transparent;
-  font-size: 1.5em;
-  color: #444;
-  text-decoration: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.social-media li a:hover {
-  background: #03a9f4;
-  color: #fff;
+  color: #898989;
+  font-family: "Montserrat";
 }
 
 /* Pop up */
@@ -316,8 +295,7 @@
   margin: 25px 0 0 0;
 }
 .popup-top h2,
-.popup-middle h2,
-.popup-bottom h2 {
+.popup-middle h2 {
   text-align: left;
   font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
@@ -329,14 +307,12 @@
 }
 
 .popup-top svg,
-.popup-middle svg,
-.popup-bottom svg {
+.popup-middle svg {
   margin: 0 5px 0 0;
 }
 
 .popup-top ul li h3,
-.popup-middle ul li h3,
-.popup-bottom ul li h3 {
+.popup-middle ul li h3 {
   text-align: left;
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
@@ -345,8 +321,7 @@
   letter-spacing: 1px;
 }
 .popup-top ul li h4,
-.popup-middle ul li h4,
-.popup-bottom ul li h4 {
+.popup-middle ul li h4 {
   font-size: 0.9rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 400px;
@@ -355,8 +330,7 @@
 }
 
 .popup-top ul li p,
-.popup-middle ul li p,
-.popup-bottom ul li p {
+.popup-middle ul li p {
   margin: 8px 0;
 }
 .Habilidades ul,
@@ -384,46 +358,6 @@
   color: #fff;
 }
 
-.popup-bottom {
-  margin-top: 20px;
-  grid-column: 1 / -1;
-  border-top: 5px solid #7bd5ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.popup-bottom ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.popup-bottom li a {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: transparent;
-  font-size: 1.5em;
-  color: #444;
-  text-decoration: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.popup-bottom li a:hover {
-  background: #03a9f4;
-  color: #fff;
-}
 .popup.visible {
   display: block;
   opacity: 1;
@@ -438,25 +372,16 @@ pagination-controls {
 /* Responsive */
 
 @media screen and (max-width: 800px) {
-  .tarjeta,
   pagination-controls,
   .tarjeta {
-    width: 80%;
-    padding: 0%;
+    width: 93%;
+    background: none;
   }
-
+  .tarjeta img,
   .info-perfil img {
     height: 70px;
     width: 70px;
-  }
-
-  .tarjeta h1 {
-    font-size: 1rem;
-  }
-  .social-media {
-    width: 40%;
-    padding-right: 5px;
-    padding-top: 40px;
+    margin: 0;
   }
 
   .text {
@@ -496,33 +421,34 @@ pagination-controls {
     flex-direction: column;
   }
 
-  .tarjeta {
-    width: 95%;
-    margin-right: 20px;
-    background: none;
-    height: 130px;
-  }
-
   .img-perfil {
     padding: 0%;
     width: 30%;
   }
   .img-perfil img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
   }
 
   .info-perfil {
-    width: 70%;
     padding: 0%;
+  }
+  .info-perfil a {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    margin: 9px 0 0 0;
+    line-height: 20px;
   }
 
   .tarjeta h1 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  .social-media {
-    display: none;
+  .tarjeta p,
+  .tarjeta p:nth-child(3) {
+    font-size: 12px;
+    margin: 0;
   }
+
   .filtrar-egresados-nombre {
     flex-direction: row;
     align-items: center;

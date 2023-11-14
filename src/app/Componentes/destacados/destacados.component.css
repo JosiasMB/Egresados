@@ -580,11 +580,21 @@
 }
 
 @media screen and (max-width: 800px) {
+  .container {
+    padding: 20px;
+  }
+  .container-destacados {
+    justify-content: center;
+    align-items: center;
+  }
+  .encabezado {
+    margin-top: 120px;
+  }
   .encabezado h1 {
     font-size: 1.3rem;
   }
   .wrap {
-    width: 200px;
+    width: 260px;
     height: 23em;
   }
 
