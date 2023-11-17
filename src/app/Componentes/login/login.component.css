@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+
+}
 .sign-in-container {
   transition: all 0.6s ease-in-out;
   padding: 0;
@@ -11,13 +16,20 @@
 .sign-in-container a {
   color: #333;
   font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 400;
   text-decoration: none;
   margin: 15px 0;
+  transition: 0.3s ease-in;
+}
+.sign-in-container a:hover {
+  color:  #0584ce;
+  
 }
 
 .sign-in-container button {
-  border-radius: 0;
-  border: 1px solid #0584ce;
+  border-radius: 5px;
+  border: none;
   background-color: #0584ce;
   color: #ffffff;
   font-size: 12px;
@@ -25,12 +37,12 @@
   padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  transition: 0.3s ease-in;
   cursor: pointer;
 }
 
-.sign-in-container button:active {
-  transform: scale(0.95);
+.sign-in-container button:hover {
+  background-color: #0559ce;
 }
 
 .sign-in-container button:focus {
@@ -45,6 +57,7 @@
   flex-direction: column;
   padding: 0 50px;
   width: 30%;
+  min-width: 400px;
   height: 500px;
   text-align: center;
   box-shadow: 0px 0px 5px #e6e5e5;
@@ -73,7 +86,6 @@
 }
 @media screen and (max-width: 800px) {
   .sign-in-container {
-    height: 100vh;
     align-items: normal;
     margin-top: 15%;
   }

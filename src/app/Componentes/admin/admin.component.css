@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 html,
 body {
@@ -18,10 +19,10 @@ body {
 
 .container {
   display: grid;
-  font-family: "Montserrat";
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 100vh;
+  padding: 0;
 }
 
 header {
@@ -82,7 +83,6 @@ aside ul li {
 }
 
 aside ul li button {
-  font-family: "Montserrat";
   background: none;
   color: #111111;
   border: none;
@@ -209,7 +209,6 @@ main {
 }
 
 .desabilitar-perfil button {
-  font-family: "Montserrat";
   background: #007bff;
   color: #ffff;
   border: none;
@@ -233,14 +232,12 @@ main {
   opacity: 0;
 }
 .destacar h2 {
-  font-family: "Montserrat";
   color: #ffff;
   letter-spacing: 1px;
   font-size: 1.5rem;
 }
 
 .destacar textarea {
-  font-family: "Montserrat";
 
   resize: vertical;
   min-height: 150px;
@@ -277,7 +274,50 @@ main {
 }
 
 @media screen and (max-width: 800px) {
-  .container {
-    padding: 50px;
+
+  aside {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    padding: 15px;
+    height: 130px;
   }
+  aside ul{
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: auto;
+    
+  }
+
+  aside ul li {
+    font-size: 14px;
+    width: 100px;  
+  }
+  
+  aside ul li button {
+    font-size: 10px;
+  }
+  aside ul li button svg{
+    width: 30px;
+    height: 30px;
+  }
+  aside ul li:last-child{
+    position: relative;
+    margin: 0;
+  }
+
+  main{
+    grid-column-start: 1;
+    padding-bottom: 130px;
+  }
+
+  .filtrar-egresados-nombre {
+    justify-content: center;
+    padding: 30px 0;
+    top: 175px;
+    right: 0;
+  }
+
 }

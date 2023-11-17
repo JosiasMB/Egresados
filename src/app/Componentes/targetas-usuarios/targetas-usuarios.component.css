@@ -1,6 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,300,100,700,600,900);
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,800);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,300,100,700,600,800,900);
 
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
 /* Usuarios */
 .container {
   margin: 0;
@@ -24,13 +27,13 @@
   align-items: center;
   gap: 20px;
   margin: 0px;
-  width: 60%;
+  width: 100%;
+  padding: 50px 20%;
   position: fixed;
-  top: 200px;
-  background: white;
+  top: 170px;
+  background: #fff;
 }
 .filtrar-egresados-nombre h1 {
-  font-family: "Montserrat", sans-serif;
   color: #525252;
   font-size: 1.7rem;
   text-transform: capitalize;
@@ -40,8 +43,9 @@
 .filtrar-egresados-nombre input {
   border: 1px solid #03a9f4;
   width: 100%;
+  max-width: 250px;
   height: 15px;
-  padding: 10px;
+  padding: 15px 20px;
   border-radius: 5px;
   margin: 0;
 }
@@ -66,7 +70,6 @@
   cursor: pointer;
   margin-top: 10px;
   transition: 0.5s;
-  font-family: "Montserrat";
   font-size: 0.8rem !important;
   letter-spacing: 1px;
   width: fit-content;
@@ -118,7 +121,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
   color: #444;
@@ -129,7 +131,6 @@
   cursor: pointer;
   border: 1px solid #03a9f4;
   font-size: 0.8em;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin: 10px 0 0 0;
   line-height: 20px;
@@ -143,7 +144,6 @@
   color: #fff;
 }
 .tarjeta h1 {
-  font-family: "Montserrat", sans-serif;
 
   font-weight: 800;
   font-size: 1.2rem;
@@ -152,7 +152,6 @@
 
 .tarjeta p {
   font-size: 15px;
-  font-family: "Montserrat", sans-serif;
 
   margin: 2px 0;
 }
@@ -186,7 +185,6 @@
   justify-content: center;
   align-items: center;
   color: #898989;
-  font-family: "Montserrat";
 }
 
 /* Pop up */
@@ -246,7 +244,6 @@
 }
 .popup-content header h1 {
   font-size: 1.8rem;
-  font-family: "Montserrat", sans-serif;
 
   font-weight: 800px;
   margin: 10px 0;
@@ -255,7 +252,6 @@
 
 .popup-content header h2 {
   font-size: 1.3rem;
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   margin: 0 auto;
   margin-left: 25%;
@@ -278,15 +274,13 @@
   text-align: left;
 }
 .popup-top,
-.popup-middle,
-.popup-bottom {
+.popup-middle {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 .popup-top ul,
-.popup-middle ul,
-.popup-bottom ul {
+.popup-middle ul{
   list-style: none;
   padding: 0;
   margin: 0%;
@@ -298,7 +292,6 @@
 .popup-middle h2 {
   text-align: left;
   font-size: 1.2rem;
-  font-family: "Montserrat", sans-serif;
   font-weight: 800px;
   margin: 10px 0;
   letter-spacing: 1px;
@@ -315,7 +308,6 @@
 .popup-middle ul li h3 {
   text-align: left;
   font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400px;
   margin: 8px 0;
   letter-spacing: 1px;
@@ -323,7 +315,6 @@
 .popup-top ul li h4,
 .popup-middle ul li h4 {
   font-size: 0.9rem;
-  font-family: "Montserrat", sans-serif;
   font-weight: 400px;
   margin: 0;
   letter-spacing: 1px;
@@ -353,7 +344,6 @@
   font-size: 0.8rem;
   letter-spacing: 0.8px;
   margin: 5px 0;
-  font-family: "Montserrat", sans-serif;
   background: #03a9f4;
   color: #fff;
 }
@@ -376,6 +366,9 @@ pagination-controls {
   .tarjeta {
     width: 93%;
     background: none;
+  }
+  .container-tarjetas-2{
+    margin-top: 140px;
   }
   .tarjeta img,
   .info-perfil img {
@@ -411,7 +404,6 @@ pagination-controls {
   }
   .popup-content header h2 {
     font-size: 1rem;
-    font-family: "Gabarito", sans-serif;
 
     font-weight: 400px;
     margin: 0;
@@ -450,21 +442,23 @@ pagination-controls {
   }
 
   .filtrar-egresados-nombre {
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
+    flex-direction: column;
+    gap: 20px;
     margin: 0px;
-    margin-bottom: 30px;
+    width: 100%;
+    padding: 40px 0;
+    position: fixed;
+    top: 120px;
+    background: #fff;
   }
-  .ver-filtros input {
-    display: none;
-  }
+ 
 
   .filtrar-egresados-nombre h1 {
     font-size: 1.4rem;
     margin: 0;
   }
   .ver-filtros {
+    padding-top: 15px;
     flex-direction: row;
     justify-content: center;
   }

@@ -30,6 +30,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   itemsPerPage: number = 9999999;
   totalItems: number = 0;
   candidatos: Boolean = false;
+  desabilitados: Boolean = false;
   destacadoDescripcion = '';
   showLoading: boolean = false;
   usuario: Egresado = {
@@ -66,6 +67,19 @@ export class AdminComponent implements OnInit, AfterViewInit {
     public router: Router
   ) {}
 
+  ngAfterViewInit(): void {
+    fromEvent(this.input.nativeElement, 'keyup')
+      .pipe(
+        filter(Boolean),
+        debounceTime(500),
+        distinctUntilChanged(),
+        tap((text) => {
+          this.loadEgresados(this.input.nativeElement.value);
+        })
+      )
+      .subscribe();
+  }
+
   ngOnInit() {
     this.loadEgresados();
 
@@ -81,18 +95,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
       );
   }
 
-  ngAfterViewInit(): void {
-    fromEvent(this.input.nativeElement, 'keyup')
-      .pipe(
-        filter(Boolean),
-        debounceTime(500),
-        distinctUntilChanged(),
-        tap((text) => {
-          this.loadEgresados(this.input.nativeElement.value);
-        })
-      )
-      .subscribe();
-  }
 
   logOut() {
     this.userService.logOut();
@@ -124,7 +126,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   candidatosFunction() {
-    this.candidatos = !this.candidatos;
+    this.candidatos = true;
+    this.desabilitados = false;
     let q = undefined;
     this.egresadoService.getCandidatos(this.currentPage, q).subscribe(
       (data: any) => {
@@ -168,6 +171,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   perfilesDesabilitados() {
+    this.desabilitados = true
     this.candidatos = false;
     let q = undefined;
     this.egresadoService

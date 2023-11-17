@@ -10,11 +10,13 @@ import { Egresado } from '../Models/egresado.model';
 export class EgresadoListService {
   constructor(private http: HttpClient) {}
 
+  
+
   filterEgresados(egresadosFilters: any, page?: any, q: any = undefined) {
     const params = new HttpParams()
       .set('destacados', egresadosFilters.destacados)
       .set('rangoFechaInicio', egresadosFilters.rangoFechaInicio || null)
-      .set('rangoFechaFin', egresadosFilters.rangoFechaFin || null)
+      .set('rangoFechaFin', egresadosFilters.rangoFechaFin ||  null)
       .set('habilidades', JSON.stringify(egresadosFilters.habilidades))
       .set('provincias', JSON.stringify(egresadosFilters.provincias))
       .set('tituloTipos', JSON.stringify(egresadosFilters.tituloTipos))

@@ -245,7 +245,7 @@
   </aside>
   <main>
     <div class="filtrar-egresados-nombre">
-      <h1>Egresados</h1>
+      <h1>Egresados <span *ngIf="candidatos">Destacados</span> <span *ngIf="desabilitados">Desabilitados</span> </h1>
       <div class="ver-filtros">
         <input type="text" placeholder="Buscar egresado por nombre" #search />
       </div>

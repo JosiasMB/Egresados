@@ -83,10 +83,11 @@ export class FiltrosComponent implements OnInit {
 
   destacadoCheck(event: any) {
     this.destacado = event.target.checked;
+   
   }
   dateRangeDisabledCheck(event: any) {
     this.dateRangeDisabled = event.target.checked;
-    console.log(this.dateRangeDisabled);
+
   }
 
   habilidadesFiltradas: any[] = [];
@@ -144,7 +145,7 @@ export class FiltrosComponent implements OnInit {
       destacados: this.destacado,
       rangoFechaInicio: this.fechaDesde?.nativeElement.value,
       rangoFechaFin: this.fechaHasta?.nativeElement.value,
-      dateRangeDisabled: false,
+      dateRangeDisabled:   this.dateRangeDisabled,
       habilidades: this.habilidadesFiltradas,
       provincias: this.provinviasFiltradas,
       tituloTipos: this.tituloTipos,

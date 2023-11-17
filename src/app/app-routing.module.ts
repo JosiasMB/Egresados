@@ -7,7 +7,7 @@ import { UsuarioComponent } from './Componentes/usuario/usuario.component';
 import { AuthGuard } from './authGuard';
 import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
 import { AdminComponent } from './Componentes/admin/admin.component';
-
+import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
 const routes: Routes = [
   { path: '', component: TargetasUsuariosComponent },
   { path: 'destacados', component: DestacadosComponent },
@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'admin/:id',
     component: AdminComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'recuperar_contrasena',
+    component: RecuperarPasswordComponent
   },
 ];
 

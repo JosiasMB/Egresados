@@ -21,6 +21,7 @@ import { FiltroProvincias } from './Componentes/usuario/filtro-provincia.pipe';
 import { LoadingComponent } from './Componentes/loading/loading.component';
 import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
 import { AdminComponent } from './Componentes/admin/admin.component';
+import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AdminComponent } from './Componentes/admin/admin.component';
     LoadingComponent,
     UserSettingsComponent,
     AdminComponent,
+    RecuperarPasswordComponent,
   ],
   imports: [
     BrowserModule,

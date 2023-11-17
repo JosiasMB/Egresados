@@ -32,6 +32,7 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   constructor(private egresadoService: EgresadoListService) {}
 
   ngAfterViewInit(): void {
+    console.log(this.input);
     fromEvent(this.input.nativeElement, 'keyup')
       .pipe(
         filter(Boolean),

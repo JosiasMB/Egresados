@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,600,900);
-
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
 .main {
   width: 100vw;
   height: 100vh;
@@ -29,7 +32,6 @@ img {
 }
 
 .user-settings h2 {
-  font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
 
   font-size: 1.5rem;
@@ -55,7 +57,6 @@ input[type="password"] {
   border-bottom: 1px solid #03a9f4;
   color: #a3a3a3;
   transition: 0.3s;
-  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   height: auto;
   width: 95%;
@@ -68,7 +69,6 @@ input[type="password"]:focus {
 
 .error {
   color: red;
-  font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
   font-size: 0.9rem;
   position: absolute;
@@ -76,7 +76,6 @@ input[type="password"]:focus {
 
 button {
   background-color: #007bff;
-  font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
   color: #fff;
   border: none;
@@ -125,7 +124,6 @@ button:disabled {
 }
 
 p {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 1rem;
   background: #09af00;
