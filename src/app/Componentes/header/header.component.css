@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Kanit:400,600,800);
 * {
   box-sizing: border-box;
-
 }
 header {
   top: 0;
@@ -70,10 +69,6 @@ header {
 #menu-button,
 #close-button {
   display: none;
-}
-
-.active {
-  display: block;
 }
 
 /* Responsive Design */

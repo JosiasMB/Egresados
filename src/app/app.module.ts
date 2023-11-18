@@ -22,6 +22,7 @@ import { LoadingComponent } from './Componentes/loading/loading.component';
 import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
 import { AdminComponent } from './Componentes/admin/admin.component';
 import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
+import { ResetComponent } from './Componentes/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RecuperarPasswordComponent } from './Componentes/recuperar-password/rec
     UserSettingsComponent,
     AdminComponent,
     RecuperarPasswordComponent,
+    ResetComponent,
   ],
   imports: [
     BrowserModule,

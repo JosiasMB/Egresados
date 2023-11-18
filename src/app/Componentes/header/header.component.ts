@@ -9,6 +9,10 @@ export class HeaderComponent {
   isActive: boolean = false;
 
   toggleMenu() {
-    this.isActive = !this.isActive;
+    const maxWidth = 800;
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= maxWidth) {
+      this.isActive = !this.isActive;
+    }
   }
 }

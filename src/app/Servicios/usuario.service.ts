@@ -59,74 +59,60 @@ export class UsuarioService {
   }
 
   login(email: string, password: string) {
-    const api = `${ApiUrlv2}/auth/login`;
-    return this.http.post(api, { email, password });
+    return this.http.post(`${ApiUrlv2}/auth/login`, { email, password });
   }
 
   // All delete Request
 
   deleteExperience(id: any) {
-    const api = `${ApiUrl}/ExperienciaLaboralEgresado/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/ExperienciaLaboralEgresado/${id}`);
   }
 
   deleteEducacion(id: any) {
-    const api = `${ApiUrl}/educacion/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/educacion/${id}`);
   }
 
   deleteContacto(id: any) {
-    const api = `${ApiUrl}/contacto/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/contacto/${id}`);
   }
 
   deleteHabilidades(id: any) {
-    const api = `${ApiUrl}/egresadosHabilidad/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/egresadosHabilidad/${id}`);
   }
 
   deleteIdioma(id: any) {
-    const api = `${ApiUrl}/idiomaEgresado/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/idiomaEgresado/${id}`);
   }
   deleteDireccion(id: any) {
-    const api = `${ApiUrl}/direccionEgresado/${id}`;
-    return this.http.delete(api);
+    return this.http.delete(`${ApiUrl}/direccionEgresado/${id}`);
   }
 
-  // All post
+  // All updates Request
   agregarIdioma(idioma: any) {
-    const api = `${ApiUrl}/idiomaEgresado`;
-    return this.http.post(api, idioma);
+    return this.http.post(`${ApiUrl}/idiomaEgresado`, idioma);
   }
 
   agregarHabilidad(habilidad: any) {
-    const api = `${ApiUrl}/egresadosHabilidad`;
-    return this.http.post(api, habilidad);
+    return this.http.post(`${ApiUrl}/egresadosHabilidad`, habilidad);
   }
 
   agregarExperience(experiencia: any) {
-    const api = `${ApiUrl}/ExperienciaLaboralEgresado`;
-    return this.http.post(api, experiencia);
+    return this.http.post(`${ApiUrl}/ExperienciaLaboralEgresado`, experiencia);
   }
 
   agregarEducacion(educacion: any) {
-    const api = `${ApiUrl}/educacion`;
-    return this.http.post(api, educacion);
+    return this.http.post(`${ApiUrl}/educacion`, educacion);
   }
 
   agregarContacto(contacto: any) {
-    const api = `${ApiUrl}/contacto`;
-    return this.http.post(api, contacto);
+    return this.http.post(`${ApiUrl}/contacto`, contacto);
   }
   agregarDireccion(direccion: any) {
-    const api = `${ApiUrl}/direccionEgresado`;
-    return this.http.post(api, direccion);
+    return this.http.post(`${ApiUrl}/direccionEgresado`, direccion);
   }
 
   actualizarInformacionPrimariaDelUsuario(informacion: any, id: number) {
-    const api = `${ApiUrl}/egresado/${id}`;
-    return this.http.patch(api, informacion);
+    return this.http.patch(`${ApiUrl}/egresado/${id}`, informacion);
   }
 
   getProfilePicFormData(image: any, egresadoId: number) {
@@ -174,8 +160,19 @@ export class UsuarioService {
     return this.http.post(cloudinary.upload_url, data);
   }
   cambiarContrasena(password: string, id: number) {
-    const api = `${ApiUrl}/usuario/${id}`;
     const body = { password: password };
-    return this.http.patch(api, body);
+    return this.http.patch(`${ApiUrl}/usuario/${id}`, body);
+  }
+
+  recuperarPassword(email: string): Observable<any> {
+    return this.http.put(`${ApiUrlv2}/auth/update-password`, { email });
+  }
+  setNewPassword(token: string, password: string): Observable<any> {
+    const headers = new HttpHeaders().set('reset', `${token}`);
+    return this.http.put(
+      `${ApiUrlv2}/auth/reset-password`,
+      { password },
+      { headers }
+    );
   }
 }

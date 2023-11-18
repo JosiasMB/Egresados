@@ -84,12 +84,11 @@ aside ul li {
 
 aside ul li button {
   background: none;
-  color: #111111;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.5s ease-in;
   letter-spacing: 1px;
   font-weight: 600;
   width: fit-content;
@@ -100,8 +99,17 @@ aside ul li button {
   gap: 5px;
   border-bottom: 3px solid transparent;
 }
-aside ul li button:hover {
-  border-bottom: 3px solid #868686;
+
+aside ul li button svg {
+  z-index: 5;
+  transition: 0.5s ease-in-out;
+}
+
+aside ul li button:hover svg path,
+aside ul li button:hover svg circle,
+aside ul li button:hover svg line {
+  fill: #0056b3;
+  stroke: #0056b3;
 }
 
 aside ul li:last-child {
@@ -125,6 +133,8 @@ main {
   position: absolute;
   background: #fff;
   z-index: 5;
+  padding: 20px 0;
+  top: 65px;
 }
 .filtrar-egresados-nombre h1 {
   color: #525252;
@@ -154,9 +164,10 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
-  padding: 0;
-
+  padding: 20px 0;
   border-radius: 10px;
 }
 
@@ -200,7 +211,7 @@ main {
 .tarjeta p:nth-child(3) {
   font-size: 13px;
 }
-.desabilitar-perfil {
+.botones-perfil {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -208,46 +219,46 @@ main {
   gap: 10px;
 }
 
-.desabilitar-perfil button {
+.botones-perfil button,
+.destacar button {
   background: #007bff;
-  color: #ffff;
+  color: #ffffff;
   border: none;
   padding: 10px 8px;
+  width: 110px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
   letter-spacing: 1px;
 }
 .destacar {
-  position: fixed;
+  width: 100%;
   display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  top: 0;
-  left: 0;
-  background: #000000b3;
-  width: 100vw;
-  height: 100vh;
   opacity: 0;
 }
+
 .destacar h2 {
-  color: #ffff;
+  color: #24a335;
   letter-spacing: 1px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0 0 15px 0;
 }
 
 .destacar textarea {
-
-  resize: vertical;
+  resize: none;
   min-height: 150px;
   max-height: 250px;
-  width: 50%;
+  width: 70%;
+  border: none;
   border-radius: 10px;
   color: #353535;
   font-size: 1rem;
   padding: 15px;
-  background: #e9e9e9;
+  background: #f9f9f9;
   font-weight: 400;
 }
 .destacar textarea:focus {
@@ -260,8 +271,9 @@ main {
   margin-top: 10px;
 }
 
-.desabilitar-perfil button:hover {
-  background: #0056b3;
+.botones-perfil button:hover,
+.destacar button:hover {
+  filter: brightness(0.7);
 }
 
 .ocultar {
@@ -273,51 +285,60 @@ main {
   opacity: 1;
 }
 
-@media screen and (max-width: 800px) {
+.active {
+  color: #0056b3;
+}
 
+.active svg path,
+.active svg circle,
+.active svg line {
+  fill: #0056b3;
+  stroke: #0056b3;
+}
+
+@media screen and (max-width: 800px) {
   aside {
     grid-column-start: 1;
     grid-column-end: 5;
     padding: 15px;
     height: 130px;
   }
-  aside ul{
+  aside ul {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0;
     height: auto;
-    
   }
 
   aside ul li {
     font-size: 14px;
-    width: 100px;  
+    width: 100px;
   }
-  
+
   aside ul li button {
     font-size: 10px;
   }
-  aside ul li button svg{
+  aside ul li button svg {
     width: 30px;
     height: 30px;
   }
-  aside ul li:last-child{
+  aside ul li:last-child {
     position: relative;
     margin: 0;
   }
 
-  main{
+  main {
     grid-column-start: 1;
+    grid-row-start: 2;
     padding-bottom: 130px;
   }
 
   .filtrar-egresados-nombre {
     justify-content: center;
-    padding: 30px 0;
-    top: 175px;
+    padding: 15px 20px;
+    top: 75px;
     right: 0;
   }
-
 }

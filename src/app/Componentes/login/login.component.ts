@@ -24,16 +24,32 @@ export class LoginComponent implements OnInit {
   showLoading: boolean = false;
 
   login() {
+    if (this.email == '' || this.password == '') {
+      alert('Correo o contraseña vacios');
+      return;
+    }
     this.showLoading = true;
-    this.usuarioService
-      .login(this.email, this.password)
-      .subscribe((data: any) => {
+    this.usuarioService.login(this.email, this.password).subscribe(
+      (data: any) => {
+        if (data.status == 401) {
+          alert('Correo o contraseña incorrectos');
+          this.showLoading = false;
+          return;
+        }
         const newDate = new Date();
         newDate.setMinutes(newDate.getMinutes() + 30);
         this.cookieService.set('token', data.token, newDate);
         this.userId(data.userId);
         this.router.navigateByUrl(`/usuario/${data.userId}`);
-      });
+      },
+      (error) => {
+        if (error.status == 401) {
+          alert('Correo o contraseña incorrectos');
+          this.showLoading = false;
+          return;
+        }
+      }
+    );
   }
 
   userId(id: any) {

@@ -31,6 +31,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   totalItems: number = 0;
   candidatos: Boolean = false;
   desabilitados: Boolean = false;
+  listaDestacados: Boolean = false;
+  inicio: Boolean = true;
   destacadoDescripcion = '';
   showLoading: boolean = false;
   usuario: Egresado = {
@@ -95,13 +97,15 @@ export class AdminComponent implements OnInit, AfterViewInit {
       );
   }
 
-
   logOut() {
     this.userService.logOut();
   }
 
   loadEgresados(q: any = null) {
+    this.listaDestacados = false;
+    this.inicio = true;
     this.candidatos = false;
+    this.desabilitados = false;
     this.egresadoService
       .getEgresadosPaginados(this.currentPage, this.itemsPerPage, q)
       .subscribe(
@@ -126,8 +130,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   candidatosFunction() {
+    this.inicio = false;
     this.candidatos = true;
     this.desabilitados = false;
+    this.listaDestacados = false;
     let q = undefined;
     this.egresadoService.getCandidatos(this.currentPage, q).subscribe(
       (data: any) => {
@@ -140,6 +146,28 @@ export class AdminComponent implements OnInit, AfterViewInit {
     );
   }
 
+  listaEgresadosDestacados() {
+    this.inicio = false;
+    this.listaDestacados = true;
+    this.candidatos = false;
+    this.desabilitados = false;
+    let q = undefined;
+    this.egresadoService
+      .getEgresadosPaginados(this.currentPage, this.itemsPerPage, q)
+      .subscribe(
+        (data: any) => {
+          this.totalItems = data.headers.get('X-Total-Count');
+          this.egresados = data.body;
+          this.egresados = this.egresados.filter(
+            (egresado: any) => egresado.destacado === true
+          );
+        },
+        (error) => {
+          console.error('Error al cargar los egresados', error);
+        }
+      );
+  }
+
   egresadosDestacados: { [key: number]: boolean } = {};
 
   ocultar(id: number) {
@@ -150,9 +178,36 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.egresadosDestacados[id] = true;
 
     if (this.destacadoDescripcion && this.destacadoDescripcion.trim() !== '') {
+      const confirmacion = confirm('¿Está seguro de destacar este egresado?');
+      if (confirmacion) {
+        const data = {
+          destacado: true,
+          descripcionDestacado: this.destacadoDescripcion,
+        };
+        this.userService
+          .actualizarInformacionPrimariaDelUsuario(data, id)
+          .subscribe((response: any) => {
+            if (response) {
+              alert('El usuario ha sido actualizado correctamente!...');
+              this.loadEgresados();
+              this.egresadosDestacados[id] = false;
+            } else {
+              alert('Ocurrió un error...');
+            }
+          });
+      }
+    } else {
+      alert('Debe ingresar una descripción para poder enviar!');
+    }
+  }
+
+  noDestacar(id: number) {
+    this.egresadosDestacados[id] = false;
+    const confirmacion = confirm('¿Está seguro de no destacar este egresado?');
+
+    if (confirmacion) {
       const data = {
-        destacado: true,
-        descripcionDestacado: this.destacadoDescripcion,
+        destacado: false,
       };
       this.userService
         .actualizarInformacionPrimariaDelUsuario(data, id)
@@ -160,18 +215,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
           if (response) {
             alert('El usuario ha sido actualizado correctamente!...');
             this.loadEgresados();
-            this.egresadosDestacados[id] = false;
           } else {
             alert('Ocurrio un error...');
           }
         });
-    } else {
-      alert('Debe ingresar una descripcion para poder enviar!');
     }
   }
 
   perfilesDesabilitados() {
-    this.desabilitados = true
+    this.inicio = false;
+    this.desabilitados = true;
+    this.listaDestacados = false;
     this.candidatos = false;
     let q = undefined;
     this.egresadoService
@@ -191,19 +245,22 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   desabilidarPerfil(id: number) {
     const newEgresado = this.egresados.filter((egre: any) => egre.id == id);
-    const data = {
-      Activo: !newEgresado[0].Activo,
-    };
-    this.userService
-      .actualizarInformacionPrimariaDelUsuario(data, id)
-      .subscribe((response: any) => {
-        if (response) {
-          alert('El usuario ha sido actualizado con exito!...');
-          this.loadEgresados();
-        } else {
-          alert('Ocurrio un error...');
-        }
-      });
+    const confirmacion = confirm('¿Está seguro de destacar este egresado?');
+    if (confirmacion) {
+      const data = {
+        Activo: !newEgresado[0].Activo,
+      };
+      this.userService
+        .actualizarInformacionPrimariaDelUsuario(data, id)
+        .subscribe((response: any) => {
+          if (response) {
+            alert('El usuario ha sido actualizado con exito!...');
+            this.loadEgresados();
+          } else {
+            alert('Ocurrio un error...');
+          }
+        });
+    }
   }
 
   obtenerUltimaPosicion(egresado: Egresado) {

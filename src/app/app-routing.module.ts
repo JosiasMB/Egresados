@@ -8,6 +8,7 @@ import { AuthGuard } from './authGuard';
 import { UserSettingsComponent } from './Componentes/user-settings/user-settings.component';
 import { AdminComponent } from './Componentes/admin/admin.component';
 import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
+import { ResetComponent } from './Componentes/reset/reset.component';
 const routes: Routes = [
   { path: '', component: TargetasUsuariosComponent },
   { path: 'destacados', component: DestacadosComponent },
@@ -28,7 +29,11 @@ const routes: Routes = [
   },
   {
     path: 'recuperar_contrasena',
-    component: RecuperarPasswordComponent
+    component: RecuperarPasswordComponent,
+  },
+  {
+    path: 'reset/:token',
+    component: ResetComponent,
   },
 ];
 

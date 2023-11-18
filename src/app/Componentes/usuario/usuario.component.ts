@@ -75,7 +75,7 @@ export class UsuarioComponent implements OnInit {
       .subscribe(
         (data: Egresado) => {
           this.usuario = data;
-          if (this.usuario.usuario[0].roleId == 1) {
+          if (this.usuario.usuario?.[0]?.roleId == 1) {
             this.router.navigateByUrl(
               `/admin/${this.usuario.usuario[0].roleId}`
             );
@@ -87,12 +87,6 @@ export class UsuarioComponent implements OnInit {
       );
   }
 
-  // loadUsuario() {
-  //   console.log(this.usuario);
-  //   if (this.usuario.usuario[0].roleId) {
-  //     this.router.navigateByUrl(`/admin/${this.usuario.usuario[0].roleId}`);
-  //   }
-  // }
   mostrarSlideMenu = false;
   mostrarContacto = false;
   mostrarHabilidad = false;
@@ -275,12 +269,10 @@ export class UsuarioComponent implements OnInit {
   verificarValorEnTiempoReal() {
     if (this.getTipoEntrada() === 'email') {
       if (!this.validarEmail(this.valor)) {
-        // El valor no es un correo electrónico válido, puedes mostrar un mensaje de error, por ejemplo.
         return '*** Correo electrónico no válido ***';
       }
     } else {
       if (!this.validarTelefono(this.valor)) {
-        // El valor no es un número de teléfono válido, puedes mostrar un mensaje de error.
         return '*** Número de teléfono no válido ***';
       }
     }

@@ -1,10 +1,8 @@
-*{
+* {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-
 }
 .sign-in-container {
-  transition: all 0.6s ease-in-out;
   padding: 0;
   margin: 0;
   display: flex;
@@ -23,8 +21,7 @@
   transition: 0.3s ease-in;
 }
 .sign-in-container a:hover {
-  color:  #0584ce;
-  
+  color: #0584ce;
 }
 
 .sign-in-container button {
@@ -56,8 +53,9 @@
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
-  width: 30%;
+  width: 50%;
   min-width: 400px;
+  max-width: 1000px;
   height: 500px;
   text-align: center;
   box-shadow: 0px 0px 5px #e6e5e5;
@@ -87,7 +85,7 @@
 @media screen and (max-width: 800px) {
   .sign-in-container {
     align-items: normal;
-    margin-top: 15%;
+    margin-top: 25%;
   }
   .sign-in-container form {
     padding: 0 30px;

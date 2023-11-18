@@ -38,6 +38,8 @@
         />
       </svg>
       <li><a href="/" (click)="toggleMenu()">Inicio</a></li>
+
+      <li><a routerLink="/destacados" (click)="toggleMenu()">Destacados</a></li>
       <li>
         <a
           href="https://uasd.edu.do/estudiantes/"
@@ -46,58 +48,7 @@
           >Servicios</a
         >
       </li>
-      <li><a routerLink="/destacados" (click)="toggleMenu()">Destacados</a></li>
       <li><a href="/login" (click)="toggleMenu()">Login</a></li>
     </ul>
   </nav>
 </header>
-
-<!-- 
-<header>
-  <nav class="menu">
-    <div class="logo">
-      <img
-        class=""
-        src="https://uasd.edu.do/wp-content/themes/pagina/img/logo_uasd.svg"
-        alt=""
-      />
-      <span class="logoT">EGRESADOS</span>
-      <button class="icon">
-        <svg
-          (click)="mostrarMenu()"
-          id="menu-button"
-          fill="#FFFFFF"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 50 50"
-          width="50px"
-          height="50px"
-        >
-          <path
-            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"
-          />
-        </svg>
-      </button>
-    </div>
-    <ul id="popup" class="popup" [ngClass]="{ visible }">
-      <svg
-        (click)="mostrarMenu()"
-        id="close-button"
-        fill="#FFFFFF"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 50 50"
-        width="50px"
-        height="50px"
-      >
-        <path
-          d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
-        />
-      </svg>
-      <li><a href="./">Inicio</a></li>
-      <li>
-        <a href="https://uasd.edu.do/estudiantes/" target="_blank">Servicios</a>
-      </li>
-      <li><a routerLink="/destacados">Destacados</a></li>
-      <li><a href="./Login/">Login</a></li>
-    </ul>
-  </nav>
-</header> -->

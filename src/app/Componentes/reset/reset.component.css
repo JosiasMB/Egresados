@@ -10,10 +10,17 @@
   justify-content: center;
   align-items: center;
 }
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .user-settings {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 500px;
   height: 500px;
@@ -22,7 +29,6 @@
   padding: 20px;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 img {
   width: 80%;
@@ -32,7 +38,7 @@ img {
 
 .user-settings h2 {
   letter-spacing: 1px;
-
+  font-weight: 600;
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 40px;
@@ -58,7 +64,7 @@ input[type="password"] {
   transition: 0.3s;
   font-size: 1rem;
   height: auto;
-  width: 95%;
+  width: 100%;
 }
 input[type="password"]:focus {
   outline: none;
@@ -79,16 +85,12 @@ button {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 10px 10px;
-  width: 180px;
-  height: 50px;
+  padding: 15px 25px;
+  width: auto;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  margin: 0 auto;
 }
 button:hover {
   background-color: #0967cb;
@@ -105,23 +107,6 @@ button:disabled {
   flex-wrap: wrap;
   gap: 10px;
 }
-
-/* Media Queries for Responsiveness */
-
-@media screen and (max-width: 768px) {
-  .user-settings {
-    max-width: 95%;
-    padding: 10px;
-    box-shadow: none;
-  }
-  .buttons {
-    justify-content: center;
-  }
-  .user-settings h2 {
-    font-size: 1.3rem;
-  }
-}
-
 p {
   font-weight: 600;
   font-size: 1rem;
@@ -132,7 +117,28 @@ p {
   border-radius: 5px;
   color: white;
   letter-spacing: 1px;
-  position: absolute;
-  bottom: 0px;
   width: 90%;
+}
+a {
+  text-align: center;
+  color: #084280;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #2f90f9;
+}
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+  .user-settings {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .user-settings h2 {
+    font-size: 1.3rem;
+  }
 }
