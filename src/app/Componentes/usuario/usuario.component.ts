@@ -60,7 +60,7 @@ export class UsuarioComponent implements OnInit {
   TipoTitulo: string = '';
 
   constructor(
-    public router: Router,
+    private router: Router,
     private userService: UsuarioService,
     private activatedRoute: ActivatedRoute,
     private habilidadService: HabilidadListService,

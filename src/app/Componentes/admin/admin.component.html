@@ -124,11 +124,13 @@
           [ngClass]="{ active: desabilitados }"
         >
           <svg
-            width="45px"
-            height="45px"
-            viewBox="0 0 48 48"
-            fill="#ffff"
+            width="40px"
+            height="40px"
+            viewBox="-0.08 0 60.031 60.031"
+            data-name="remove user"
+            id="remove_user"
             xmlns="http://www.w3.org/2000/svg"
+            fill="#000000"
           >
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g
@@ -137,40 +139,36 @@
               stroke-linejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
-              <circle
-                cx="24"
-                cy="12"
-                r="8"
-                fill="#ffffff"
-                stroke="#737373"
-                stroke-width="4.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></circle>
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: #737373;
+                  }
+                  .cls-1,
+                  .cls-2 {
+                    fill-rule: evenodd;
+                  }
+                  .cls-2 {
+                    fill: #737373;
+                  }
+                </style>
+              </defs>
               <path
-                d="M42 44C42 34.0589 33.9411 26 24 26C14.0589 26 6 34.0589 6 44"
-                stroke="#737373"
-                stroke-width="4.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                class="cls-1"
+                d="M813.732,711.059c-0.515,2.6-1.1,5.991-2.857,5.991a1.622,1.622,0,0,1-.568-0.122c-0.594,1.447-1.291,4.5-2.08,5.969a17.955,17.955,0,0,0-3.618,27.1H770s1.522-8.425,4.2-8.986c16.79-3.523,17.786-12.908,17.786-12.908v-4.839c-0.875-1.261-1.643-4.763-2.289-6.338a1.622,1.622,0,0,1-.568.122c-1.759,0-2.342-3.389-2.857-5.991a6.631,6.631,0,0,1-.02-3.266c0-.123-0.021-0.248-0.021-0.37,0-9.285,3.642-16.34,11.773-17.321,0,0,1.306-.069,1.906-0.107,0.44,0.036,2.094.107,2.094,0.107,8.131,0.981,11.773,8.036,11.773,17.321,0,0.122-.019.247-0.021,0.37A6.631,6.631,0,0,1,813.732,711.059ZM800,689.974h0a0.672,0.672,0,1,1-.094.021C799.755,689.983,799.745,689.974,800,689.974Z"
+                data-name="user copy"
+                id="user_copy"
+                transform="translate(-770 -689.969)"
               ></path>
               <path
-                d="M20 36L28 44"
-                stroke="#737373"
-                stroke-width="4.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M28 36L20 44"
-                stroke="#737373"
-                stroke-width="4.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                class="cls-2"
+                d="M817.875,726a12,12,0,1,1-12,12A12,12,0,0,1,817.875,726ZM812,740h12a2,2,0,0,0,0-4H812A2,2,0,0,0,812,740Z"
+                id="remove"
+                transform="translate(-770 -689.969)"
               ></path>
             </g>
           </svg>
-          Perfiles Desabilitados
+          Perfiles Deshabilitados
         </button>
       </li>
       <li>
@@ -250,7 +248,7 @@
               <g id="Laptop"></g>
             </g>
           </svg>
-          Configuracion
+          Configuración
         </button>
       </li>
       <li>
@@ -288,7 +286,7 @@
         Egresados
         <span *ngIf="listaDestacados">Destacados</span>
         <span *ngIf="candidatos">con Excelencia</span>
-        <span *ngIf="desabilitados">Desabilitados</span>
+        <span *ngIf="desabilitados">Deshabilitados</span>
       </h1>
       <div class="ver-filtros">
         <input type="text" placeholder="Buscar egresado por nombre" #search />

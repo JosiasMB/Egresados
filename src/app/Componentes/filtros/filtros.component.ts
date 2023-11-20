@@ -83,11 +83,9 @@ export class FiltrosComponent implements OnInit {
 
   destacadoCheck(event: any) {
     this.destacado = event.target.checked;
-   
   }
   dateRangeDisabledCheck(event: any) {
     this.dateRangeDisabled = event.target.checked;
-
   }
 
   habilidadesFiltradas: any[] = [];
@@ -122,6 +120,8 @@ export class FiltrosComponent implements OnInit {
   ingenieria: boolean = false;
   maestria: boolean = false;
   Especialidad: boolean = false;
+  Doctorado: boolean = false;
+  Tecnico: boolean = false;
   tituloTipos: any[] = [];
 
   filtrarNiveldeEstudios() {
@@ -145,7 +145,7 @@ export class FiltrosComponent implements OnInit {
       destacados: this.destacado,
       rangoFechaInicio: this.fechaDesde?.nativeElement.value,
       rangoFechaFin: this.fechaHasta?.nativeElement.value,
-      dateRangeDisabled:   this.dateRangeDisabled,
+      dateRangeDisabled: this.dateRangeDisabled,
       habilidades: this.habilidadesFiltradas,
       provincias: this.provinviasFiltradas,
       tituloTipos: this.tituloTipos,

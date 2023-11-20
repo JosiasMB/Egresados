@@ -245,7 +245,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   desabilidarPerfil(id: number) {
     const newEgresado = this.egresados.filter((egre: any) => egre.id == id);
-    const confirmacion = confirm('¿Está seguro de destacar este egresado?');
+    const confirmacion = confirm('¿Está seguro de continuar con la accion?');
     if (confirmacion) {
       const data = {
         Activo: !newEgresado[0].Activo,

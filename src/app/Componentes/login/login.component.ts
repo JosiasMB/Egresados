@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         newDate.setMinutes(newDate.getMinutes() + 30);
         this.cookieService.set('token', data.token, newDate);
         this.userId(data.userId);
-        this.router.navigateByUrl(`/usuario/${data.userId}`);
+        this.router.navigateByUrl(`/Home/${data.userId}`);
       },
       (error) => {
         if (error.status == 401) {

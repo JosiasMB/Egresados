@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
 /* Usuarios */
 .container {
@@ -18,7 +19,6 @@
   align-items: center;
   margin-top: 180px;
   margin-bottom: 0px;
-  overflow-x: hidden;
 }
 
 .filtrar-egresados-nombre {
@@ -32,6 +32,7 @@
   position: fixed;
   top: 135px;
   background: #fff;
+  z-index: 2;
 }
 .filtrar-egresados-nombre h1 {
   color: #525252;
@@ -94,9 +95,23 @@
   );
   height: auto;
   border-radius: 10px;
+  animation: aparecer linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 20%;
 }
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 50px;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
 .img-perfil {
-  width: 20%;
+  width: 30%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -159,7 +174,7 @@
 }
 
 .social-media {
-  width: 40%;
+  width: 30%;
   padding: 0;
 
   display: flex;
@@ -359,6 +374,12 @@ pagination-controls {
 }
 
 /* Responsive */
+@media screen and (max-width: 1000px) {
+  pagination-controls,
+  .tarjeta {
+    width: 80%;
+  }
+}
 
 @media screen and (max-width: 800px) {
   pagination-controls,
@@ -368,6 +389,7 @@ pagination-controls {
   }
   .container-tarjetas-2 {
     margin-top: 140px;
+    width: 95%;
   }
   .tarjeta img,
   .info-perfil img {

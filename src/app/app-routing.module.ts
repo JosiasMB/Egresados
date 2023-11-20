@@ -9,6 +9,7 @@ import { UserSettingsComponent } from './Componentes/user-settings/user-settings
 import { AdminComponent } from './Componentes/admin/admin.component';
 import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
 import { ResetComponent } from './Componentes/reset/reset.component';
+import { HomeComponent } from './Componentes/home/home.component';
 const routes: Routes = [
   { path: '', component: TargetasUsuariosComponent },
   { path: 'destacados', component: DestacadosComponent },
@@ -19,8 +20,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'Home/:id',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'user-settings/:id',
     component: UserSettingsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/:id',

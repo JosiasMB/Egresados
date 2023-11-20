@@ -5,9 +5,39 @@
     <ul>
       <span class="nav-cerrar"> </span>
       <li>
+        <a name="Inicio" class="settings">
+          <svg
+            onclick="history.back()"
+            width="45px"
+            height="45px"
+            viewBox="0 0 24.00 24.00"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#ffffff"
+            stroke-width="0.00024000000000000003"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M21.4498 10.275L11.9998 3.1875L2.5498 10.275L2.9998 11.625H3.7498V20.25H20.2498V11.625H20.9998L21.4498 10.275ZM5.2498 18.75V10.125L11.9998 5.0625L18.7498 10.125V18.75H14.9999V14.3333L14.2499 13.5833H9.74988L8.99988 14.3333V18.75H5.2498ZM10.4999 18.75H13.4999V15.0833H10.4999V18.75Z"
+                fill="#ffffff"
+              ></path>
+            </g>
+          </svg>
+          Inicio
+        </a>
+      </li>
+      <li>
         Bienvenido:<span> {{ usuario.PrimerNombre }}</span>
       </li>
-      <li class="slide-menu-icon">
+      <!-- <li class="slide-menu-icon">
         <svg
           (click)="mostrarModal('mostrarSlideMenu')"
           version="1.1"
@@ -46,8 +76,9 @@
             </g>
           </g>
         </svg>
-      </li>
-      <div class="slide-menu" *ngIf="mostrarSlideMenu">
+      </li> -->
+
+      <!-- <div class="slide-menu" *ngIf="mostrarSlideMenu">
         <svg
           (click)="mostrarModal('mostrarSlideMenu')"
           width="25px"
@@ -92,6 +123,36 @@
           </g>
         </svg>
         <li>
+          <a name="Inicio" class="settings">
+            <svg
+              onclick="history.back()"
+              width="45px"
+              height="45px"
+              viewBox="0 0 24.00 24.00"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#ffffff"
+              stroke-width="0.00024000000000000003"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M21.4498 10.275L11.9998 3.1875L2.5498 10.275L2.9998 11.625H3.7498V20.25H20.2498V11.625H20.9998L21.4498 10.275ZM5.2498 18.75V10.125L11.9998 5.0625L18.7498 10.125V18.75H14.9999V14.3333L14.2499 13.5833H9.74988L8.99988 14.3333V18.75H5.2498ZM10.4999 18.75H13.4999V15.0833H10.4999V18.75Z"
+                  fill="#ffffff"
+                ></path>
+              </g>
+            </svg>
+            Inicio
+          </a>
+        </li>
+        <li>
           <a name="settings" class="settings">
             <svg
               (click)="settings(usuario.id)"
@@ -126,7 +187,7 @@
                 </g>
               </g>
             </svg>
-            Configuracion
+            Configuración
           </a>
         </li>
 
@@ -146,7 +207,7 @@
             Salir
           </a>
         </li>
-      </div>
+      </div> -->
     </ul>
   </nav>
   <div class="popup-content">
@@ -249,7 +310,7 @@
                 </g>
               </g>
             </svg>
-            &nbsp; Informacion Personal
+            &nbsp; Información Personal
           </h2>
           <label
             >Primer Nombre
@@ -511,11 +572,7 @@
           </button>
         </div>
 
-        <form
-          *ngIf="mostrarExperiencia"
-          class="onTop"
-          name="Agregar-Experiencia"
-        >
+        <form *ngIf="mostrarExperiencia" name="Agregar-Experiencia">
           <svg
             class="close"
             (click)="mostrarModal('mostrarExperiencia')"
@@ -885,7 +942,7 @@
         </div>
         <form
           *ngIf="mostrarEducacion"
-          class="onTop educacion"
+          class="educacion"
           name="agregar-educacion"
         >
           <svg
@@ -1080,7 +1137,7 @@
       </form>
       <!-- contacto -->
       <form class="main-content" name="contacto">
-        <form *ngIf="mostrarContacto" class="onTop" name="agregar-contacto">
+        <form *ngIf="mostrarContacto" name="agregar-contacto" class="onTop">
           <svg
             class="close"
             (click)="mostrarModal('mostrarContacto')"

@@ -28,6 +28,7 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   itemsPerPage: number = 10;
   totalPages: number = 0;
   totalItems: number = 0;
+  loading: boolean = false;
 
   constructor(private egresadoService: EgresadoListService) {}
 
@@ -90,8 +91,8 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
 
   pageChanged($event: number) {
     this.currentPage = $event;
-
     this.loadEgresados();
+    window.scrollTo(0, 0); // Scroll to top of the page
   }
 
   mostrarOcultarFiltros: Boolean = false;

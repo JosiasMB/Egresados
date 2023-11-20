@@ -23,6 +23,7 @@ import { UserSettingsComponent } from './Componentes/user-settings/user-settings
 import { AdminComponent } from './Componentes/admin/admin.component';
 import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
 import { ResetComponent } from './Componentes/reset/reset.component';
+import { HomeComponent } from './Componentes/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ResetComponent } from './Componentes/reset/reset.component';
     AdminComponent,
     RecuperarPasswordComponent,
     ResetComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

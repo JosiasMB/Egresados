@@ -58,7 +58,7 @@
   </div>
   <!-- Habilidades -->
   <form name="habilidades" class="add-habilidades-main" loading="lazy">
-    <h2>Habilidades</h2>
+    <h2>Habilidades Populares</h2>
     <input
       name="filtro"
       type="text"
@@ -88,6 +88,15 @@
     <h2>Grado Academico</h2>
     <div class="all-habilidades">
       <div class="habilidades Carrera">
+        <label class="add-habilidades">
+          Tecnico
+          <input
+            name="Tecnico"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="Tecnico"
+          />
+        </label>
         <label class="add-habilidades">
           Licenciatura
           <input
@@ -122,6 +131,15 @@
             type="checkbox"
             (change)="filtrarNiveldeEstudios()"
             [(ngModel)]="Especialidad"
+          />
+        </label>
+        <label class="add-habilidades">
+          Doctorado
+          <input
+            name="Doctorado"
+            type="checkbox"
+            (change)="filtrarNiveldeEstudios()"
+            [(ngModel)]="Doctorado"
           />
         </label>
       </div>

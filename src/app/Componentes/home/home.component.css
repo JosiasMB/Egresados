@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,400,500,600,800);
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+header {
+  margin: 30px 0;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 15px 0;
+  animation: onLogin ease-in-out;
+  animation-duration: 2s;
+}
+main h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(11, 11, 139);
+}
+main p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgb(107, 107, 107);
+}
+
+footer {
+  margin: 30px 0;
+  padding: 0;
+}
+footer ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+footer ul li {
+  cursor: pointer;
+  list-style: none;
+  width: 140px;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 5dvb;
+  animation: onLogin ease-in-out;
+}
+footer ul li:hover {
+  filter: contrast(1.5);
+}
+
+footer a {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+footer ul li:nth-child(1) {
+  background: #17c307;
+  animation-duration: 1s;
+}
+
+footer ul li:nth-child(2) {
+  background: #0363d8;
+  animation-duration: 2s;
+}
+
+footer ul li:nth-child(3) {
+  background: #e00808;
+  animation-duration: 3s;
+}
+
+@keyframes onLogin {
+  from {
+    filter: contrast(0.1);
+  }
+  to {
+    filter: contrast(1);
+  }
+}
+@media screen and (max-width: 500px) {
+  header {
+    font-size: 0.7rem;
+  }
+  main img {
+    width: 90px;
+    height: 90px;
+  }
+  main h2 {
+    font-size: 1.1rem;
+  }
+  main p {
+    font-size: 0.8rem;
+  }
+  footer ul {
+    flex-direction: column;
+  }
+}

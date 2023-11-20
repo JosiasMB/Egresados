@@ -30,6 +30,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
   gap: 0px;
   z-index: 200;
 }
@@ -39,9 +40,21 @@ nav li {
   color: #fff;
   font-size: 0.75rem;
   letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 nav li span {
   font-size: 1.1rem;
+}
+nav ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 35px;
 }
 
 nav svg {
@@ -51,7 +64,7 @@ nav svg {
   transition: 0.5s;
 }
 
-.slide-menu-icon {
+/* .slide-menu-icon {
   position: absolute;
   right: 50px;
 }
@@ -84,7 +97,7 @@ nav svg {
   right: 25px;
   top: 20px;
   z-index: 300;
-}
+} */
 
 .file {
   opacity: 0;
@@ -127,8 +140,21 @@ form {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  animation: aparecer linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
 header {
   display: flex;
   flex-direction: column;
@@ -161,6 +187,7 @@ header div form {
   display: flex;
   justify-content: center;
   padding: 20px;
+  gap: 15px;
 }
 header div form label {
   font-size: 1rem;
@@ -169,7 +196,6 @@ header div form label {
 header div form input,
 header div form select,
 main input {
-  margin-bottom: 20px;
   padding: 5px;
   border: none;
   border-bottom: 1px solid #03a9f4;
@@ -177,7 +203,12 @@ main input {
   transition: 0.3s;
   font-size: 1rem;
   height: auto;
-  width: 95%;
+  width: 100%;
+}
+
+main div input,
+header div form select {
+  width: auto;
 }
 .educacion input[type="checkbox"] {
   width: 20px;
@@ -474,11 +505,8 @@ button.actualizar-informacion-basica-del-perfil:hover {
 }
 
 @media screen and (max-width: 800px) {
-  .slide-menu {
-    width: 100%;
-  }
   form {
-    width: 80%;
+    width: 90%;
   }
   .onTop {
     left: 5%;
@@ -496,7 +524,7 @@ button.actualizar-informacion-basica-del-perfil:hover {
     padding: 20px;
     padding-top: 0px;
     left: 14%;
-    width: 259px;
+    width: 70%;
   }
 
   .contacto span,

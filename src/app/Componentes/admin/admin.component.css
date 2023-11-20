@@ -100,16 +100,12 @@ aside ul li button {
   border-bottom: 3px solid transparent;
 }
 
-aside ul li button svg {
-  z-index: 5;
-  transition: 0.5s ease-in-out;
-}
-
 aside ul li button:hover svg path,
 aside ul li button:hover svg circle,
 aside ul li button:hover svg line {
   fill: #0056b3;
   stroke: #0056b3;
+  transition: 400ms ease-in-out;
 }
 
 aside ul li:last-child {
@@ -121,7 +117,7 @@ aside ul li:last-child {
 main {
   grid-column-start: 2;
   grid-column-end: 5;
-  padding: 20px;
+  padding: 20px 20px 150px 20px;
   overflow-y: scroll;
 }
 
@@ -169,6 +165,9 @@ main {
   gap: 10px;
   padding: 20px 0;
   border-radius: 10px;
+  animation: aparecer linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
 }
 
 .img-perfil {
@@ -241,11 +240,11 @@ main {
 }
 
 .destacar h2 {
-  color: #24a335;
+  color: #303030;
   letter-spacing: 1px;
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin: 0 0 15px 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 20px 0 15px 0;
 }
 
 .destacar textarea {
@@ -296,6 +295,17 @@ main {
   stroke: #0056b3;
 }
 
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 30px;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 800px) {
   aside {
     grid-column-start: 1;
@@ -338,7 +348,7 @@ main {
   .filtrar-egresados-nombre {
     justify-content: center;
     padding: 15px 20px;
-    top: 75px;
+    top: 65px;
     right: 0;
   }
 }

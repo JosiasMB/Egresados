@@ -1,8 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,600,800);
-*{
+* {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-
 }
 
 .filter-container {
@@ -99,7 +98,7 @@
 
 .add-habilidades-main h2 {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
@@ -171,7 +170,7 @@
   margin: 0;
 }
 .Carrera {
-  margin: 30px 0;
+  margin: 55px 0;
 }
 
 .add-habilidades {

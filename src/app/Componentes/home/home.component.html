@@ -1,0 +1,138 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="container">
+  <header>Bienvenido {{ usuario.PrimerNombre }}</header>
+  <main>
+    <img [src]="usuario.profilePicUrl" alt="Imagen de Perfil" />
+    <h2>
+      {{
+        usuario.PrimerNombre +
+          " " +
+          usuario.SegundoNombre +
+          " " +
+          usuario.PrimerApellido +
+          " " +
+          usuario.SegundoApellido
+      }}
+    </h2>
+    <p *ngFor="let ubicacion of usuario.direccionEgresado">
+      <svg
+        width="25px"
+        height="25px"
+        viewBox="0 0 1024 1024"
+        class="icon"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#000000"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M853.333333 960a21.333333 21.333333 0 0 1-11.306666-3.242667L512 750.506667 181.973333 956.8A21.290667 21.290667 0 0 1 149.333333 938.666667V42.666667a21.333333 21.333333 0 0 1 21.333334-21.333334h682.666666a21.333333 21.333333 0 0 1 21.333334 21.333334v896a21.333333 21.333333 0 0 1-21.333334 21.333333z"
+            fill="#2997ff"
+          ></path>
+          <path
+            d="M640 362.666667h-106.666667v-106.666667a21.333333 21.333333 0 1 0-42.666666 0v106.666667h-106.666667a21.333333 21.333333 0 1 0 0 42.666666h106.666667v106.666667a21.333333 21.333333 0 1 0 42.666666 0v-106.666667h106.666667a21.333333 21.333333 0 1 0 0-42.666666z"
+            fill="#FFFFFF"
+          ></path>
+        </g>
+      </svg>
+      {{ ubicacion.provincia }}
+    </p>
+  </main>
+  <footer>
+    <ul>
+      <li>
+        <a (click)="editar(usuario.id)">
+          <svg
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M12 5H9C7.11438 5 6.17157 5 5.58579 5.58579C5 6.17157 5 7.11438 5 9V15C5 16.8856 5 17.8284 5.58579 18.4142C6.17157 19 7.11438 19 9 19H15C16.8856 19 17.8284 19 18.4142 18.4142C19 17.8284 19 16.8856 19 15V12M9.31899 12.6911L15.2486 6.82803C15.7216 6.36041 16.4744 6.33462 16.9782 6.76876C17.5331 7.24688 17.5723 8.09299 17.064 8.62034L11.2329 14.6702L9 15L9.31899 12.6911Z"
+                stroke="#ffffff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+          Editar</a
+        >
+      </li>
+      <li (click)="settings(usuario.id)">
+        <a>
+          <svg
+            fill="#ffffff"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="20px"
+            height="20px"
+            viewBox="0 0 93.5 93.5"
+            xml:space="preserve"
+            stroke="#ffffff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <path
+                    d="M93.5,40.899c0-2.453-1.995-4.447-4.448-4.447H81.98c-0.74-2.545-1.756-5.001-3.035-7.331l4.998-5 c0.826-0.827,1.303-1.973,1.303-3.146c0-1.19-0.462-2.306-1.303-3.146L75.67,9.555c-1.613-1.615-4.673-1.618-6.29,0l-5,5 c-2.327-1.28-4.786-2.296-7.332-3.037v-7.07C57.048,1.995,55.053,0,52.602,0H40.899c-2.453,0-4.447,1.995-4.447,4.448v7.071 c-2.546,0.741-5.005,1.757-7.333,3.037l-5-5c-1.68-1.679-4.609-1.679-6.288,0L9.555,17.83c-1.734,1.734-1.734,4.555,0,6.289 l4.999,5c-1.279,2.33-2.295,4.788-3.036,7.333h-7.07C1.995,36.452,0,38.447,0,40.899V52.6c0,2.453,1.995,4.447,4.448,4.447h7.071 c0.74,2.545,1.757,5.003,3.036,7.332l-4.998,4.999c-0.827,0.827-1.303,1.974-1.303,3.146c0,1.189,0.462,2.307,1.302,3.146 l8.274,8.273c1.614,1.615,4.674,1.619,6.29,0l5-5c2.328,1.279,4.786,2.297,7.333,3.037v7.071c0,2.453,1.995,4.448,4.447,4.448 h11.702c2.453,0,4.446-1.995,4.446-4.448V81.98c2.546-0.74,5.005-1.756,7.332-3.037l5,5c1.681,1.68,4.608,1.68,6.288,0 l8.275-8.273c1.734-1.734,1.734-4.555,0-6.289l-4.998-5.001c1.279-2.329,2.295-4.787,3.035-7.332h7.071 c2.453,0,4.448-1.995,4.448-4.446V40.899z M62.947,46.75c0,8.932-7.266,16.197-16.197,16.197c-8.931,0-16.197-7.266-16.197-16.197 c0-8.931,7.266-16.197,16.197-16.197C55.682,30.553,62.947,37.819,62.947,46.75z"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+          Configurar</a
+        >
+      </li>
+      <li>
+        <a (click)="logOut()">
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#ffffff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2a9.985 9.985 0 0 1 8 4h-2.71a8 8 0 1 0 .001 12h2.71A9.985 9.985 0 0 1 12 22zm7-6v-3h-8v-2h8V8l5 4-5 4z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          Salir</a
+        >
+      </li>
+    </ul>
+  </footer>
+</div>
