@@ -48,21 +48,23 @@ export class FiltrosComponent implements OnInit {
     this.Habilidades();
   }
 
-  Carreras() {
-    this.carreraListService.getCarreras().subscribe(
-      (data) => {
-        this.carreras = data;
-      },
-      (error) => {
-        console.error('Error fetching skills:', error);
-      }
-    );
-  }
+  // Carreras() {
+  //   this.carreraListService.getCarreras().subscribe(
+  //     (data) => {
+  //       this.carreras = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching skills:', error);
+  //     }
+  //   );
+  // }
 
   Habilidades() {
     this.habilidadListService.getHabilidades().subscribe(
       (data) => {
-        this.habilidades = data;
+        this.habilidades = data.sort((a, b) =>
+          a.habilidad.localeCompare(b.habilidad)
+        );
       },
       (error) => {
         console.error('Error fetching skills:', error);
@@ -73,7 +75,9 @@ export class FiltrosComponent implements OnInit {
   Provincias() {
     this.provinciaListService.getProvincias().subscribe(
       (data) => {
-        this.provincias = data;
+        this.provincias = data.sort((a, b) =>
+          a.provincia.localeCompare(b.provincia)
+        );
       },
       (error) => {
         console.error('Error fetching skills:', error);
@@ -130,17 +134,31 @@ export class FiltrosComponent implements OnInit {
     if (this.licenciatura) {
       this.tituloTipos.push({ nivel: 'Licenciatura' });
     }
-
     if (this.ingenieria) {
       this.tituloTipos.push({ nivel: 'Ingeniería' });
     }
-
     if (this.maestria) {
       this.tituloTipos.push({ nivel: 'Maestría' });
+    }
+    if (this.Doctorado) {
+      this.tituloTipos.push({ nivel: 'Doctorado' });
+    }
+    if (this.Especialidad) {
+      this.tituloTipos.push({ nivel: 'Especialidad' });
+    }
+    if (this.Tecnico) {
+      this.tituloTipos.push({ nivel: 'Tecnico' });
     }
   }
 
   aplicarDatosFiltros() {
+    if (
+      this.fechaDesde?.nativeElement.value === undefined &&
+      this.fechaHasta?.nativeElement.value === undefined
+    ) {
+      this.dateRangeDisabled = true;
+    }
+
     this.filters = {
       destacados: this.destacado,
       rangoFechaInicio: this.fechaDesde?.nativeElement.value,

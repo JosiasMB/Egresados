@@ -14,12 +14,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 30%;
+  width: 40%;
   min-height: 100vh;
   color: #3e3d3d;
   background: #f9f9f9;
   overflow-y: auto;
   z-index: 999;
+  animation: aparecer ease-in-out 0.5s;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 100px 0;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
 }
 .filter-title {
   width: 100%;
@@ -43,29 +55,36 @@
 }
 
 .filter-item label {
-  font-size: 0.9rem !important ;
+  font-size: 0.9rem !important;
   font-weight: 600;
   text-align: center;
   letter-spacing: 1px;
   margin: 0;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
 .filter-item input,
 .filter-item select {
-  width: 95%;
+  width: 100%;
   border: none;
   padding: 6px;
-  color: #5b5b5b;
+  color: #232323;
   font-size: 0.8rem;
   letter-spacing: 1px;
-  font-weight: 200;
+  font-weight: 300;
   cursor: pointer;
   background: #e6e6e6;
-  border-radius: 3px;
+  border-radius: 20px;
 }
+.filter-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
 .filter-item input:active {
   outline: none;
 }
@@ -91,8 +110,8 @@
   background: transparent;
   border: none;
   margin: 0;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 50px;
   cursor: pointer;
 }
 
@@ -145,7 +164,7 @@
   margin: 0px;
   overflow-y: scroll;
   left: 0;
-  max-height: 60px;
+  max-height: 90px;
   width: 100%;
   color: rgb(21, 21, 21);
   margin: 0;
@@ -241,13 +260,14 @@ input:focus {
     font-size: 1rem;
   }
 
-  #close-button {
+  /* #close-button {
     display: block;
     position: absolute;
-    right: 20%;
+    top: 50px;
+    right: 50px;
     width: 30px;
     height: 30px;
-  }
+  } */
 
   .popup.visible {
     display: block;
@@ -263,9 +283,9 @@ input:focus {
   .filter-item {
     width: 90%;
   }
-  .all-habilidades {
+  /* .all-habilidades {
     max-height: 50px;
-  }
+  } */
   .add-habilidades-main h2 {
     font-size: 0.9rem;
   }

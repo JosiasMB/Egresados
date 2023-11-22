@@ -1,12 +1,15 @@
 <header>
   <nav class="menu active" [ngClass]="{ active: isActive }">
     <div class="logo">
-      <img
-        class=""
-        src="https://uasd.edu.do/wp-content/themes/pagina/img/logo_uasd.svg"
-        alt=""
-      />
-      <span class="logoT">Egresados</span>
+      <a href="/" (click)="toggleMenu()">
+        <img
+          class=""
+          src="https://uasd.edu.do/wp-content/themes/pagina/img/logo_uasd.svg"
+          alt=""
+        />
+
+        <span class="logoT">Egresados</span>
+      </a>
       <a class="icon">
         <svg
           (click)="toggleMenu()"

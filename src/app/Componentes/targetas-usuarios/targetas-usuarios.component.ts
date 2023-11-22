@@ -92,7 +92,7 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   pageChanged($event: number) {
     this.currentPage = $event;
     this.loadEgresados();
-    window.scrollTo(0, 0); // Scroll to top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   mostrarOcultarFiltros: Boolean = false;
@@ -101,16 +101,31 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
   }
 
   parentFiltrosFunction(data: any) {
+    if (
+      data.destacados == false &&
+      data.rangoFechaInicio == '' &&
+      data.rangoFechaFin == '' &&
+      data.dateRangeDisabled == undefined &&
+      data.habilidades.length == 0 &&
+      data.provincias.length == 0 &&
+      data.tituloTipos.length == 0
+    ) {
+      alert('Debe seleccionar al menos un filtro');
+      return;
+    }
+
     if (data == 'mostrar') {
       this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
     } else if (data == 'limpiarFiltros') {
       this.loadEgresados();
       this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
     } else {
+      if (data.rangoFechaInicio == '' && data.rangoFechaFin == '') {
+        data.dateRangeDisabled = true;
+      }
       this.egresadoService
         .filterEgresados(data, this.currentPage)
         .subscribe((data) => {
-          console.log(data);
           this.egresados = data;
         });
       this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;

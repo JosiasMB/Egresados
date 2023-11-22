@@ -1,13 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Kanit:400,600,800);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,300,100,700,600,800,900);
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 header {
   top: 0;
   position: fixed;
   left: 0;
-  padding: 21px 100px;
-  width: 100vw;
+  padding: 25px 21px 25px 19%;
+  width: 100%;
   background: #0584ce;
   z-index: 200;
 }
@@ -17,16 +18,20 @@ header {
   align-items: center;
   flex-direction: row;
 }
-.logo {
+
+.logo a {
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+.logo a img {
+  width: 50%;
+}
+.logoT {
   font-weight: 500;
   font-size: 1.3rem;
   letter-spacing: 1px;
   color: #f8f6f6;
-}
-.logo img {
-  width: 60%;
 }
 
 .menu ul,
@@ -34,9 +39,9 @@ header {
   display: flex;
   list-style: none;
   justify-content: right;
-  flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  gap: 5px;
 }
 
 .menu ul a {
@@ -45,10 +50,9 @@ header {
   text-decoration: none;
   font-size: 1.3rem;
   letter-spacing: 1px;
-  font-family: "Kanit", sans-serif;
   font-weight: 400;
   color: rgb(255, 255, 255);
-  padding: 20px;
+  padding: 15px;
 }
 .menu ul a:after {
   background: none repeat scroll 0 0 transparent;
@@ -68,10 +72,20 @@ header {
 }
 #menu-button,
 #close-button {
+  cursor: pointer;
   display: none;
 }
 
 /* Responsive Design */
+@media screen and (max-width: 1000px) {
+  header {
+    padding: 25px 75px;
+  }
+  .menu ul a {
+    font-size: 1rem;
+    padding: 5px;
+  }
+}
 
 @media screen and (max-width: 800px) {
   header {
@@ -93,14 +107,16 @@ header {
     width: 100%;
     height: 100vh;
     padding: 40% 0 0 0;
+    animation: aparecer ease-in-out;
+    animation-duration: 0.5s;
   }
 
   .menu ul svg {
     width: 30px;
     z-index: 100;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 50px;
+    right: 70px;
   }
   .menu ul a {
     display: block;
@@ -110,13 +126,28 @@ header {
   }
   .menu ul a:after {
     background: none;
-    transition: none;
     width: 0;
+  }
+  .menu ul li a {
+    animation: aparecer ease-in;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
   }
 
   #menu-button,
   #close-button {
     display: block;
+  }
+
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      translate: 100px 0;
+    }
+    to {
+      translate: 0 0;
+      opacity: 1;
+    }
   }
 
   .icon {

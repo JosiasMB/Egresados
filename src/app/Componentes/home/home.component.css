@@ -16,6 +16,7 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  animation: Caer ease-in-out 0.5s;
 }
 header {
   margin: 30px 0;
@@ -36,8 +37,6 @@ main img {
   border-radius: 50%;
   object-fit: cover;
   margin: 15px 0;
-  animation: onLogin ease-in-out;
-  animation-duration: 2s;
 }
 main h2 {
   margin: 0;
@@ -76,7 +75,6 @@ footer ul li {
   margin: 0 10px;
   padding: 10px;
   border-radius: 5dvb;
-  animation: onLogin ease-in-out;
 }
 footer ul li:hover {
   filter: contrast(1.5);
@@ -95,27 +93,27 @@ footer a {
 
 footer ul li:nth-child(1) {
   background: #17c307;
-  animation-duration: 1s;
 }
 
 footer ul li:nth-child(2) {
   background: #0363d8;
-  animation-duration: 2s;
 }
 
 footer ul li:nth-child(3) {
   background: #e00808;
-  animation-duration: 3s;
 }
 
-@keyframes onLogin {
+@keyframes Caer {
   from {
-    filter: contrast(0.1);
+    position: absolute;
+    transform: translateY(-1500px);
   }
   to {
-    filter: contrast(1);
+    position: relative;
+    transform: translateY(0px);
   }
 }
+
 @media screen and (max-width: 500px) {
   header {
     font-size: 0.7rem;

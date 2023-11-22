@@ -56,6 +56,9 @@ export class DestacadosComponent implements OnInit, AfterViewInit {
             ...des,
             mostrarPerfil: false,
           }));
+          this.destacados = this.destacados.filter(
+            (egresado: any) => egresado.Activo === true
+          );
         },
         (error) => {
           console.error('Error al cargar los egresados', error);
@@ -88,15 +91,39 @@ export class DestacadosComponent implements OnInit, AfterViewInit {
   }
 
   parentFiltrosFunction(data: any) {
+    if (
+      data.destacados == false &&
+      data.rangoFechaInicio == '' &&
+      data.rangoFechaFin == '' &&
+      data.dateRangeDisabled == undefined &&
+      data.habilidades.length == 0 &&
+      data.provincias.length == 0 &&
+      data.tituloTipos.length == 0
+    ) {
+      alert('Debe seleccionar al menos un filtro');
+      return;
+    }
+
     if (data == 'mostrar') {
       this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
-    } else {
+    } else if (data == 'limpiarFiltros') {
+      this.loadEgresados();
       this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
+    } else {
+      if (data.rangoFechaInicio == '' && data.rangoFechaFin == '') {
+        data.dateRangeDisabled = true;
+      }
       this.egresadoListService
         .filterEgresados(data, this.currentPage)
         .subscribe((data) => {
-          console.log(data);
+          this.destacados = data;
+          console.log(this.destacados);
+          this.destacados = this.destacados.filter(
+            (destacado: any) =>
+              destacado.destacado === true && destacado.Activo === true
+          );
         });
+      this.mostrarOcultarFiltros = !this.mostrarOcultarFiltros;
     }
   }
 }

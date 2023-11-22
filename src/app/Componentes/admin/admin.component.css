@@ -28,18 +28,15 @@ body {
 header {
   grid-column-start: 1;
   grid-column-end: 5;
+
   background: #0584ce;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  height: 100px;
 }
-header img {
-  width: 10%;
-  margin: 0;
-  mix-blend-mode: color-burn;
-}
+
 header h1 {
   margin: 0;
   color: #fff;
@@ -130,7 +127,7 @@ main {
   background: #fff;
   z-index: 5;
   padding: 20px 0;
-  top: 65px;
+  top: 100px;
 }
 .filtrar-egresados-nombre h1 {
   color: #525252;
@@ -307,16 +304,19 @@ main {
 }
 
 @media screen and (max-width: 800px) {
+  .container-tarjeta {
+    margin-top: 125px;
+  }
   aside {
     grid-column-start: 1;
     grid-column-end: 5;
     padding: 15px;
-    height: 130px;
+    height: auto;
   }
   aside ul {
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0;
     height: auto;
@@ -324,15 +324,21 @@ main {
 
   aside ul li {
     font-size: 14px;
-    width: 100px;
+    width: fit-content;
   }
 
   aside ul li button {
     font-size: 10px;
   }
+  aside ul li button {
+    text-indent: -9999px;
+    overflow: hidden;
+    white-space: nowrap;
+    content: "";
+  }
   aside ul li button svg {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
   aside ul li:last-child {
     position: relative;
@@ -348,7 +354,7 @@ main {
   .filtrar-egresados-nombre {
     justify-content: center;
     padding: 15px 20px;
-    top: 65px;
+
     right: 0;
   }
 }

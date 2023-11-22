@@ -30,9 +30,10 @@
   width: 100%;
   padding: 70px 20%;
   position: fixed;
-  top: 135px;
+  top: 110px;
   background: #fff;
   z-index: 2;
+  left: 0;
 }
 .filtrar-egresados-nombre h1 {
   color: #525252;
@@ -95,19 +96,7 @@
   );
   height: auto;
   border-radius: 10px;
-  animation: aparecer linear both;
-  animation-timeline: view();
-  animation-range: entry 10% cover 20%;
-}
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    translate: 0 50px;
-  }
-  to {
-    translate: 0 0;
-    opacity: 1;
-  }
+  transition: 0.5s;
 }
 
 .img-perfil {
@@ -212,9 +201,18 @@
   height: 100%;
   background-color: rgba(36, 34, 34, 0.769);
   opacity: 0;
-  transition: 0.8s ease;
   z-index: 200;
   padding-left: 10%;
+  animation: ease-in 0.5s aparecer both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .popup-content {
@@ -228,6 +226,10 @@
   width: 60%;
   height: 80%;
   overflow-y: scroll;
+  border-radius: 10px;
+}
+.popup-content::-webkit-scrollbar {
+  display: none;
 }
 
 .close {
@@ -378,6 +380,10 @@ pagination-controls {
   pagination-controls,
   .tarjeta {
     width: 80%;
+  }
+  .filtrar-egresados-nombre {
+    top: 120px;
+    padding: 50px 80px 50px 100px;
   }
 }
 

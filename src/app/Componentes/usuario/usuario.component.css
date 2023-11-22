@@ -142,7 +142,7 @@ form {
   flex-direction: column;
   animation: aparecer linear both;
   animation-timeline: view();
-  animation-range: entry 10% cover 40%;
+  animation-range: entry 10% cover 30%;
 }
 
 @keyframes aparecer {
@@ -251,6 +251,7 @@ main {
   gap: 15px;
   width: 100%;
   flex-wrap: wrap;
+  margin-bottom: 150px;
 }
 .main-content {
   padding: 20px;
@@ -466,17 +467,17 @@ button.actualizar-informacion-basica-del-perfil:hover {
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 40px;
+  height: auto;
   width: 100%;
 }
 .add-habilidades {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 22px;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
