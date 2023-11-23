@@ -64,41 +64,6 @@ nav svg {
   transition: 0.5s;
 }
 
-/* .slide-menu-icon {
-  position: absolute;
-  right: 50px;
-}
-.slide-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  right: 0;
-  top: 0;
-  background: #0584ce;
-  height: 100vh;
-  width: 30%;
-  padding: 30px;
-  padding-top: 50px;
-  gap: 40px;
-  transition: 0.5s;
-}
-.slide-menu li a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1rem;
-}
-
-.nav-cerrar svg {
-  position: absolute;
-  right: 25px;
-  top: 20px;
-  z-index: 300;
-} */
-
 .file {
   opacity: 0;
   width: 0.1px;
