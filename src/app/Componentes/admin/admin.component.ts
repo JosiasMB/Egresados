@@ -25,6 +25,7 @@ import { UsuarioService } from 'src/app/Servicios/usuario.service';
 export class AdminComponent implements OnInit, AfterViewInit {
   @ViewChild('search')
   input!: ElementRef;
+
   egresados: Egresado[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 9999999;
@@ -70,7 +71,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    fromEvent(this.input.nativeElement, 'keyup')
+    fromEvent(this.input.nativeElement, 'keyup') // JO
       .pipe(
         filter(Boolean),
         debounceTime(500),
@@ -197,7 +198,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
           });
       }
     } else {
-      alert('Debe ingresar una descripción para poder enviar!');
+      alert('Debe ingresar una descripción para poder destacar al egresado!');
     }
   }
 
@@ -222,7 +223,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     }
   }
 
-  perfilesDesabilitados() {
+  perfilesDeshabilitados() {
     this.inicio = false;
     this.desabilitados = true;
     this.listaDestacados = false;
@@ -243,7 +244,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
       );
   }
 
-  desabilidarPerfil(id: number) {
+  mostrarDeshabilitarPerfil(id: number) {
     const newEgresado = this.egresados.filter((egre: any) => egre.id == id);
     const confirmacion = confirm('¿Está seguro de continuar con la accion?');
     if (confirmacion) {
@@ -276,6 +277,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
     const ultimaEmpresa = experienciaLaboralEgresado.filter(
       (empresa) => empresa.empresa
     )[0];
-    return ultimaEmpresa ? ultimaEmpresa.empresa : 'N/A';
+    return ultimaEmpresa ? ultimaEmpresa.empresa : 'Empresa no registrada';
   }
 }

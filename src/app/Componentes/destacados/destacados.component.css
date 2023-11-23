@@ -44,8 +44,10 @@
 }
 .ver-filtros input {
   border: 1px solid #03a9f4;
+  text-align: center;
+  width: 250px;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5dvb;
   margin: 0;
 }
 .ver-filtros button {
@@ -53,7 +55,7 @@
   color: #ffff;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 5dvb;
   cursor: pointer;
   margin-top: 10px;
   transition: 0.5s;
@@ -105,6 +107,7 @@
   width: 250px;
   height: 25em;
   border: none;
+  border-radius: 10px;
   transition: 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
@@ -121,6 +124,7 @@
   transition: 0.4s ease-in-out;
   z-index: 1;
 }
+
 .overlay-content {
   display: flex;
   flex-direction: column;
@@ -168,6 +172,9 @@
   background: #fffac6;
   box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / 0.4);
   overflow-y: scroll;
+}
+.text::-webkit-scrollbar {
+  display: none;
 }
 
 .text h3 {
@@ -308,7 +315,7 @@
   padding: 10px 15px;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 5dvb;
   font-size: 0.9em;
   font-weight: 600;
   line-height: 20px;
@@ -335,6 +342,15 @@
   background-color: rgba(36, 34, 34, 0.769);
   transition: 0.8s ease;
   z-index: 200;
+  animation: ease-in 0.5s aparecer both;
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .popup.visible {
   display: block;

@@ -3,7 +3,7 @@
     <span></span>
     <h1>Administracion de Egresados</h1>
 
-    <h2>Welcome: @Josias</h2>
+    <h2>Welcome: @Admin</h2>
     <!-- {{ usuario.PrimerNombre }} -->
   </header>
   <aside>
@@ -121,7 +121,7 @@
       </li>
       <li>
         <button
-          (click)="perfilesDesabilitados()"
+          (click)="perfilesDeshabilitados()"
           [ngClass]="{ active: desabilitados }"
         >
           <svg
@@ -322,13 +322,13 @@
           <button
             style="background: #e52503"
             *ngIf="egresado.Activo"
-            (click)="desabilidarPerfil(egresado.id)"
+            (click)="mostrarDeshabilitarPerfil(egresado.id)"
           >
             Ocultar
           </button>
           <button
             *ngIf="!egresado.Activo"
-            (click)="desabilidarPerfil(egresado.id)"
+            (click)="mostrarDeshabilitarPerfil(egresado.id)"
           >
             Mostrar
           </button>
@@ -354,10 +354,10 @@
           [ngClass]="{ visible: egresadosDestacados[egresado.id] }"
         >
           <h2>Destar a {{ egresado.PrimerNombre }} por:</h2>
-          <textarea
-            name="descripcion"
-            [(ngModel)]="destacadoDescripcion"
-          ></textarea>
+          <textarea name="descripcion" [(ngModel)]="destacadoDescripcion">
+ {{ egresado.descripcionDestacado }} 
+        </textarea
+          >
 
           <div class="botones">
             <button (click)="destacarEgresado(egresado.id)">Enviar</button>

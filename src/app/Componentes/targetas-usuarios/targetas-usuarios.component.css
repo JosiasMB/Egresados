@@ -44,12 +44,11 @@
 }
 .filtrar-egresados-nombre input {
   border: 1px solid #03a9f4;
-  width: 100%;
-  max-width: 250px;
-  height: 15px;
-  padding: 15px 20px;
-  border-radius: 5px;
+  width: 250px;
+  padding: 10px 10px;
+  border-radius: 5dvb;
   margin: 0;
+  text-align: center;
 }
 .filtrar-egresados-nombre input:focus {
   outline: none;
@@ -67,8 +66,8 @@
   background-color: #007bff;
   color: #ffff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 11px 20px;
+  border-radius: 5dvb;
   cursor: pointer;
   margin-top: 10px;
   transition: 0.5s;
@@ -139,7 +138,8 @@
   margin: 10px 0 0 0;
   line-height: 20px;
   letter-spacing: 1px;
-  border-radius: 5px;
+  border-radius: 5dvb;
+
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   transition: 0.5s;
 }
@@ -355,7 +355,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: fit-content;
   padding: 8px 10px;
-  border-radius: 5px;
+  border-radius: 5dvb;
+
   transition: 0.5s;
   font-size: 0.8rem;
   letter-spacing: 0.8px;
@@ -382,7 +383,7 @@ pagination-controls {
     width: 80%;
   }
   .filtrar-egresados-nombre {
-    top: 120px;
+    top: 113px;
     padding: 50px 80px 50px 100px;
   }
 }
