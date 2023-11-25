@@ -30,7 +30,7 @@
   width: 100%;
   padding: 70px 20%;
   position: fixed;
-  top: 110px;
+  top: 100px;
   background: #fff;
   z-index: 2;
   left: 0;
@@ -48,7 +48,7 @@
   padding: 10px 10px;
   border-radius: 5dvb;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 .filtrar-egresados-nombre input:focus {
   outline: none;
@@ -383,7 +383,6 @@ pagination-controls {
     width: 80%;
   }
   .filtrar-egresados-nombre {
-    top: 113px;
     padding: 50px 80px 50px 100px;
   }
 }

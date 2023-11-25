@@ -36,7 +36,7 @@ export class TargetasUsuariosComponent implements OnInit, AfterViewInit {
     fromEvent(this.input.nativeElement, 'keyup')
       .pipe(
         filter(Boolean),
-        debounceTime(500),
+        debounceTime(300),
         distinctUntilChanged(),
         tap((text) => {
           this.loadEgresados(this.input.nativeElement.value);
