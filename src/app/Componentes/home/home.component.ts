@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
     usuario: [],
     Activo: true,
   };
+  desloguearmeSi: boolean = false;
   loading: boolean = false;
   constructor(
     private userService: UsuarioService,
@@ -62,18 +63,31 @@ export class HomeComponent implements OnInit {
     this.loading = false;
   }
 
-  logOut() {
-    const confirmLogout = confirm('¿Estás seguro de que quieres salir?');
-    this.loading = true;
-    if (confirmLogout) {
-      this.userService.logOut();
-    }
-  }
-
   settings(id: number) {
     this.router.navigateByUrl(`/user-settings/${id}`);
   }
   editar(id: number) {
     this.router.navigateByUrl(`/usuario/${id}`);
+  }
+
+  isAlertVisible: boolean = false;
+  alertMessage: string = '';
+
+  showAlert(): void {
+    this.isAlertVisible = true;
+  }
+
+  closeParentFunction(data: any) {
+    if (!data) {
+      this.isAlertVisible = false;
+      return;
+    }
+    this.logOut();
+  }
+
+  logOut() {
+    this.loading = true;
+    this.userService.logOut();
+    this.router.navigateByUrl('/login');
   }
 }

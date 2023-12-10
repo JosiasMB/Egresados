@@ -48,17 +48,6 @@ export class FiltrosComponent implements OnInit {
     this.Habilidades();
   }
 
-  // Carreras() {
-  //   this.carreraListService.getCarreras().subscribe(
-  //     (data) => {
-  //       this.carreras = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching skills:', error);
-  //     }
-  //   );
-  // }
-
   Habilidades() {
     this.habilidadListService.getHabilidades().subscribe(
       (data) => {

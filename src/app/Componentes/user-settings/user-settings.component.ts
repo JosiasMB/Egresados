@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/Servicios/usuario.service';
 
@@ -8,9 +8,8 @@ import { UsuarioService } from 'src/app/Servicios/usuario.service';
   styleUrls: ['./user-settings.component.css'],
 })
 export class UserSettingsComponent implements OnInit {
-  @ViewChild('switch')
-  switch!: ElementRef;
-
+  isAlertVisible: boolean = false;
+  alertMessage: string = '';
   password: string = '';
   confirmPassword: string = '';
   loading: boolean = false;
@@ -49,14 +48,33 @@ export class UserSettingsComponent implements OnInit {
     this.loading = false;
   }
 
-  desabilidarPerfil() {
-    let confirmacion = this.switch.nativeElement.checked;
+  desabilitarPerfilTriger() {
     if (this.Activo) {
-      confirmacion = confirm('¿Está seguro de ocultar tu perfil?');
+      this.showAlert('¿Está seguro de ocultar tu perfil?');
     } else {
-      confirmacion = confirm('¿Está seguro de mostrar tu perfil?');
+      this.showAlert('¿Está seguro de mostrar tu perfil?');
     }
-    if (confirmacion) {
+  }
+
+  confirmacion: boolean = false;
+
+  showAlert(data: string) {
+    this.alertMessage = data;
+    this.isAlertVisible = true;
+  }
+
+  closeParentFunction(data: any) {
+    this.confirmacion = data;
+    this.isAlertVisible = false;
+    if (this.confirmacion) {
+      this.desabilidarPerfil();
+    } else {
+      window.location.reload();
+    }
+  }
+
+  desabilidarPerfil() {
+    if (this.confirmacion) {
       const data = {
         Activo: !this.Activo,
       };
@@ -70,8 +88,6 @@ export class UserSettingsComponent implements OnInit {
             alert('Ocurrio un error...');
           }
         });
-    } else {
-      window.location.reload();
     }
   }
 

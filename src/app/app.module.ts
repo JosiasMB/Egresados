@@ -24,6 +24,7 @@ import { AdminComponent } from './Componentes/admin/admin.component';
 import { RecuperarPasswordComponent } from './Componentes/recuperar-password/recuperar-password.component';
 import { ResetComponent } from './Componentes/reset/reset.component';
 import { HomeComponent } from './Componentes/home/home.component';
+import { AlertasComponent } from './Componentes/alertas/alertas.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HomeComponent } from './Componentes/home/home.component';
     RecuperarPasswordComponent,
     ResetComponent,
     HomeComponent,
+    AlertasComponent,
   ],
   imports: [
     BrowserModule,
