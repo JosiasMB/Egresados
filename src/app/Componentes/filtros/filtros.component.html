@@ -1,176 +1,215 @@
 <div class="filter-container" loading="lazy">
-  <button class="mostrarMenu">
-    <svg
-      (click)="mostrarOcultar('mostrar')"
-      class="close"
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      width="30"
-      height="30"
-      viewBox="0 0 48 48"
-    >
-      <path
-        fill="#f44336"
-        d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
-      ></path>
-      <path
-        fill="#fff"
-        d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
-      ></path>
-      <path
-        fill="#fff"
-        d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
-      ></path>
-    </svg>
-  </button>
-  <div class="filter-title">
-    <h2>Filtrar por:</h2>
-  </div>
-
-  <!-- Fechas -->
-  <div class="filter-item" *ngIf="!dateRangeDisabled">
-    <label
-      >Fecha graduación
-      <input type="date" id="graduationDateFrom" #fechaDesde />
-      <input type="date" id="graduationDateTo" #fechaHasta />
-    </label>
-  </div>
-  <div class="destacado-rango">
-    <label>
-      <input
-        type="checkbox"
-        name="sin-rango"
-        (change)="dateRangeDisabledCheck($event)"
-        [ngModel]="dateRangeDisabled"
-      />
-      Sin rango de fecha
-    </label>
-    <label>
-      <input
-        type="checkbox"
-        name="destacado"
-        [ngModel]="destacado"
-        (change)="destacadoCheck($event)"
-      />
-      Destacados
-    </label>
-  </div>
-  <!-- Habilidades -->
-  <form name="habilidades" class="add-habilidades-main" loading="lazy">
-    <h2>Habilidades Populares</h2>
-    <input
-      name="filtro"
-      type="text"
-      placeholder="Buscar"
-      class="add-habilidades-buscar"
-      [(ngModel)]="FiltroHabilidadInput"
-    />
-
-    <div class="all-habilidades">
-      <div
-        class="habilidades"
-        *ngFor="
-          let habilidad of habilidades
-            | filtroHabilidades : FiltroHabilidadInput
-        "
+  <header>
+    <button class="mostrarMenu">
+      <svg
+        (click)="mostrarOcultar('mostrar')"
+        class="close"
+        xmlns="http://www.w3.org/2000/svg"
+        x="0px"
+        y="0px"
+        width="30"
+        height="30"
+        viewBox="0 0 48 48"
       >
-        <label class="add-habilidades"
-          >{{ habilidad.habilidad }}
-          <input type="checkbox" (click)="filtrarHabilidades(habilidad.id)" />
-        </label>
-      </div>
+        <path
+          fill="#f44336"
+          d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"
+        ></path>
+      </svg>
+    </button>
+    <div class="filter-title">
+      <h2>Filtrar por:</h2>
     </div>
-  </form>
-
-  <!-- Carreras -->
-  <form name="carreras" class="add-habilidades-main" loading="lazy">
-    <h2>Grado Academico</h2>
-    <div class="all-habilidades">
-      <div class="habilidades Carrera">
-        <label class="add-habilidades">
-          Tecnico
-          <input
-            name="Tecnico"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="Tecnico"
-          />
-        </label>
-        <label class="add-habilidades">
-          Licenciatura
-          <input
-            name="licenciatura"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="licenciatura"
-          />
-        </label>
-        <label class="add-habilidades">
-          Ingeniería
-          <input
-            name="ingenieria"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="ingenieria"
-          />
-        </label>
-        <label class="add-habilidades">
-          Maestría
-          <input
-            name="maestria"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="maestria"
-          />
-        </label>
-        <label class="add-habilidades">
-          Especialidad
-          <input
-            name="Especialidad"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="Especialidad"
-          />
-        </label>
-        <label class="add-habilidades">
-          Doctorado
-          <input
-            name="Doctorado"
-            type="checkbox"
-            (change)="filtrarNiveldeEstudios()"
-            [(ngModel)]="Doctorado"
-          />
-        </label>
-      </div>
+  </header>
+  <main>
+    <!-- Fechas -->
+    <div class="filter-item" *ngIf="!dateRangeDisabled">
+      <label
+        >Fecha graduación
+        <input
+          type="date"
+          id="graduationDateFrom"
+          #fechaDesde
+          [max]="maxDate"
+        />
+        <input
+          (click)="validarValorDesdeParaAsignarloAlValorHasta()"
+          type="date"
+          id="graduationDateTo"
+          #fechaHasta
+          [min]="minDate"
+          [max]="maxDate"
+        />
+      </label>
     </div>
-  </form>
-
-  <!-- Provincias -->
-
-  <form name="provincias" class="add-habilidades-main" loading="lazy">
-    <h2>Provincia</h2>
-    <input
-      name="filtro"
-      type="text"
-      placeholder="Buscar"
-      class="add-habilidades-buscar"
-      [(ngModel)]="FiltroProvinciaInput"
-    />
-    <div class="all-habilidades">
-      <div
-        class="habilidades"
-        *ngFor="
-          let provincia of provincias | filtroProvincias : FiltroProvinciaInput
-        "
-      >
-        <label class="add-habilidades"
-          >{{ provincia.provincia }}
-          <input type="checkbox" (click)="filtrarProvincias(provincia.id)" />
-        </label>
-      </div>
+    <div class="destacado-rango">
+      <label>
+        <input
+          type="checkbox"
+          name="sin-rango"
+          (change)="dateRangeDisabledCheck($event)"
+          [ngModel]="dateRangeDisabled"
+        />
+        Sin rango de fecha
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          name="destacado"
+          [ngModel]="destacado"
+          (change)="destacadoCheck($event)"
+        />
+        Destacados
+      </label>
     </div>
-  </form>
+    <!-- Habilidades -->
+    <form name="habilidades" class="add-habilidades-main" loading="lazy">
+      <h2>Habilidades Populares</h2>
+      <input
+        name="filtro"
+        type="text"
+        placeholder="Buscar"
+        class="add-habilidades-buscar"
+        [(ngModel)]="FiltroHabilidadInput"
+      />
+
+      <div class="all-habilidades">
+        <div
+          class="habilidades"
+          *ngFor="
+            let habilidad of habilidades
+              | filtroHabilidades : FiltroHabilidadInput
+          "
+        >
+          <label class="add-habilidades"
+            >{{ habilidad.habilidad }}
+            <input type="checkbox" (click)="filtrarHabilidades(habilidad.id)" />
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <!-- grado -->
+    <form name="grado" class="add-habilidades-main" loading="lazy">
+      <h2>Grado Academico</h2>
+      <div class="all-habilidades">
+        <div class="habilidades Carrera">
+          <label class="add-habilidades">
+            Tecnico
+            <input
+              name="Tecnico"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="Tecnico"
+            />
+          </label>
+          <label class="add-habilidades">
+            Licenciatura
+            <input
+              name="licenciatura"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="licenciatura"
+            />
+          </label>
+          <label class="add-habilidades">
+            Ingeniería
+            <input
+              name="ingenieria"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="ingenieria"
+            />
+          </label>
+          <label class="add-habilidades">
+            Maestría
+            <input
+              name="maestria"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="maestria"
+            />
+          </label>
+          <label class="add-habilidades">
+            Especialidad
+            <input
+              name="Especialidad"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="Especialidad"
+            />
+          </label>
+          <label class="add-habilidades">
+            Doctorado
+            <input
+              name="Doctorado"
+              type="checkbox"
+              (change)="filtrarNiveldeEstudios()"
+              [(ngModel)]="Doctorado"
+            />
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <!-- Provincias -->
+
+    <form name="provincias" class="add-habilidades-main" loading="lazy">
+      <h2>Provincia</h2>
+      <input
+        name="filtro"
+        type="text"
+        placeholder="Buscar"
+        class="add-habilidades-buscar"
+        [(ngModel)]="FiltroProvinciaInput"
+      />
+      <div class="all-habilidades">
+        <div
+          class="habilidades"
+          *ngFor="
+            let provincia of provincias
+              | filtroProvincias : FiltroProvinciaInput
+          "
+        >
+          <label class="add-habilidades"
+            >{{ provincia.provincia }}
+            <input type="checkbox" (click)="filtrarProvincias(provincia.id)" />
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <!-- Delete -->
+    <form name="provincias" class="add-habilidades-main" loading="lazy">
+      <h2>Carreras</h2>
+      <input
+        name="filtro"
+        type="text"
+        placeholder="Buscar"
+        class="add-habilidades-buscar"
+        [(ngModel)]="FiltroCarreraInput"
+      />
+      <div class="all-habilidades">
+        <div
+          class="habilidades"
+          *ngFor="let carrera of carreras | filtroCarreras : FiltroCarreraInput"
+        >
+          <label class="add-habilidades"
+            >{{ carrera.NombreCarrera }}
+            <input type="checkbox" (click)="filtrarProvincias(carrera.id)" />
+          </label>
+        </div>
+      </div>
+    </form>
+  </main>
   <div class="filtrar-button">
     <button (click)="aplicarDatosFiltros()">Aplicar Filtros</button>
     <button (click)="limpiarFiltros('limpiarFiltros')">Limpiar Filtros</button>

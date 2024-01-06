@@ -26,6 +26,8 @@ export class FiltrosComponent implements OnInit {
 
   @ViewChild('fechaDesde') fechaDesde: ElementRef | undefined;
   @ViewChild('fechaHasta') fechaHasta: ElementRef | undefined;
+  maxDate?: string;
+  minDate?: string;
 
   filters: any;
   destacado: Boolean = false;
@@ -35,6 +37,7 @@ export class FiltrosComponent implements OnInit {
   dateRangeDisabled: any;
   FiltroHabilidadInput: any;
   FiltroProvinciaInput: any;
+  FiltroCarreraInput: any;
 
   @Output() parentFiltrosFunction: EventEmitter<any> = new EventEmitter();
 
@@ -42,10 +45,19 @@ export class FiltrosComponent implements OnInit {
     private carreraListService: CarreraListService,
     private habilidadListService: HabilidadListService,
     private provinciaListService: ProvinciaListService
-  ) {}
+  ) {
+    const today = new Date();
+    this.maxDate = today.toISOString().split('T')[0];
+  }
   ngOnInit(): void {
     this.Provincias();
     this.Habilidades();
+    this.carrerasList();
+  }
+
+  validarValorDesdeParaAsignarloAlValorHasta() {
+    this.minDate = this.fechaDesde?.nativeElement.value;
+    console.log(this.minDate);
   }
 
   Habilidades() {
@@ -53,6 +65,18 @@ export class FiltrosComponent implements OnInit {
       (data) => {
         this.habilidades = data.sort((a, b) =>
           a.habilidad.localeCompare(b.habilidad)
+        );
+      },
+      (error) => {
+        console.error('Error fetching skills:', error);
+      }
+    );
+  }
+  carrerasList() {
+    this.carreraListService.getCarreras().subscribe(
+      (data) => {
+        this.carreras = data.sort((a, b) =>
+          a.NombreCarrera.localeCompare(b.NombreCarrera)
         );
       },
       (error) => {
@@ -157,6 +181,7 @@ export class FiltrosComponent implements OnInit {
       provincias: this.provinviasFiltradas,
       tituloTipos: this.tituloTipos,
     };
+
     this.parentFiltrosFunction.emit(this.filters);
   }
 

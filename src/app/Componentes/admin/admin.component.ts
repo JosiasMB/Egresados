@@ -98,6 +98,21 @@ export class AdminComponent implements OnInit, AfterViewInit {
       );
   }
 
+  isAlertVisible: boolean = false;
+  alertMessage: string = '';
+
+  showAlert(): void {
+    this.isAlertVisible = true;
+  }
+
+  closeParentFunction(data: any) {
+    if (!data) {
+      this.isAlertVisible = false;
+      return;
+    }
+    this.logOut();
+  }
+
   logOut() {
     this.userService.logOut();
   }

@@ -1,4 +1,9 @@
 <div class="container">
+  <app-alertas
+    *ngIf="isAlertVisible"
+    [message]="'Estas seguro que deseas cerrar sesion?'"
+    (closeParentFunction)="closeParentFunction($event)"
+  ></app-alertas>
   <header>
     <span></span>
     <h1>Administracion de Egresados</h1>
@@ -253,7 +258,7 @@
         </button>
       </li>
       <li>
-        <button (click)="logOut()">
+        <button (click)="showAlert()">
           <svg
             width="45px"
             height="45px"

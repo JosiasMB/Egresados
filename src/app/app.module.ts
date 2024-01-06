@@ -25,6 +25,7 @@ import { RecuperarPasswordComponent } from './Componentes/recuperar-password/rec
 import { ResetComponent } from './Componentes/reset/reset.component';
 import { HomeComponent } from './Componentes/home/home.component';
 import { AlertasComponent } from './Componentes/alertas/alertas.component';
+import { filtroCarreras } from './Componentes/filtros/filtro-por-carrera.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AlertasComponent } from './Componentes/alertas/alertas.component';
     ResetComponent,
     HomeComponent,
     AlertasComponent,
+    filtroCarreras,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,26 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-
+header {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f5f5;
+  z-index: 2;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 100px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  align-items: center;
+}
 .filter-container {
   display: flex;
   flex-direction: column;
@@ -15,7 +34,7 @@
   top: 0;
   left: 0;
   width: 40%;
-  min-height: 100vh;
+  height: 100vh;
   color: #3e3d3d;
   background: #f9f9f9;
   overflow-y: auto;
@@ -36,7 +55,6 @@
 .filter-title {
   width: 100%;
   text-align: center;
-  margin: -25px;
 }
 .filter-title h2 {
   color: #3e3d3d;
@@ -110,8 +128,7 @@
   background: transparent;
   border: none;
   margin: 0;
-  top: 50px;
-  right: 50px;
+  right: 15px;
   cursor: pointer;
 }
 
@@ -164,7 +181,7 @@
   margin: 0px;
   overflow-y: scroll;
   left: 0;
-  max-height: 90px;
+  max-height: 125px;
   width: 100%;
   color: rgb(21, 21, 21);
   margin: 0;
