@@ -69,60 +69,49 @@
 }
 
 .overlay-content h2 {
-  font-size: 1.1rem;
-  text-align: center;
-  color: #fff;
-  background: #00000057;
-  font-weight: 400;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 600;
   position: absolute;
-  top: -20px;
-  width: 100%;
-  right: 1px;
-  padding: 10px;
+  top: 0px;
   letter-spacing: 1px;
 }
 .overlay-content p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #fff;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #5c5b5b;
   position: absolute;
-  background: #00000084;
-  padding: 8px;
-  width: 100%;
-  bottom: -23px;
-  right: 0px;
+  padding: 0;
+  bottom: -5px;
   letter-spacing: 1px;
 }
 
 .overlay-content p span {
   display: block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 1px;
+  margin-top: 5px;
 }
 .wrap {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width: 250px;
-  height: 25em;
+  width: 300px;
+  height: 28em;
   border: none;
-  border-radius: 10px;
   transition: 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
 
 .overlay {
   position: relative;
-  display: flex;
   width: 100%;
   height: 100%;
   padding: 1rem 0.3rem;
-  background: #0584ce;
   transition: 0.4s ease-in-out;
   z-index: 1;
+  background-color: #fff;
 }
 
 .overlay-content {
@@ -137,6 +126,9 @@
 }
 
 .image-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -145,10 +137,9 @@
 
 .image-content img {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 70%;
   object-fit: cover;
-  right: 5px;
 }
 
 .inset {
@@ -170,7 +161,6 @@
   height: 100%;
   padding: 1.5rem;
   background: #fffac6;
-  box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / 0.4);
   overflow-y: scroll;
 }
 .text::-webkit-scrollbar {
@@ -518,10 +508,19 @@
     font-size: 1.3rem;
   }
   .wrap {
-    width: 260px;
-    height: 23em;
+    width: 270px;
   }
 
+  .overlay-content h2 {
+    font-size: 1.3rem;
+  }
+  .overlay-content p {
+    font-size: 1rem;
+  }
+
+  .overlay-content p span {
+    font-size: 0.9rem;
+  }
   .text {
     font-size: 1rem;
     padding: 1rem;
@@ -572,5 +571,36 @@
   }
   .ver-filtros {
     flex-direction: row;
+  }
+
+  @media screen and (max-width: 350px) {
+    .container-destacados {
+      justify-content: center;
+      margin-top: 270px;
+    }
+
+    .encabezado {
+      margin-top: 120px;
+    }
+    .encabezado h1 {
+      font-size: 1.3rem;
+    }
+    .wrap {
+      width: 250px;
+    }
+
+    .overlay-content h2 {
+      font-size: 1.2rem;
+    }
+    .overlay-content p {
+      font-size: 0.9rem;
+    }
+
+    .overlay-content p span {
+      font-size: 0.8rem;
+    }
+    .text {
+      font-size: 0.9rem;
+    }
   }
 }
