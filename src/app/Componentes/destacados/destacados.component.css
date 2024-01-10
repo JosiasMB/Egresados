@@ -69,11 +69,14 @@
 }
 
 .overlay-content h2 {
+  width: 100%;
+  text-align: center;
   font-size: 1.5rem;
   color: #000000;
   font-weight: 600;
   position: absolute;
   top: 0px;
+  left: 5px;
   letter-spacing: 1px;
 }
 .overlay-content p {
@@ -98,7 +101,7 @@
   width: 300px;
   height: 28em;
   border: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
   position: relative;
   overflow: hidden;
   background-color: white;
@@ -140,6 +143,7 @@
   width: 90%;
   height: 70%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .inset {
@@ -207,7 +211,7 @@
 
 /* Animations and timing delays */
 .animate {
-  animation-duration: 0.5s;
+  animation-duration: 0.8s;
   animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
   animation-fill-mode: backwards;
 }

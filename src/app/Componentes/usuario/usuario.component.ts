@@ -256,7 +256,6 @@ export class UsuarioComponent implements OnInit {
   getTipoEntrada() {
     return this.opcionSeleccionada === 'Email' ? 'email' : 'tel';
   }
-
   pattern() {
     if (this.getTipoEntrada() === 'email') {
       return '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$';
@@ -487,7 +486,8 @@ export class UsuarioComponent implements OnInit {
       .pipe(
         switchMap((data: any) => {
           if (data) {
-            this.imagen = data.url;
+            this.imagen = data.secure_url;
+            console.log(data);
           } else {
             this.imagen = this.usuario.profilePicUrl;
           }
